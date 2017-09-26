@@ -1,0 +1,111 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 11)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 11)</B>
+    </FONT>
+
+<P>
+<B>1.</B> (a) and (g) are aliases. (<I>Note:</I> (h) is not an alias because it is illegal to apply
+the indirection operator to a non-pointer.)
+</P>
+
+<P>
+<B>3.</B> Several <CODE>*</CODE> operators are missing from the body of the function. Here is the corrected version:
+</P>
+<PRE>
+void avg_sum(double a[], int n, double *avg, double *sum)
+{
+  int i;
+
+  *sum = 0.0;
+  for (i = 0; i < n; i++)
+    *sum += a[i];
+  *avg = *sum / n;
+}
+</PRE>
+
+<P>
+<B>5.</B>
+</P>
+<PRE>
+void split_time(long total_sec, int *hr, int *min, int *sec)
+{
+  *hr = total_sec / 3600;
+  *min = total_sec % 3600 / 60;
+  *sec = total_sec % 3600 % 60;
+}
+</PRE>
+
+<P>
+<B>7.</B>
+</P>
+<PRE>
+void split_date(int day_of_year, int year, int *month, int *day)
+{
+  int days[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+  /* leap year adjustment */
+  if ((!(year % 4) && (year % 100)) || !(year % 400)) days[2]++;
+
+  *month = 1;
+  while (day_of_year > days[*month])
+    day_of_year -= days[(*month)++];
+  *day = day_of_year;
+}
+</PRE>
+
+<P>
+<B>8.</B>
+</P>
+<PRE>
+int *find_largest(int a[], int n)
+{
+  int i, *largest;
+
+  largest = &a[0];
+  for (i = 1; i < n; i++)
+    if (a[i] > *largest)
+      largest = &a[i];
+
+  return largest;
+}
+</PRE>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

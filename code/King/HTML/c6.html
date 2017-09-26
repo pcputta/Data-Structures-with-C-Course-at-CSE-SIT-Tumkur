@@ -1,0 +1,304 @@
+<HTML>
+<HEAD>
+  <META NAME="GENERATOR" CONTENT="Adobe PageMill 3.0 Win">
+  <META NAME="Keywords" CONTENT="C Programming: A Modern Approach, second edition, answers, solutions, Chapter 6, C programming, book, textbook, C book, C textbook, contents, table of contents">
+  <META NAME="Description" CONTENT="Answers to selected exercises in Chapter 6 of the book C Programming: A Modern Approach, Second Edition">
+  <TITLE>Answers to Selected Exercises in Chapter 6 of C Programming: A Modern Approach - Second Edition</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD>
+    &nbsp;<IMG SRC="../../../images/knking.GIF" WIDTH="235" HEIGHT="50"
+    ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="knking.com -- Programming Language Books and Training"></TD>
+    <TD>
+    <P ALIGN=RIGHT>&nbsp;<IMG SRC="../../../images/lang.GIF" WIDTH="259"
+    HEIGHT="50" ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="C C++ Java"></TD>
+  </TR>
+</TABLE><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0"
+HEIGHT="25">
+  <TR>
+    <TD BGCOLOR="#ff0000">
+    <P><CENTER><IMG SRC="../../../images/books.GIF" WIDTH="219" HEIGHT="25"
+    ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="Books by K. N. King"></CENTER></TD>
+  </TR>
+</TABLE><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" WIDTH="100%">
+  <TR>
+    <TD BGCOLOR="#ff9999" VALIGN="TOP" WIDTH="150">
+    <P><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+      <TR>
+        <TD VALIGN="TOP" HEIGHT="75">
+        <script type="text/javascript"><!--
+google_ad_client = "pub-5289712330259941";
+google_ad_width = 120;
+google_ad_height = 60;
+google_ad_format = "120x60_as_rimg";
+google_cpa_choice = "CAAQ2eOZzgEaCD4zuVkdzt_CKI-293M";
+//--></script><script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</TD>
+      </TR>
+      <TR>
+        <TD VALIGN="TOP">
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../index.html">Home</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../index.html">Books by
+        K. N. King</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../courses/index.html">Short
+        courses</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../recbooks/index.html">Recommended&nbsp;books</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../links/index.html">Recommended
+        links</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../faq.html">FAQ</A></FONT></TD>
+      </TR>
+    </TABLE></P>
+
+    <P><script type="text/javascript"><!--
+google_ad_client = "pub-5289712330259941";
+google_alternate_color = "ff9999";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text";
+google_ad_channel ="";
+google_color_border = "FF0000";
+google_color_bg = "FF9999";
+google_color_link = "0000FF";
+google_color_url = "000000";
+google_color_text = "000000";
+//--></script><script type="text/javascript"
+   src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></TD>
+    <TD VALIGN="TOP" WIDTH="100%">
+
+    <P><CENTER><IMG SRC="../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+    ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER></P>
+
+<FONT FACE="Arial">
+<H3>Chapter 6</H3>
+</FONT>
+
+<FONT FACE="Arial">
+<H4>Answers to Selected Exercises</H4>
+</FONT>
+
+<P>
+<B>4.</B> [was #10] (c) is not equivalent to (a) and (b), because <CODE>i</CODE>
+is incremented <I>before</I> the loop body is executed.
+</P>
+
+<P>
+<B>10.</B> [was #12] Consider the following <CODE>while</CODE> loop:
+</P>
+<PRE>
+while (&#133;) {
+  &#133;
+  continue;
+  &#133;
+}
+</PRE>
+
+<P>The equivalent code using <CODE>goto</CODE> would have the following appearance:</P>
+<PRE>
+while (&#133;) {
+  &#133;
+  goto loop_end;
+  &#133;
+  loop_end: ;   /* null statement */
+}
+</PRE>
+
+<P>
+<B>12.</B> [was #14]
+</P>
+<PRE>
+for (d = 2; d * d &lt;= n; d++)
+  if (n % d == 0)
+    break;
+</PRE>
+
+<P>The <CODE>if</CODE> statement that follows the loop will need to be modified as well:</P>
+<PRE>
+if (d * d &lt;= n)
+  printf(&quot;%d is divisible by %d\n&quot;, n, d);
+else
+  printf(&quot;%d is prime\n&quot;, n);
+</PRE>
+
+<P>
+<B>14.</B> [was #16] The problem is the semicolon at the end of the first
+line. If we remove it, the statement is now correct:
+</P>
+<PRE>
+if (n % 2 == 0)
+  printf(&quot;n is even\n&quot;);
+</PRE>
+
+<FONT FACE="Arial">
+<H4>Answers to Selected Programming Projects</H4>
+</FONT>
+
+<P>
+<B>2.</B> [was #2]
+</P>
+<PRE>
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  int m, n, remainder;
+
+  printf(&quot;Enter two integers: &quot;);
+  scanf(&quot;%d%d&quot;, &amp;m, &amp;n);
+
+  while (n != 0) {
+    remainder = m % n;
+    m = n;
+    n = remainder;
+  }
+
+  printf(&quot;Greatest common divisor: %d\n&quot;, m);
+
+  return 0;
+}
+</PRE>
+
+<P>
+<B>4.</B> [was #4]
+</P>
+<PRE>
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  float commission, value;
+
+  printf(&quot;Enter value of trade: &quot;);
+  scanf(&quot;%f&quot;, &amp;value);
+
+  while (value != 0.0f) {
+    if (value &lt; 2500.00f)
+      commission = 30.00f + .017f * value;
+    else if (value &lt; 6250.00f)
+      commission = 56.00f + .0066f * value;
+    else if (value &lt; 20000.00f)
+      commission = 76.00f + .0034f * value;
+    else if (value &lt; 50000.00f)
+      commission = 100.00f + .0022f * value;
+    else if (value &lt; 500000.00f)
+      commission = 155.00f + .0011f * value;
+    else
+      commission = 255.00f + .0009f * value;
+
+    if (commission &lt; 39.00f)
+      commission = 39.00f;
+
+    printf(&quot;Commission: $%.2f\n\n&quot;, commission);
+
+    printf(&quot;Enter value of trade: &quot;);
+    scanf(&quot;%f&quot;, &amp;value);
+  }
+
+  return 0;
+}
+</PRE>
+
+<P>
+<B>6.</B> [was #6]
+</P>
+<PRE>
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  int i, n;
+
+  printf(&quot;Enter limit on maximum square: &quot;);
+  scanf(&quot;%d&quot;, &amp;n);
+
+  for (i = 2; i * i &lt;= n; i += 2)
+    printf(&quot;%d\n&quot;, i * i);
+
+  return 0;
+}
+</PRE>
+
+<P>
+<B>8.</B> [was #8]
+</P>
+<PRE>
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  int i, n, start_day;
+
+  printf(&quot;Enter number of days in month: &quot;);
+  scanf(&quot;%d&quot;, &amp;n);
+  printf(&quot;Enter starting day of the week (1=Sun, 7=Sat): &quot;);
+  scanf(&quot;%d&quot;, &amp;start_day);
+
+  /* print any leading &quot;blank dates&quot; */
+  for (i = 1; i &lt; start_day; i++)
+    printf(&quot;   &quot;);
+
+  /* now print the calendar */
+  for (i = 1; i &lt;= n; i++) {
+    printf(&quot;%3d&quot;, i);
+    if ((start_day + i - 1) % 7 == 0)
+      printf(&quot;\n&quot;);
+  }
+
+  return 0;
+}
+</PRE>
+
+<HR>
+Copyright &#169 2008, 1996 W. W. Norton & Company, Inc. All rights reserved.
+
+</TD>
+  </TR>
+</TABLE></P>
+
+<P><CENTER><!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table border="0" bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0"
+alt="Google" align="middle"></img></a>
+</td>
+<td nowrap="nowrap">
+<input type="hidden" name="domains" value="knking.com"></input>
+<input type="text" name="q" size="31" maxlength="255" value=""></input>
+<input type="submit" name="sa" value="Search"></input>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" checked="checked"></input>
+<font size="-1" color="#000000" face="Arial">Web</font>
+</td>
+<td>
+<input type="radio" name="sitesearch" value="knking.com"></input>
+<font size="-1" color="#000000" face="Arial">knking.com</font>
+</td>
+</tr>
+</table>
+<input type="hidden" name="client" value="pub-5289712330259941"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="flav" value="0000"></input>
+<input type="hidden" name="sig" value="pwiK3cav5N6aTUMg"></input>
+<input type="hidden" name="cof"
+value="GALT:#008000;GL:1;DIV:#000000;VLC:FF0000;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;LH:50;LW:235;L:http://knking.com/images/knking.GIF;S:http://;FORID:1;"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google --></CENTER></P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,130 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 24)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 24)</B>
+    </FONT>
+
+<P>
+<B>1.</B>
+</P>
+<P>
+(a) A failed assertion causes program termination, which is not necessarily the
+correct way to deal with problems that are beyond the control of the program. (The program may
+want to deal with the problem and continue execution, at least in some cases.) Moreover,
+assertions can easily be disabled (via the <CODE>NDEBUG</CODE> macro). Problems that are beyond
+the control of the program must always be detected; they should never be ignored.
+</P>
+
+<P>
+(b)
+<UL>
+<LI>Problems with file access (e.g., failure of an <CODE>fopen</CODE> call)
+<LI>Problems with memory allocation (e.g., failure of a <CODE>malloc</CODE> call)
+<LI>Problems with user input (e.g., failure of a <CODE>scanf</CODE> call)
+</UL>
+</P>
+
+<P>
+<B>2.</B> <CODE>assert(top != NULL);</CODE>
+</P>
+
+<P>
+<B>3.</B>
+</P>
+<PRE>
+#include &lt;assert.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include "stackADT2.h"
+
+struct stack_type {
+  Item *contents;
+  int top;
+  int size;
+};
+
+Stack create(int size)
+{
+  Stack s = malloc(sizeof(struct stack_type));
+  assert(s != NULL);
+
+  s->contents = malloc(size * sizeof(Item));
+  assert(s->contents != NULL);
+
+  s->top = 0;
+  s->size = size;
+  return s;
+}
+
+void destroy(Stack s)
+{
+  free(s->contents);
+  free(s);
+}
+
+void make_empty(Stack s)
+{
+  s->top = 0;
+}
+
+bool is_empty(Stack s)
+{
+  return s->top == 0;
+}
+
+bool is_full(Stack s)
+{
+  return s->top == s->size;
+}
+
+void push(Stack s, Item i)
+{
+  assert(!is_full(s));
+  s->contents[s->top++] = i;
+}
+
+Item pop(Stack s)
+{
+  assert(!is_empty(s));
+  return s->contents[--s->top];
+}
+</PRE>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

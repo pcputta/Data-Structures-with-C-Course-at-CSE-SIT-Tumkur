@@ -1,0 +1,5 @@
+<Knghtbrd> it's 6am.  I have been up 24 hours
+<Knghtbrd> Wake me up and risk life and limb.
+* Knghtbrd &; sleep
+<Tv> Okay everyone, we wait 10 minutes and then start flooding Knghtbrd
+     with ^G's. Someone, hack root and cat /dev/urandom >/dev/dsp.

@@ -1,0 +1,204 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 18)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 18)</B>
+    </FONT>
+
+<P>
+<B>1.</B>
+</P>
+<P>
+(a)
+</P>
+<P>
+Storage class: <CODE>static</CODE><BR>
+Type qualifiers: none<BR>
+Type specifiers: <CODE>char</CODE><BR>
+Declarators: <CODE>**lookup(int level)</CODE><BR>
+Initializers: none
+</P>
+<P>
+(b)
+</P>
+<P>
+Storage class: none<BR>
+Type qualifiers: <CODE>volatile</CODE><BR>
+Type specifiers: <CODE>unsigned</CODE> and <CODE>long</CODE><BR>
+Declarators: <CODE>io_flags</CODE><BR>
+Initializers: none
+</P>
+<P>
+(c)
+</P>
+<P>
+Storage class: <CODE>extern</CODE><BR>
+Type qualifiers: none<BR>
+Type specifiers: <CODE>char</CODE><BR>
+Declarators: <CODE>*file_name[MAX_FILES]</CODE> and <CODE>path[]</CODE><BR>
+Initializers: none
+</P>
+<P>
+(d)
+</P>
+<P>
+Storage class: <CODE>static</CODE><BR>
+Type qualifiers: <CODE>const</CODE><BR>
+Type specifiers: <CODE>char</CODE><BR>
+Declarators: <CODE>token_buf[]</CODE><BR>
+Initializers: <CODE>""</CODE>
+</P>
+
+<P>
+<B>3.</B>
+</P>
+<P>
+<CODE>a</CODE>: static storage duration, file scope, external linkage<BR>
+<CODE>b</CODE>: automatic storage duration, block scope, no linkage<BR>
+<CODE>c</CODE>: static storage duration, block scope, no linkage<BR>
+<CODE>d</CODE>: automatic storage duration, block scope, no linkage
+</P>
+
+<P>
+<B>5.</B>
+</P>
+<P>
+(a) False. A <CODE>static</CODE> variable declared inside a block has block scope.<BR>
+(b) False. An <CODE>extern</CODE> variable declared inside a function may have internal or external linkage.<BR>
+(c) True. A variable acquires internal linkage by being declared <CODE>static</CODE> outside a block.<BR>
+(d) True. Function parameters have the same properties as <CODE>auto</CODE> variables.
+</P>
+
+<P>
+<B>6.</B> The function always displays 1 because <CODE>n</CODE> has automatic storage duration. (It should have static storage duration.)
+A correct version of the function:
+</P>
+<PRE>
+void print_error(const char *message)
+{
+  static int n = 1;
+  printf("Error %d: %s\n", n++, message);
+}
+</PRE>
+
+<P>
+<B>7.</B> (a) is false. A case label must contain a constant expression, and <CODE>const</CODE> objects can't be used in constant expressions.
+</P>
+
+<P>
+<B>9.</B>
+</P>
+
+<P>
+(a)
+</P>
+<PRE>
+typedef char Fcn(int);
+typedef Fcn *Fcn_ptr;
+typedef Fcn_ptr Fcn_ptr_array[10];
+Fcn_ptr_array x;
+</PRE>
+
+<P>
+(b)
+</P>
+<PRE>
+typedef int Array[5];
+typedef Array *Array_ptr;
+typedef Array_ptr Array_ptr_fcn(int);
+Array_ptr_fcn x;
+</PRE>
+
+<P>
+(c)
+</P>
+<PRE>
+typedef float *Fcn(int);
+typedef Fcn *Fcn_ptr;
+typedef Fcn_ptr Fcn_ptr_fcn(void);
+Fcn_ptr_fcn x;
+</PRE>
+
+<P>
+(d)
+</P>
+<PRE>
+typedef void Fcn(int);
+typedef Fcn *Fcn_ptr;
+typedef Fcn_ptr Fcn_ptr_fcn(int, Fcn_ptr);
+Fcn_ptr_fcn x;
+</PRE>
+
+<P>
+<B>11.</B>
+</P>
+<PRE>
+int *f(int);
+int (*g(int))(int);
+int (*a[10])(int);
+</PRE>
+
+<P>
+<B>12.</B>
+</P>
+<P>
+(a) <CODE>f</CODE> is a function with two arguments. The first argument is a pointer to a function with a
+<CODE>long</CODE> argument that returns a <CODE>float</CODE>, and the second is a pointer to a character.
+<CODE>f</CODE> returns a pointer to a function with a <CODE>double</CODE> argument that returns an <CODE>int</CODE>.
+</P>
+<P>
+(b) Assume that <CODE>g</CODE> has the following prototype:
+</P>
+<PRE>
+float g(long);
+</PRE>
+<P>
+<CODE>f</CODE> could be called as follows:
+</P>
+<PRE>
+int (*f2)(double);
+
+f2 = f(g, "abc");
+</PRE>
+
+<P>
+<B>14.</B> (e). All the variables listed can be initialized.
+</P>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

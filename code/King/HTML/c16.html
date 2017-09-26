@@ -1,0 +1,503 @@
+<HTML>
+<HEAD>
+  <META NAME="GENERATOR" CONTENT="Adobe PageMill 3.0 Win">
+  <META NAME="Keywords" CONTENT="C Programming: A Modern Approach, second edition, answers, solutions, Chapter 16, C programming, book, textbook, C book, C textbook, contents, table of contents">
+  <META NAME="Description" CONTENT="Answers to selected exercises in Chapter 16 of the book C Programming: A Modern Approach, Second Edition">
+  <TITLE>Answers to Selected Exercises in Chapter 16 of C Programming: A Modern Approach - Second Edition</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD>
+    &nbsp;<IMG SRC="../../../images/knking.GIF" WIDTH="235" HEIGHT="50"
+    ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="knking.com -- Programming Language Books and Training"></TD>
+    <TD>
+    <P ALIGN=RIGHT>&nbsp;<IMG SRC="../../../images/lang.GIF" WIDTH="259"
+    HEIGHT="50" ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="C C++ Java"></TD>
+  </TR>
+</TABLE><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0"
+HEIGHT="25">
+  <TR>
+    <TD BGCOLOR="#ff0000">
+    <P><CENTER><IMG SRC="../../../images/books.GIF" WIDTH="219" HEIGHT="25"
+    ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="Books by K. N. King"></CENTER></TD>
+  </TR>
+</TABLE><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" WIDTH="100%">
+  <TR>
+    <TD BGCOLOR="#ff9999" VALIGN="TOP" WIDTH="150">
+    <P><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+      <TR>
+        <TD VALIGN="TOP" HEIGHT="75">
+        <script type="text/javascript"><!--
+google_ad_client = "pub-5289712330259941";
+google_ad_width = 120;
+google_ad_height = 60;
+google_ad_format = "120x60_as_rimg";
+google_cpa_choice = "CAAQ2eOZzgEaCD4zuVkdzt_CKI-293M";
+//--></script><script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</TD>
+      </TR>
+      <TR>
+        <TD VALIGN="TOP">
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../index.html">Home</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../index.html">Books by
+        K. N. King</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../courses/index.html">Short
+        courses</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../recbooks/index.html">Recommended&nbsp;books</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../links/index.html">Recommended
+        links</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../faq.html">FAQ</A></FONT></TD>
+      </TR>
+    </TABLE></P>
+
+    <P><script type="text/javascript"><!--
+google_ad_client = "pub-5289712330259941";
+google_alternate_color = "ff9999";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text";
+google_ad_channel ="";
+google_color_border = "FF0000";
+google_color_bg = "FF9999";
+google_color_link = "0000FF";
+google_color_url = "000000";
+google_color_text = "000000";
+//--></script><script type="text/javascript"
+   src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></TD>
+    <TD VALIGN="TOP" WIDTH="100%">
+
+    <P><CENTER><IMG SRC="../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+    ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER></P>
+
+<FONT FACE="Arial">
+<H3>Chapter 16</H3>
+</FONT>
+
+<FONT FACE="Arial">
+<H4>Answers to Selected Exercises</H4>
+</FONT>
+
+<P>
+<B>2.</B> [was #2; modified]
+</P>
+
+<P>
+(a)
+</P>
+<PRE>
+struct {
+  double real, imaginary;
+} c1, c2, c3;
+</PRE>
+
+<P>
+(b)
+</P>
+<PRE>
+struct {
+  double real, imaginary;
+} c1 = {0.0, 1.0}, c2 = {1.0, 0.0}, c3;
+</PRE>
+
+<P>
+(c) Only one statement is necessary:
+</P>
+<PRE>
+c1 = c2;
+</PRE>
+
+<P>
+(d)
+</P>
+<PRE>
+c3.real = c1.real + c2.real;
+c3.imaginary = c1.imaginary + c2.imaginary;
+</PRE>
+
+<P>
+<B>4.</B> [was #4; modified]
+</P>
+
+<P>
+(a)
+</P>
+<PRE>
+typedef struct {
+  double real, imaginary;
+} Complex;
+</PRE>
+
+<P>
+(b) <CODE>Complex c1, c2, c3;</CODE>
+</P>
+
+<P>
+(c)
+</P>
+<PRE>
+Complex make_complex(double real, double imaginary)
+{
+  Complex c;
+
+  c.real = real;
+  c.imaginary = imaginary;
+  return c;
+}
+</PRE>
+
+<P>
+(d)
+</P>
+<PRE>
+Complex add_complex(Complex c1, Complex c2)
+{
+  Complex c3;
+
+  c3.real = c1.real + c2.real;
+  c3.imaginary = c1.imaginary + c2.imaginary;
+  return c3;
+}
+</PRE>
+
+<P>
+<B>11.</B> [was #10; modified] The <CODE>a</CODE> member will occupy 8 bytes, the union <CODE>e</CODE>
+will take 8 bytes (the largest member, <CODE>c</CODE>, is 8 bytes long), and the array
+<CODE>f</CODE> will require 4 bytes, so the total space allocated for <CODE>s</CODE> will be 20 bytes.
+</P>
+
+<P>
+<B>14.</B> [was #12; modified]
+</P>
+
+<P>
+(a)
+</P>
+<PRE>
+double area(struct shape s)
+{
+  if (s.shape_kind == RECTANGLE)
+    return s.u.rectangle.height * s.u.rectangle.width;
+  else
+    return 3.14159 * s.u.circle.radius * s.u.circle.radius;
+}
+</PRE>
+
+<P>
+(b)
+</P>
+<PRE>
+struct shape move(struct shape s, int x, int y)
+{
+  struct shape new_shape = s;
+
+  new_shape.center.x += x;
+  new_shape.center.y += y;
+  return new_shape;
+}
+</PRE>
+
+<P>
+(c)
+</P>
+<PRE>
+struct shape scale(struct shape s, double c)
+{
+  struct shape new_shape = s;
+
+  if (new_shape.shape_kind == RECTANGLE) {
+    new_shape.u.rectangle.height *= c;
+    new_shape.u.rectangle.width *= c;
+  } else
+    new_shape.u.circle.radius *= c;
+
+  return new_shape;
+}
+</PRE>
+
+<P>
+<B>15.</B> [was #14]
+</P>
+
+<P>
+(a) <CODE>enum week_days {MON, TUE, WED, THU, FRI, SAT, SUN};</CODE><BR>
+(b) <CODE>typedef enum {MON, TUE, WED, THU, FRI, SAT, SUN} Week_days;</CODE>
+</P>
+
+<P>
+<B>17.</B> [was #16] All the statements are legal, since C allows integers and enumeration values to be mixed
+without restriction. Only (a), (d), and (e) are safe. (b) is not meaningful if <CODE>i</CODE> has a value other
+than 0 or 1. (c) will not yield a meaningful result if <CODE>b</CODE> has the value 1.
+</P>
+
+<FONT FACE="Arial">
+<H4>Answers to Selected Programming Projects</H4>
+</FONT>
+
+<P>
+<B>1.</B> [was #6; modified]
+</P>
+<PRE>
+#include &lt;stdio.h&gt;
+
+#define COUNTRY_COUNT \
+  ((int) (sizeof(country_codes) / sizeof(country_codes[0])))
+
+struct dialing_code {
+  char *country;
+  int code;
+};
+
+const struct dialing_code country_codes[] =
+  {{&quot;Argentina&quot;,            54}, {&quot;Bangladesh&quot;,      880},
+   {&quot;Brazil&quot;,               55}, {&quot;Burma (Myanmar)&quot;,  95},
+   {&quot;China&quot;,                86}, {&quot;Colombia&quot;,         57},
+   {&quot;Congo, Dem. Rep. of&quot;, 243}, {&quot;Egypt&quot;,            20},
+   {&quot;Ethiopia&quot;,            251}, {&quot;France&quot;,           33},
+   {&quot;Germany&quot;,              49}, {&quot;India&quot;,            91},
+   {&quot;Indonesia&quot;,            62}, {&quot;Iran&quot;,             98},
+   {&quot;Italy&quot;,                39}, {&quot;Japan&quot;,            81},
+   {&quot;Mexico&quot;,               52}, {&quot;Nigeria&quot;,         234},
+   {&quot;Pakistan&quot;,             92}, {&quot;Philippines&quot;,      63},
+   {&quot;Poland&quot;,               48}, {&quot;Russia&quot;,            7},
+   {&quot;South Africa&quot;,         27}, {&quot;South Korea&quot;,      82},
+   {&quot;Spain&quot;,                34}, {&quot;Sudan&quot;,           249},
+   {&quot;Thailand&quot;,             66}, {&quot;Turkey&quot;,           90},
+   {&quot;Ukraine&quot;,             380}, {&quot;United Kingdom&quot;,   44},
+   {&quot;United States&quot;,         1}, {&quot;Vietnam&quot;,          84}};
+
+int main(void)
+{
+  int code, i;
+
+  printf(&quot;Enter dialing code: &quot;);
+  scanf(&quot;%d&quot;, &code);
+
+  for (i = 0; i &lt; COUNTRY_COUNT; i++)
+    if (code == country_codes[i].code) {
+      printf(&quot;The country with dialing code %d is %s\n&quot;,
+             code, country_codes[i].country);
+      return 0;
+    }
+
+  printf(&quot;No corresponding country found\n&quot;);
+  return 0;
+}
+</PRE>
+
+<P>
+<B>3.</B> [was #8]
+</P>
+<PRE>
+#include &lt;stdio.h&gt;
+#include &quot;readline.h&quot;
+
+#define NAME_LEN 25
+#define MAX_PARTS 100
+
+struct part {
+  int number;
+  char name[NAME_LEN+1];
+  int on_hand;
+};
+
+int find_part(int number, const struct part inv[], int np);
+void insert(struct part inv[], int *np);
+void search(const struct part inv[], int np);
+void update(struct part inv[], int np);
+void print(const struct part inv[], int np);
+
+/**********************************************************
+ * main: Prompts the user to enter an operation code,     *
+ *       then calls a function to perform the requested   *
+ *       action. Repeats until the user enters the        *
+ *       command 'q'. Prints an error message if the user *
+ *       enters an illegal code.                          *
+ **********************************************************/
+int main(void)
+{
+  char code;
+  struct part inventory[MAX_PARTS];
+  int num_parts = 0;
+
+  for (;;) {
+    printf(&quot;Enter operation code: &quot;);
+    scanf(&quot; %c&quot;, &amp;code);
+    while (getchar() != '\n')   /* skips to end of line */
+      ;
+    switch (code) {
+      case 'i': insert(inventory, &amp;num_parts);
+                break;
+      case 's': search(inventory, num_parts);
+                break;
+      case 'u': update(inventory, num_parts);
+                break;
+      case 'p': print(inventory, num_parts);
+                break;
+      case 'q': return 0;
+      default:  printf(&quot;Illegal code\n&quot;);
+    }
+    printf(&quot;\n&quot;);
+  }
+}
+
+/**********************************************************
+ * find_part: Looks up a part number in the inv array.    *
+ *            Returns the array index if the part number  *
+ *            is found; otherwise, returns -1.            *
+ **********************************************************/
+int find_part(int number, const struct part inv[], int np)
+{
+  int i;
+
+  for (i = 0; i &lt; np; i++)
+    if (inv[i].number == number)
+      return i;
+  return -1;
+}
+
+/**********************************************************
+ * insert: Prompts the user for information about a new   *
+ *         part and then inserts the part into the inv    *
+ *         array. Prints an error message and returns     *
+ *         prematurely if the part already exists or the  *
+ *         array is full.                                 *
+ **********************************************************/
+void insert(struct part inv[], int *np)
+{
+  int part_number;
+
+  if (*np == MAX_PARTS) {
+    printf(&quot;Database is full; can't add more parts.\n&quot;);
+    return;
+  }
+
+  printf(&quot;Enter part number: &quot;);
+  scanf(&quot;%d&quot;, &amp;part_number);
+  if (find_part(part_number, inv, *np) &gt;= 0) {
+    printf(&quot;Part already exists.\n&quot;);
+    return;
+  }
+
+  inv[*np].number = part_number;
+  printf(&quot;Enter part name: &quot;);
+  read_line(inv[*np].name, NAME_LEN);
+  printf(&quot;Enter quantity on hand: &quot;);
+  scanf(&quot;%d&quot;, &amp;inv[*np].on_hand);
+  (*np)++;
+}
+
+/**********************************************************
+ * search: Prompts the user to enter a part number, then  *
+ *         looks up the part in the inv array. If the     *
+ *         part exists, prints the name and quantity on   *
+ *         hand; if not, prints an error message.         *
+ **********************************************************/
+void search(const struct part inv[], int np)
+{
+  int i, number;
+
+  printf(&quot;Enter part number: &quot;);
+  scanf(&quot;%d&quot;, &amp;number);
+  i = find_part(number, inv, np);
+  if (i &gt;= 0) {
+    printf(&quot;Part name: %s\n&quot;, inv[i].name);
+    printf(&quot;Quantity on hand: %d\n&quot;, inv[i].on_hand);
+  } else
+    printf(&quot;Part not found.\n&quot;);
+}
+
+/**********************************************************
+ * update: Prompts the user to enter a part number.       *
+ *         Prints an error message if the part can't be   *
+ *         found in the inv array; otherwise, prompts the *
+ *         user to enter change in quantity on hand and   *
+ *         updates the array.                             *
+ **********************************************************/
+void update(struct part inv[], int np)
+{
+  int i, number, change;
+
+  printf(&quot;Enter part number: &quot;);
+  scanf(&quot;%d&quot;, &amp;number);
+  i = find_part(number, inv, np);
+  if (i &gt;= 0) {
+    printf(&quot;Enter change in quantity on hand: &quot;);
+    scanf(&quot;%d&quot;, &amp;change);
+    inv[i].on_hand += change;
+  } else
+    printf(&quot;Part not found.\n&quot;);
+}
+
+/**********************************************************
+ * print: Prints a listing of all parts in the inv array, *
+ *        showing the part number, part name, and         *
+ *        quantity on hand. Parts are printed in the      *
+ *        order in which they were entered into the       *
+ *        array.                                          *
+ **********************************************************/
+void print(const struct part inv[], int np)
+{
+  int i;
+
+  printf(&quot;Part Number   Part Name                  &quot;
+         &quot;Quantity on Hand\n&quot;);
+  for (i = 0; i &lt; np; i++)
+    printf(&quot;%7d       %-25s%11d\n&quot;, inv[i].number,
+           inv[i].name, inv[i].on_hand);
+}
+</PRE>
+
+<HR>
+Copyright &#169 2008, 1996 W. W. Norton & Company, Inc. All rights reserved.
+
+</TD>
+  </TR>
+</TABLE></P>
+
+<P><CENTER><!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table border="0" bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0"
+alt="Google" align="middle"></img></a>
+</td>
+<td nowrap="nowrap">
+<input type="hidden" name="domains" value="knking.com"></input>
+<input type="text" name="q" size="31" maxlength="255" value=""></input>
+<input type="submit" name="sa" value="Search"></input>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" checked="checked"></input>
+<font size="-1" color="#000000" face="Arial">Web</font>
+</td>
+<td>
+<input type="radio" name="sitesearch" value="knking.com"></input>
+<font size="-1" color="#000000" face="Arial">knking.com</font>
+</td>
+</tr>
+</table>
+<input type="hidden" name="client" value="pub-5289712330259941"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="flav" value="0000"></input>
+<input type="hidden" name="sig" value="pwiK3cav5N6aTUMg"></input>
+<input type="hidden" name="cof"
+value="GALT:#008000;GL:1;DIV:#000000;VLC:FF0000;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;LH:50;LW:235;L:http://knking.com/images/knking.GIF;S:http://;FORID:1;"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google --></CENTER></P>
+
+</BODY>
+</HTML>

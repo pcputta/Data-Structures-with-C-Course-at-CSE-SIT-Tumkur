@@ -1,0 +1,520 @@
+<HTML>
+<HEAD>
+  <META NAME="GENERATOR" CONTENT="Adobe PageMill 3.0 Win">
+  <META NAME="Keywords" CONTENT="C Programming: A Modern Approach, second edition, answers, solutions, Chapter 10, C programming, book, textbook, C book, C textbook, contents, table of contents">
+  <META NAME="Description" CONTENT="Answers to selected exercises in Chapter 10 of the book C Programming: A Modern Approach, Second Edition">
+  <TITLE>Answers to Selected Exercises in Chapter 10 of C Programming: A Modern Approach - Second Edition</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD>
+    &nbsp;<IMG SRC="../../../images/knking.GIF" WIDTH="235" HEIGHT="50"
+    ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="knking.com -- Programming Language Books and Training"></TD>
+    <TD>
+    <P ALIGN=RIGHT>&nbsp;<IMG SRC="../../../images/lang.GIF" WIDTH="259"
+    HEIGHT="50" ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="C C++ Java"></TD>
+  </TR>
+</TABLE><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0"
+HEIGHT="25">
+  <TR>
+    <TD BGCOLOR="#ff0000">
+    <P><CENTER><IMG SRC="../../../images/books.GIF" WIDTH="219" HEIGHT="25"
+    ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="Books by K. N. King"></CENTER></TD>
+  </TR>
+</TABLE><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" WIDTH="100%">
+  <TR>
+    <TD BGCOLOR="#ff9999" VALIGN="TOP" WIDTH="150">
+    <P><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+      <TR>
+        <TD VALIGN="TOP" HEIGHT="75">
+        <script type="text/javascript"><!--
+google_ad_client = "pub-5289712330259941";
+google_ad_width = 120;
+google_ad_height = 60;
+google_ad_format = "120x60_as_rimg";
+google_cpa_choice = "CAAQ2eOZzgEaCD4zuVkdzt_CKI-293M";
+//--></script><script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</TD>
+      </TR>
+      <TR>
+        <TD VALIGN="TOP">
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../index.html">Home</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../index.html">Books by
+        K. N. King</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../courses/index.html">Short
+        courses</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../recbooks/index.html">Recommended&nbsp;books</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../links/index.html">Recommended
+        links</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../faq.html">FAQ</A></FONT></TD>
+      </TR>
+    </TABLE></P>
+
+    <P><script type="text/javascript"><!--
+google_ad_client = "pub-5289712330259941";
+google_alternate_color = "ff9999";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text";
+google_ad_channel ="";
+google_color_border = "FF0000";
+google_color_bg = "FF9999";
+google_color_link = "0000FF";
+google_color_url = "000000";
+google_color_text = "000000";
+//--></script><script type="text/javascript"
+   src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></TD>
+    <TD VALIGN="TOP" WIDTH="100%">
+
+    <P><CENTER><IMG SRC="../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+    ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER></P>
+
+<FONT FACE="Arial">
+<H3>Chapter 10</H3>
+</FONT>
+
+<FONT FACE="Arial">
+<H4>Answers to Selected Exercises</H4>
+</FONT>
+
+<P>
+<B>1.</B> [was #2] (a) <CODE>a</CODE>, <CODE>b</CODE>, and <CODE>c</CODE> are visible.<BR>
+(b) <CODE>a</CODE>, and <CODE>d</CODE> are visible.<BR>
+(c) <CODE>a</CODE>, <CODE>d</CODE>, and <CODE>e</CODE> are visible.<BR>
+(d) <CODE>a</CODE> and <CODE>f</CODE> are visible.
+</P>
+
+<FONT FACE="Arial">
+<H4>Answers to Selected Programming Projects</H4>
+</FONT>
+
+<P>
+<B>3.</B> [was #4]
+</P>
+<PRE>
+#include &lt;stdbool.h&gt;   /* C99 only */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define NUM_CARDS 5
+#define RANK 0
+#define SUIT 1
+
+/* external variables */
+int hand[NUM_CARDS][2];
+/*    0    1
+    ____ ____
+ 0 |____|____|
+ 1 |____|____|
+ 2 |____|____|
+ 3 |____|____|
+ 4 |____|____|
+    rank suit
+*/
+
+bool straight, flush, four, three;
+int pairs;   /* can be 0, 1, or 2 */
+
+/* prototypes */
+void read_cards(void);
+void analyze_hand(void);
+void print_result(void);
+
+/**********************************************************
+ * main: Calls read_cards, analyze_hand, and print_result *
+ *       repeatedly.                                      *
+ **********************************************************/
+int main(void)
+{
+  for (;;) {
+    read_cards();
+    analyze_hand();
+    print_result();
+  }
+}
+
+/**********************************************************
+ * read_cards: Reads the cards into the external variable *
+ *             hand; checks for bad cards and duplicate   *
+ *             cards.                                     *
+ **********************************************************/
+void read_cards(void)
+{
+  char ch, rank_ch, suit_ch;
+  int i, rank, suit;
+  bool bad_card, duplicate_card;
+  int cards_read = 0;
+
+  while (cards_read &lt; NUM_CARDS) {
+    bad_card = false;
+
+    printf(&quot;Enter a card: &quot;);
+
+    rank_ch = getchar();
+    switch (rank_ch) {
+      case '0':           exit(EXIT_SUCCESS);
+      case '2':           rank = 0; break;
+      case '3':           rank = 1; break;
+      case '4':           rank = 2; break;
+      case '5':           rank = 3; break;
+      case '6':           rank = 4; break;
+      case '7':           rank = 5; break;
+      case '8':           rank = 6; break;
+      case '9':           rank = 7; break;
+      case 't': case 'T': rank = 8; break;
+      case 'j': case 'J': rank = 9; break;
+      case 'q': case 'Q': rank = 10; break;
+      case 'k': case 'K': rank = 11; break;
+      case 'a': case 'A': rank = 12; break;
+      default:            bad_card = true;
+    }
+
+    suit_ch = getchar();
+    switch (suit_ch) {
+      case 'c': case 'C': suit = 0; break;
+      case 'd': case 'D': suit = 1; break;
+      case 'h': case 'H': suit = 2; break;
+      case 's': case 'S': suit = 3; break;
+      default:            bad_card = true;
+    }
+
+    while ((ch = getchar()) != '\n')
+      if (ch != ' ') bad_card = true;
+
+    if (bad_card) {
+      printf(&quot;Bad card; ignored.\n&quot;);
+      continue;
+    }
+
+    duplicate_card = false;
+    for (i = 0; i &lt; cards_read; i++)
+      if (hand[i][RANK] == rank &amp;&amp; hand[i][SUIT] == suit) {
+        printf(&quot;Duplicate card; ignored.\n&quot;);
+        duplicate_card = true;
+        break;
+      }
+
+    if (!duplicate_card) {
+      hand[cards_read][RANK] = rank;
+      hand[cards_read][SUIT] = suit;
+      cards_read++;
+    }
+  }
+}
+
+/**********************************************************
+ * analyze_hand: Determines whether the hand contains a   *
+ *               straight, a flush, four-of-a-kind,       *
+ *               and/or three-of-a-kind; determines the   *
+ *               number of pairs; stores the results into *
+ *               the external variables straight, flush,  *
+ *               four, three, and pairs.                  *
+ **********************************************************/
+void analyze_hand(void)
+{
+  int rank, suit, card, pass, run;
+
+  straight = true;
+  flush = true;
+  four = false;
+  three = false;
+  pairs = 0;
+
+  /* sort cards by rank */
+  for (pass = 1; pass &lt; NUM_CARDS; pass++)
+    for (card = 0; card &lt; NUM_CARDS - pass; card++) {
+      rank = hand[card][RANK];
+      suit = hand[card][SUIT];
+      if (hand[card+1][RANK] &lt; rank) {
+        hand[card][RANK] = hand[card+1][RANK];
+        hand[card][SUIT] = hand[card+1][SUIT];
+        hand[card+1][RANK] = rank;
+        hand[card+1][SUIT] = suit;
+      }
+    }
+
+  /* check for flush */
+  suit = hand[0][SUIT];
+  for (card = 1; card &lt; NUM_CARDS; card++)
+    if (hand[card][SUIT] != suit)
+      flush = false;
+
+  /* check for straight */
+  for (card = 0; card &lt; NUM_CARDS - 1; card++)
+    if (hand[card][RANK] + 1 != hand[card+1][RANK])
+      straight = false;
+
+  /* check for 4-of-a-kind, 3-of-a-kind, and pairs by
+     looking for &quot;runs&quot; of cards with identical ranks */
+  card = 0;
+  while (card &lt; NUM_CARDS) {
+    rank = hand[card][RANK];
+    run = 0;
+    do {
+      run++;
+      card++;
+    } while (card &lt; NUM_CARDS &amp;&amp; hand[card][RANK] == rank);
+    switch (run) {
+      case 2: pairs++;      break;
+      case 3: three = true; break;
+      case 4: four = true;  break;
+    }
+  }
+}
+
+/**********************************************************
+ * print_result: Prints the classification of the hand,   *
+ *               based on the values of the external      *
+ *               variables straight, flush, four, three,  *
+ *               and pairs.                               *
+ **********************************************************/
+void print_result(void)
+{
+  if (straight &amp;&amp; flush) printf(&quot;Straight flush&quot;);
+  else if (four)         printf(&quot;Four of a kind&quot;);
+  else if (three &amp;&amp;
+           pairs == 1)   printf(&quot;Full house&quot;);
+  else if (flush)        printf(&quot;Flush&quot;);
+  else if (straight)     printf(&quot;Straight&quot;);
+  else if (three)        printf(&quot;Three of a kind&quot;);
+  else if (pairs == 2)   printf(&quot;Two pairs&quot;);
+  else if (pairs == 1)   printf(&quot;Pair&quot;);
+  else                   printf(&quot;High card&quot;);
+
+  printf(&quot;\n\n&quot;);
+}
+</PRE>
+
+<P>
+<B>5.</B> [was #6]
+</P>
+<PRE>
+#include &lt;stdbool.h&gt;   /* C99 only */
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define NUM_RANKS 13
+#define NUM_SUITS 4
+#define NUM_CARDS 5
+
+/* external variables */
+int num_in_rank[NUM_RANKS];
+int num_in_suit[NUM_SUITS];
+bool straight, flush, four, three;
+int pairs;   /* can be 0, 1, or 2 */
+
+/* prototypes */
+void read_cards(void);
+void analyze_hand(void);
+void print_result(void);
+
+/**********************************************************
+ * main: Calls read_cards, analyze_hand, and print_result *
+ *       repeatedly.                                      *
+ **********************************************************/
+int main(void)
+{
+  for (;;) {
+    read_cards();
+    analyze_hand();
+    print_result();
+  }
+}
+
+/**********************************************************
+ * read_cards: Reads the cards into the external          *
+ *             variables num_in_rank and num_in_suit;     *
+ *             checks for bad cards and duplicate cards.  *
+ **********************************************************/
+void read_cards(void)
+{
+  bool card_exists[NUM_RANKS][NUM_SUITS];
+  char ch, rank_ch, suit_ch;
+  int rank, suit;
+  bool bad_card;
+  int cards_read = 0;
+
+  for (rank = 0; rank &lt; NUM_RANKS; rank++) {
+    num_in_rank[rank] = 0;
+    for (suit = 0; suit &lt; NUM_SUITS; suit++)
+      card_exists[rank][suit] = false;
+  }
+
+  for (suit = 0; suit &lt; NUM_SUITS; suit++)
+    num_in_suit[suit] = 0;
+
+  while (cards_read &lt; NUM_CARDS) {
+    bad_card = false;
+
+    printf(&quot;Enter a card: &quot;);
+
+    rank_ch = getchar();
+    switch (rank_ch) {
+      case '0':           exit(EXIT_SUCCESS);
+      case '2':           rank = 0; break;
+      case '3':           rank = 1; break;
+      case '4':           rank = 2; break;
+      case '5':           rank = 3; break;
+      case '6':           rank = 4; break;
+      case '7':           rank = 5; break;
+      case '8':           rank = 6; break;
+      case '9':           rank = 7; break;
+      case 't': case 'T': rank = 8; break;
+      case 'j': case 'J': rank = 9; break;
+      case 'q': case 'Q': rank = 10; break;
+      case 'k': case 'K': rank = 11; break;
+      case 'a': case 'A': rank = 12; break;
+      default:            bad_card = true;
+    }
+
+    suit_ch = getchar();
+    switch (suit_ch) {
+      case 'c': case 'C': suit = 0; break;
+      case 'd': case 'D': suit = 1; break;
+      case 'h': case 'H': suit = 2; break;
+      case 's': case 'S': suit = 3; break;
+      default:            bad_card = true;
+    }
+
+    while ((ch = getchar()) != '\n')
+      if (ch != ' ') bad_card = true;
+
+    if (bad_card)
+      printf(&quot;Bad card; ignored.\n&quot;);
+    else if (card_exists[rank][suit])
+      printf(&quot;Duplicate card; ignored.\n&quot;);
+    else {
+      num_in_rank[rank]++;
+      num_in_suit[suit]++;
+      card_exists[rank][suit] = true;
+      cards_read++;
+    }
+  }
+}
+
+/**********************************************************
+ * analyze_hand: Determines whether the hand contains a   *
+ *               straight, a flush, four-of-a-kind,       *
+ *               and/or three-of-a-kind; determines the   *
+ *               number of pairs; stores the results into *
+ *               the external variables straight, flush,  *
+ *               four, three, and pairs.                  *
+ **********************************************************/
+void analyze_hand(void)
+{
+  int num_consec = 0;
+  int rank, suit;
+
+  straight = false;
+  flush = false;
+  four = false;
+  three = false;
+  pairs = 0;
+
+  /* check for flush */
+  for (suit = 0; suit &lt; NUM_SUITS; suit++)
+    if (num_in_suit[suit] == NUM_CARDS)
+      flush = true;
+
+  /* check for straight */
+  rank = 0;
+  while (num_in_rank[rank] == 0) rank++;
+  for (; rank &lt; NUM_RANKS &amp;&amp; num_in_rank[rank] > 0; rank++)
+    num_consec++;
+  if (num_consec == NUM_CARDS) {
+    straight = true;
+    return;
+  }
+
+  /* check for ace-low straight */
+  if (num_consec == NUM_CARDS - 1 &&
+      num_in_rank[0] > 0 && num_in_rank[NUM_RANKS-1] > 0) {
+    straight = true;
+    return;
+  }
+
+  /* check for 4-of-a-kind, 3-of-a-kind, and pairs */
+  for (rank = 0; rank &lt; NUM_RANKS; rank++) {
+    if (num_in_rank[rank] == 4) four = true;
+    if (num_in_rank[rank] == 3) three = true;
+    if (num_in_rank[rank] == 2) pairs++;
+  }
+}
+
+/**********************************************************
+ * print_result: Prints the classification of the hand,   *
+ *               based on the values of the external      *
+ *               variables straight, flush, four, three,  *
+ *               and pairs.                               *
+ **********************************************************/
+void print_result(void)
+{
+  if (straight &amp;&amp; flush) printf(&quot;Straight flush&quot;);
+  else if (four)         printf(&quot;Four of a kind&quot;);
+  else if (three &amp;&amp;
+           pairs == 1)   printf(&quot;Full house&quot;);
+  else if (flush)        printf(&quot;Flush&quot;);
+  else if (straight)     printf(&quot;Straight&quot;);
+  else if (three)        printf(&quot;Three of a kind&quot;);
+  else if (pairs == 2)   printf(&quot;Two pairs&quot;);
+  else if (pairs == 1)   printf(&quot;Pair&quot;);
+  else                   printf(&quot;High card&quot;);
+
+  printf(&quot;\n\n&quot;);
+}
+</PRE>
+
+<HR>
+Copyright &#169 2008, 1996 W. W. Norton & Company, Inc. All rights reserved.
+
+</TD>
+  </TR>
+</TABLE></P>
+
+<P><CENTER><!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table border="0" bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0"
+alt="Google" align="middle"></img></a>
+</td>
+<td nowrap="nowrap">
+<input type="hidden" name="domains" value="knking.com"></input>
+<input type="text" name="q" size="31" maxlength="255" value=""></input>
+<input type="submit" name="sa" value="Search"></input>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" checked="checked"></input>
+<font size="-1" color="#000000" face="Arial">Web</font>
+</td>
+<td>
+<input type="radio" name="sitesearch" value="knking.com"></input>
+<font size="-1" color="#000000" face="Arial">knking.com</font>
+</td>
+</tr>
+</table>
+<input type="hidden" name="client" value="pub-5289712330259941"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="flav" value="0000"></input>
+<input type="hidden" name="sig" value="pwiK3cav5N6aTUMg"></input>
+<input type="hidden" name="cof"
+value="GALT:#008000;GL:1;DIV:#000000;VLC:FF0000;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;LH:50;LW:235;L:http://knking.com/images/knking.GIF;S:http://;FORID:1;"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google --></CENTER></P>
+
+</BODY>
+</HTML>

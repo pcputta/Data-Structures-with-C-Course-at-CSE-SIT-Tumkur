@@ -1,0 +1,316 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 19)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 19)</B>
+    </FONT>
+
+<P>
+<B>1.</B>
+</P>
+<PRE>
+#ifndef QUEUE_H
+#define QUEUE_H
+
+#include &lt;stdbool.h&gt;   /* C99 only */
+
+typedef int Item;
+
+void make_empty(void);
+bool is_empty(void);
+bool is_full(void);
+void enqueue(Item i);
+Item dequeue(void);
+Item first(void);
+Item last(void);
+
+#endif
+</PRE>
+
+<P>
+<B>3.</B>
+</P>
+
+<P>
+(a)
+</P>
+<PRE>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include "queue.h"
+
+#define QUEUE_SIZE 100
+
+static Item contents[QUEUE_SIZE];
+static int head = 0, tail = 0, len = 0;
+
+static void terminate(const char *message)
+{
+  printf("%s\n", message);
+  exit(EXIT_FAILURE);
+}
+
+void make_empty(void)
+{
+  head = tail = len = 0;
+}
+
+bool is_empty(void)
+{
+  return len == 0;
+}
+
+bool is_full(void)
+{
+  return len == QUEUE_SIZE;
+}
+
+void enqueue(Item i)
+{
+  if (is_full())
+    terminate("Error in enqueue: queue is full.");
+  contents[tail++] = i;
+  if (tail == QUEUE_SIZE)
+    tail = 0;
+  len++;
+}
+
+Item dequeue(void)
+{
+  Item i;
+
+  if (is_empty())
+    terminate("Error in dequeue: queue is empty.");
+  i = contents[head];
+  head = (head + 1) % QUEUE_SIZE;
+  len--;
+  return i;
+}
+
+Item first(void)
+{
+  if (is_empty())
+    terminate("Error in first: queue is empty.");
+  return contents[head];
+}
+
+Item last(void)
+{
+  if (is_empty())
+    terminate("Error in last: queue is empty.");
+  if (tail == 0)
+    return contents[QUEUE_SIZE-1];
+  else
+    return contents[tail-1];
+}
+</PRE>
+
+<P>
+(b)
+</P>
+<PRE>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include "queue.h"
+
+struct node {
+  Item data;
+  struct node *next;
+};
+
+static struct node *head = NULL, *tail = NULL;
+
+static void terminate(const char *message)
+{
+  printf("%s\n", message);
+  exit(EXIT_FAILURE);
+}
+
+void make_empty(void)
+{
+  while (!is_empty())
+    dequeue();
+}
+
+bool is_empty(void)
+{
+  return head == NULL;
+}
+
+bool is_full(void)
+{
+  return false;
+}
+
+void enqueue(Item i)
+{
+  struct node *new_node = malloc(sizeof(struct node));
+  if (new_node == NULL)
+    terminate("Error in enqueue: queue is full.");
+
+  new_node->data = i;
+  new_node->next = NULL;
+
+  if (is_empty())
+    head = tail = new_node;
+  else {
+    tail->next = new_node;
+    tail = tail->next;
+  }
+}
+
+Item dequeue(void)
+{
+  struct node *old_head;
+  Item i;
+
+  if (is_empty())
+    terminate("Error in dequeue: queue is empty.");
+
+  old_head = head;
+  i = head->data;
+  head = head->next;
+  free(old_head);
+  return i;
+}
+
+Item first(void)
+{
+  if (is_empty())
+    terminate("Error in first: queue is empty.");
+  return head->data;
+}
+
+Item last(void)
+{
+  if (is_empty())
+    terminate("Error in last: queue is empty.");
+  return tail->data;
+}
+</PRE>
+
+<P>
+<B>5.</B>
+</P>
+<PRE>
+#ifndef QUEUE_H
+#define QUEUE_H
+
+#include &lt;stdbool.h&gt;   /* C99 only */
+
+#define QUEUE_SIZE 100
+
+typedef int Item;
+
+typedef struct {
+  Item contents[QUEUE_SIZE];
+  int head, tail, len;
+} Queue;
+
+void make_empty(Queue *q);
+bool is_empty(const Queue *q);
+bool is_full(const Queue *q);
+void enqueue(Queue *q, Item i);
+Item dequeue(Queue *q);
+Item first(const Queue *q);
+Item last(const Queue *q);
+
+#endif
+</PRE>
+
+<P>
+<B>6.</B>
+</P>
+
+<P>
+(a)
+</P>
+<PRE>
+int peek(Stack s)
+{
+  if (is_empty(s))
+    terminate("Error in peek: stack is empty.");
+  return s->contents[s->top-1];
+}
+</PRE>
+
+<P>
+(b)
+</P>
+<PRE>
+Item peek(Stack s)
+{
+  if (is_empty(s))
+    terminate("Error in peek: stack is empty.");
+  return s->contents[s->top-1];
+}
+</PRE>
+
+<P>
+(c)
+</P>
+<PRE>
+Item peek(Stack s)
+{
+  if (is_empty(s))
+    terminate("Error in peek: stack is empty.");
+  return s->top->data;
+}
+</PRE>
+
+<P>
+<B>7.</B>
+</P>
+<PRE>
+void push(Stack s, Item i)
+{
+  if (is_full(s)) {
+    Item *new_contents = malloc(2 * s->size * sizeof(Item));
+    if (new_contents == NULL)
+      terminate("Error in push: stack is full.");
+    memcpy(new_contents, s->contents, s->size * sizeof(Item));
+    free(s->contents);
+    s->contents = new_contents;
+    s->size *= 2;
+  }
+  s->contents[s->top++] = i;
+}
+</PRE>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

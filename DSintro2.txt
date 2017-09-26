@@ -1,0 +1,27 @@
+Question
+How many cities within range of 500km from Bangalore have a population > 1 lakh
+Representing information is fundamental to computer science. The primary
+purpose of most computer programs is not to perform calculations, but to 
+store and retrieve information — usually as fast as possible.
+
+Data needs to be organized
+
+Data Structures
+effective organization, manipulation & retrieval
+Why
+Systems have become complex
+Good DS + good algo
+Learn sound design & clear coding	hashing vs B+trees
+Computation power is growing so are expectations
+Reinventing the wheel
+
+Taxonomy
+Criteria
+	Primitive vs non Primitive
+	Linear vs Non Linear
+	Memory allocation
+
+ADT
+	collection of data with operations defined on it
+	interface and implementation
+	ADT hides implementation

@@ -1,0 +1,332 @@
+<HTML>
+<HEAD>
+  <META NAME="GENERATOR" CONTENT="Adobe PageMill 3.0 Win">
+  <META NAME="Keywords" CONTENT="C Programming: A Modern Approach, second edition, answers, solutions, Chapter 9, C programming, book, textbook, C book, C textbook, contents, table of contents">
+  <META NAME="Description" CONTENT="Answers to selected exercises in Chapter 9 of the book C Programming: A Modern Approach, Second Edition">
+  <TITLE>Answers to Selected Exercises in Chapter 9 of C Programming: A Modern Approach - Second Edition</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD>
+    &nbsp;<IMG SRC="../../../images/knking.GIF" WIDTH="235" HEIGHT="50"
+    ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="knking.com -- Programming Language Books and Training"></TD>
+    <TD>
+    <P ALIGN=RIGHT>&nbsp;<IMG SRC="../../../images/lang.GIF" WIDTH="259"
+    HEIGHT="50" ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="C C++ Java"></TD>
+  </TR>
+</TABLE><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0"
+HEIGHT="25">
+  <TR>
+    <TD BGCOLOR="#ff0000">
+    <P><CENTER><IMG SRC="../../../images/books.GIF" WIDTH="219" HEIGHT="25"
+    ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="Books by K. N. King"></CENTER></TD>
+  </TR>
+</TABLE><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" WIDTH="100%">
+  <TR>
+    <TD BGCOLOR="#ff9999" VALIGN="TOP" WIDTH="150">
+    <P><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+      <TR>
+        <TD VALIGN="TOP" HEIGHT="75">
+        <script type="text/javascript"><!--
+google_ad_client = "pub-5289712330259941";
+google_ad_width = 120;
+google_ad_height = 60;
+google_ad_format = "120x60_as_rimg";
+google_cpa_choice = "CAAQ2eOZzgEaCD4zuVkdzt_CKI-293M";
+//--></script><script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</TD>
+      </TR>
+      <TR>
+        <TD VALIGN="TOP">
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../index.html">Home</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../index.html">Books by
+        K. N. King</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../courses/index.html">Short
+        courses</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../recbooks/index.html">Recommended&nbsp;books</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../links/index.html">Recommended
+        links</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../faq.html">FAQ</A></FONT></TD>
+      </TR>
+    </TABLE></P>
+
+    <P><script type="text/javascript"><!--
+google_ad_client = "pub-5289712330259941";
+google_alternate_color = "ff9999";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text";
+google_ad_channel ="";
+google_color_border = "FF0000";
+google_color_bg = "FF9999";
+google_color_link = "0000FF";
+google_color_url = "000000";
+google_color_text = "000000";
+//--></script><script type="text/javascript"
+   src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></TD>
+    <TD VALIGN="TOP" WIDTH="100%">
+
+    <P><CENTER><IMG SRC="../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+    ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER></P>
+
+<FONT FACE="Arial">
+<H3>Chapter 9</H3>
+</FONT>
+
+<FONT FACE="Arial">
+<H4>Answers to Selected Exercises</H4>
+</FONT>
+
+<P>
+<B>2.</B> [was #2]
+</P>
+<PRE>
+int check(int x, int y, int n)
+{
+  return (x &gt;= 0 &amp;&amp; x &lt;= n - 1 &amp;&amp; y &gt;= 0 &amp;&amp; y &lt;= n - 1);
+}
+</PRE>
+
+<P>
+<B>4.</B> [was #4]
+</P>
+<PRE>
+int day_of_year(int month, int day, int year)
+{
+  int num_days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+  int day_count = 0, i;
+
+  for (i = 1; i &lt; month; i++)
+    day_count += num_days[i-1];
+
+  /* adjust for leap years, assuming they are divisible by 4 */
+  if (year % 4 == 0 &amp;&amp; month &gt; 2)
+    day_count++;
+
+  return day_count + day;
+}
+</PRE>
+
+<P>Using the expression <CODE>year</CODE> <CODE>%</CODE> <CODE>4</CODE> <CODE>==</CODE> <CODE>0</CODE>
+to test for leap years is not completely correct. Centuries are special cases: if a year is a multiple of 100,
+then it must also be a multiple of 400 in order to be a leap year. The correct test is
+</P>
+<PRE>
+year % 4 == 0 &amp;&amp; (year % 100 != 0 || year % 400 == 0)
+</PRE>
+
+<P>
+<B>6.</B> [was #6; modified]
+</P>
+<PRE>
+int digit(int n, int k)
+{
+  int i;
+
+  for (i = 1; i &lt; k; i++)
+    n /= 10;
+
+  return n % 10;
+}
+</PRE>
+
+<P>
+<B>8.</B> [was #8] (a) and (b) are valid prototypes. (c) is illegal, since it doesn't specify the type of the
+parameter. (d) incorrectly specifies that <CODE>f</CODE> returns an <CODE>int</CODE> value in C89; in C99, omitting the
+return type is illegal.
+</P>
+
+<P>
+<B>10.</B> [was #10]
+</P>
+<P>(a)</P>
+<PRE>
+int largest(int a[], int n)
+{
+  int i, max = a[0];
+
+  for (i = 1; i &lt; n; i++)
+    if (a[i] &gt; max)
+      max = a[i];
+
+  return max;
+}
+</PRE>
+
+<P>(b)</P>
+<PRE>
+int average(int a[], int n)
+{
+  int i, avg = 0;
+
+  for (i = 0; i &lt; n; i++)
+    avg += a[i];
+
+  return avg / n;
+}
+</PRE>
+
+<P>(c)</P>
+<PRE>
+int num_positive(int a[], int n)
+{
+  int i, count = 0;
+
+  for (i = 0; i &lt; n; i++)
+    if (a[i] &gt; 0)
+      count++;
+
+  return count;
+}
+</PRE>
+
+<P>
+<B>15.</B> [was #12; modified]
+</P>
+<PRE>
+double median(double x, double y, double z)
+{
+  double result;
+
+  if (x &lt;= y)
+    if (y &lt;= z) result = y;
+    else if (x &lt;= z) result = z;
+    else result = x;
+  else {
+    if (z &lt;= y) result = y;
+    else if (x &lt;= z) result = x;
+    else result = z;
+  }
+
+  return result;
+}
+</PRE>
+
+<P>
+<B>17.</B> [was #14]
+</P>
+<PRE>
+int fact(int n)
+{
+  int i, result = 1;
+
+  for (i = 2; i &lt;= n; i++)
+    result *= i;
+
+  return result;
+}
+</PRE>
+
+<P>
+<B>19.</B> [was #16] The following program tests the <CODE>pb</CODE> function:
+</P>
+<PRE>
+#include &lt;stdio.h&gt;
+
+void pb(int n);
+
+int main(void)
+{
+  int n;
+
+  printf(&quot;Enter a number: &quot;);
+  scanf(&quot;%d&quot;, &amp;n);
+
+  printf(&quot;Output of pb: &quot;);
+  pb(n);
+  printf(&quot;\n&quot;);
+
+  return 0;
+}
+
+void pb(int n)
+{
+  if (n != 0) {
+    pb(n / 2);
+    putchar('0' + n % 2);
+  }
+}
+</PRE>
+
+<P><CODE>pb</CODE> prints the binary representation of the argument <CODE>n</CODE>, assuming that <CODE>n</CODE>
+is greater than 0. (We also assume that digits have consecutive codes in the underlying character set.) For example:
+</P>
+<PRE>
+Enter a number: 53
+Output of pb: 110101
+</PRE>
+
+<P>
+A trace of <CODE>pb</CODE>'s execution would look like this:
+</P>
+<P>
+<CODE>&nbsp;&nbsp;pb(53)</CODE>
+finds that 53 is not equal to 0, so it calls <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;pb(26)</CODE>, which finds that 26 is not equal to 0, so it calls <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pb(13)</CODE>, which finds that 13 is not equal to 0, so it calls <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pb(6)</CODE>, which finds that 6 is not equal to 0, so it calls <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pb(3)</CODE>, which finds that 3 is not equal to 0, so it calls <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pb(1)</CODE>, which finds that 1 is not equal to 0, so it calls <BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pb(0)</CODE>, which finds that 0 <I>is</I> equal to 0, so it returns, causing<BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pb(1)</CODE> to print <CODE>1</CODE> and return, causing<BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pb(3)</CODE> to print <CODE>1</CODE> and return, causing<BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pb(6)</CODE> to print <CODE>0</CODE> and return, causing<BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pb(13)</CODE> to print <CODE>1</CODE> and return, causing<BR>
+<CODE>&nbsp;&nbsp;&nbsp;&nbsp;pb(26)</CODE> to print <CODE>0</CODE> and return, causing <BR>
+<CODE>&nbsp;&nbsp;pb(53)</CODE> to print <CODE>1</CODE> and return.
+</P>
+
+<HR>
+Copyright &#169 2008, 1996 W. W. Norton & Company, Inc. All rights reserved.
+
+</TD>
+  </TR>
+</TABLE></P>
+
+<P><CENTER><!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table border="0" bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0"
+alt="Google" align="middle"></img></a>
+</td>
+<td nowrap="nowrap">
+<input type="hidden" name="domains" value="knking.com"></input>
+<input type="text" name="q" size="31" maxlength="255" value=""></input>
+<input type="submit" name="sa" value="Search"></input>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" checked="checked"></input>
+<font size="-1" color="#000000" face="Arial">Web</font>
+</td>
+<td>
+<input type="radio" name="sitesearch" value="knking.com"></input>
+<font size="-1" color="#000000" face="Arial">knking.com</font>
+</td>
+</tr>
+</table>
+<input type="hidden" name="client" value="pub-5289712330259941"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="flav" value="0000"></input>
+<input type="hidden" name="sig" value="pwiK3cav5N6aTUMg"></input>
+<input type="hidden" name="cof"
+value="GALT:#008000;GL:1;DIV:#000000;VLC:FF0000;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;LH:50;LW:235;L:http://knking.com/images/knking.GIF;S:http://;FORID:1;"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google --></CENTER></P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,126 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 8)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+	ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 8)</B>
+    </FONT>
+
+<P>
+<B>3.</B> <CODE>bool weekend[] = {true, false, false, false, false, false, true};</CODE>
+</P>
+
+
+<P>
+<B>4.</B> <CODE>bool weekend[] = {[0] = true, [6] = true};</CODE>
+</P>
+
+<P>
+<B>5.</B>
+</P>
+
+<PRE>
+int i;
+long fib_numbers[40] = {0, 1};
+
+for (i = 2; i < 40; i++)
+  fib_numbers[i] = fib_numbers[i-2] + fib_numbers[i-1];
+</PRE>
+
+<P>
+<B>6.</B>
+</P>
+
+<PRE>
+const int segments[10][7] = {{1, 1, 1, 1, 1, 1, 0},
+                             {0, 1, 1, 0, 0, 0, 0},
+                             {1, 1, 0, 1, 1, 0, 1},
+                             {1, 1, 1, 1, 0, 0, 1},
+                             {0, 1, 1, 0, 0, 1, 1},
+                             {1, 0, 1, 1, 0, 1, 1},
+                             {1, 0, 1, 1, 1, 1, 1},
+                             {1, 1, 1, 0, 0, 0, 0},
+                             {1, 1, 1, 1, 1, 1, 1},
+                             {1, 1, 1, 1, 0, 1, 1}};
+</PRE>
+
+<P>
+<B>8.</B> <CODE>float temperature_readings[30][24];</CODE>
+</P>
+
+<P>
+<B>9.</B>
+</P>
+<PRE>
+int day, hour;
+float total = 0, average;
+
+for (day = 0; day < 30; day++)
+  for (hour = 0; hour < 24; hour++)
+    total += temperature_readings[day][hour];
+
+average = total / (30 * 24);
+</PRE>
+
+<P>
+<B>10.</B>
+</P>
+<PRE>
+char chess_board[8][8] = {{'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
+                          {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
+                          {' ', '.', ' ', '.', ' ', '.', ' ', '.'},
+                          {'.', ' ', '.', ' ', '.', ' ', '.', ' '},
+                          {' ', '.', ' ', '.', ' ', '.', ' ', '.'},
+                          {'.', ' ', '.', ' ', '.', ' ', '.', ' '},
+                          {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
+                          {'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'}};
+</PRE>
+
+<P>
+<B>11.</B>
+</P>
+<PRE>
+char checker_board[8][8];
+int i, j;
+
+for (i = 0; i < 8; i++)
+  for (j = 0; j < 8; j++)
+    checker_board[i][j] = ((i + j) % 2 ? 'R' : 'B');
+</PRE>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

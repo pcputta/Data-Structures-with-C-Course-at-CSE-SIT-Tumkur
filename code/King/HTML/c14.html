@@ -1,0 +1,312 @@
+<HTML>
+<HEAD>
+  <META NAME="GENERATOR" CONTENT="Adobe PageMill 3.0 Win">
+  <META NAME="Keywords" CONTENT="C Programming: A Modern Approach, second edition, answers, solutions, Chapter 14, C programming, book, textbook, C book, C textbook, contents, table of contents">
+  <META NAME="Description" CONTENT="Answers to selected exercises in Chapter 14 of the book C Programming: A Modern Approach, Second Edition">
+  <TITLE>Answers to Selected Exercises in Chapter 14 of C Programming: A Modern Approach - Second Edition</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD>
+    &nbsp;<IMG SRC="../../../images/knking.GIF" WIDTH="235" HEIGHT="50"
+    ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="knking.com -- Programming Language Books and Training"></TD>
+    <TD>
+    <P ALIGN=RIGHT>&nbsp;<IMG SRC="../../../images/lang.GIF" WIDTH="259"
+    HEIGHT="50" ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="C C++ Java"></TD>
+  </TR>
+</TABLE><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0"
+HEIGHT="25">
+  <TR>
+    <TD BGCOLOR="#ff0000">
+    <P><CENTER><IMG SRC="../../../images/books.GIF" WIDTH="219" HEIGHT="25"
+    ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="Books by K. N. King"></CENTER></TD>
+  </TR>
+</TABLE><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" WIDTH="100%">
+  <TR>
+    <TD BGCOLOR="#ff9999" VALIGN="TOP" WIDTH="150">
+    <P><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+      <TR>
+        <TD VALIGN="TOP" HEIGHT="75">
+        <script type="text/javascript"><!--
+google_ad_client = "pub-5289712330259941";
+google_ad_width = 120;
+google_ad_height = 60;
+google_ad_format = "120x60_as_rimg";
+google_cpa_choice = "CAAQ2eOZzgEaCD4zuVkdzt_CKI-293M";
+//--></script><script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</TD>
+      </TR>
+      <TR>
+        <TD VALIGN="TOP">
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../index.html">Home</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../index.html">Books by
+        K. N. King</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../courses/index.html">Short
+        courses</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../recbooks/index.html">Recommended&nbsp;books</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../links/index.html">Recommended
+        links</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../faq.html">FAQ</A></FONT></TD>
+      </TR>
+    </TABLE></P>
+
+    <P><script type="text/javascript"><!--
+google_ad_client = "pub-5289712330259941";
+google_alternate_color = "ff9999";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text";
+google_ad_channel ="";
+google_color_border = "FF0000";
+google_color_bg = "FF9999";
+google_color_link = "0000FF";
+google_color_url = "000000";
+google_color_text = "000000";
+//--></script><script type="text/javascript"
+   src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></TD>
+    <TD VALIGN="TOP" WIDTH="100%">
+
+    <P><CENTER><IMG SRC="../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+    ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER></P>
+
+<FONT FACE="Arial">
+<H3>Chapter 14</H3>
+</FONT>
+
+<FONT FACE="Arial">
+<H4>Answers to Selected Exercises</H4>
+</FONT>
+
+<P>
+<B>2.</B> [was #2] <CODE>#define NELEMS(a) ((int) (sizeof(a) / sizeof(a[0])))</CODE>
+</P>
+
+<P>
+<B>4.</B> [was #4]
+</P>
+
+<P>
+(a) One problem stems from the lack of parentheses around the replacement list. For example, the statement
+</P>
+<PRE>
+a = 1/AVG(b, c);
+</PRE>
+<P>
+will be replaced by
+</P>
+<PRE>
+a = 1/(b+c)/2;
+</PRE>
+<P>
+Even if we add the missing parentheses, though, the macro still has problems, because it needs parentheses around
+<CODE>x</CODE> and <CODE>y</CODE> in the replacement list. The preprocessor will turn the statement
+</P>
+<PRE>
+a = AVG(b&lt;c, c&gt;d);
+</PRE>
+<P>
+into
+</P>
+<PRE>
+a = ((b&lt;c+c&gt;d)/2);
+</PRE>
+<P>
+which is equivalent to
+</P>
+<PRE>
+a = ((b&lt;(c+c)&gt;d)/2);
+</PRE>
+<P>
+Here's the final (corrected) version of the macro:
+</P>
+<PRE>
+#define AVG(x,y) (((x)+(y))/2)
+</PRE>
+
+<P>
+(b) The problem is the lack of parentheses around the replacement list. For example,
+</P>
+<PRE>
+a = 1/AREA(b, c);
+</PRE>
+<P>
+becomes
+</P>
+<PRE>
+a = 1/(b)*(c);
+</PRE>
+<P>
+Here's the corrected macro:
+</P>
+<PRE>
+#define AREA(x,y) ((x)*(y))
+</PRE>
+
+<P>
+<B>5.</B> [was #6]
+</P>
+<P>
+(a) The call of <CODE>putchar</CODE> expands into the following statement:
+<P>
+<PRE>
+putchar(('a'&lt;=(s[++i])&amp;&amp;(s[++i])&lt;='z'?(s[++i])-'a'+'A':(s[++i])));
+</PRE>
+<P>The character <CODE>a</CODE> is less than or equal to <CODE>s[1]</CODE> (which is <CODE>b</CODE>),
+yielding a true condition. The character <CODE>s[2]</CODE> (which is <CODE>c</CODE>) is less than or equal
+to <CODE>z</CODE>, which is also true. The value printed is <CODE>s[3]-'a'+'A'</CODE>, which is <CODE>D</CODE>
+(assuming that the character set is ASCII).
+</P>
+<P>
+(b) The character <CODE>a</CODE> is not less than or equal to <CODE>s[1]</CODE> (which is <CODE>1</CODE>)
+so the test condition is false. The value printed is <CODE>s[2]</CODE>, which is <CODE>2</CODE>.
+</P>
+
+<P>
+<B>7.</B> [was #8]
+</P>
+<P>
+(a)
+</P>
+<PRE>
+long long_max(long x, long y)
+{
+  return x &gt; y ? x : y;
+}
+</PRE>
+<P>
+The preprocessor would actually put all the tokens on one line, but this version is more readable.
+</P>
+
+<P>
+(b) The problem with types such as <CODE>unsigned</CODE> <CODE>long</CODE> is that they require two words,
+which prevents <CODE>GENERIC_MAX</CODE> from creating the desired function name. For example,
+<CODE>GENERIC_MAX(unsigned</CODE> <CODE>long)</CODE> would expand into
+</P>
+<PRE>
+unsigned long unsigned long_max(unsigned long x, unsigned long y)
+{
+  return x &gt; y ? x : y;
+}
+</PRE>
+
+<P>
+(c) To make <CODE>GENERIC_MAX</CODE> work with any basic type, use a type definition to rename the type:
+</P>
+<PRE>
+typedef unsigned long ULONG;
+</PRE>
+<P>
+We can now write <CODE>GENERIC_MAX(ULONG)</CODE>.
+</P>
+
+<P>
+<B>12.</B> [was #10] (c) and (e) will fail, since <CODE>M</CODE> is defined.
+</P>
+
+<P>
+<B>14.</B> [was #12; modified] Here's what the program will look like after preprocessing:
+</P>
+<PRE>
+<I>Blank line
+Blank line
+Blank line
+Blank line
+Blank line
+Blank line
+Blank line</I>
+
+int main(void)
+{
+  int a[= 10], i, j, k, m;
+
+<I>Blank line</I>
+  i = j;
+<I>Blank line
+Blank line
+Blank line</I>
+
+  i = 10 * j+1;
+  i = (x,y) x-y(j, k);
+  i = ((((j)*(j)))*(((j)*(j))));
+  i = (((j)*(j))*(j));
+  i = jk;
+  puts(&quot;i&quot; &quot;j&quot;);
+
+<I>Blank line</I>
+  i = SQR(j);
+<I>Blank line</I>
+  i = (j);
+
+  return 0;
+}
+</PRE>
+
+<P>
+Some preprocessors delete white-space characters at the beginning of a line, so your results may vary. Three lines
+will cause errors when the program is compiled. Two contain syntax errors:
+</P>
+<PRE>
+int a[= 10], i, j, k, m;
+i = (x,y) x-y(j, k);
+</PRE>
+<P>
+The third refers to an undefined variable:
+</P>
+<PRE>
+i = jk;
+</PRE>
+
+<HR>
+Copyright &#169 2008, 1996 W. W. Norton & Company, Inc. All rights reserved.
+
+</TD>
+  </TR>
+</TABLE></P>
+
+<P><CENTER><!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table border="0" bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0"
+alt="Google" align="middle"></img></a>
+</td>
+<td nowrap="nowrap">
+<input type="hidden" name="domains" value="knking.com"></input>
+<input type="text" name="q" size="31" maxlength="255" value=""></input>
+<input type="submit" name="sa" value="Search"></input>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" checked="checked"></input>
+<font size="-1" color="#000000" face="Arial">Web</font>
+</td>
+<td>
+<input type="radio" name="sitesearch" value="knking.com"></input>
+<font size="-1" color="#000000" face="Arial">knking.com</font>
+</td>
+</tr>
+</table>
+<input type="hidden" name="client" value="pub-5289712330259941"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="flav" value="0000"></input>
+<input type="hidden" name="sig" value="pwiK3cav5N6aTUMg"></input>
+<input type="hidden" name="cof"
+value="GALT:#008000;GL:1;DIV:#000000;VLC:FF0000;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;LH:50;LW:235;L:http://knking.com/images/knking.GIF;S:http://;FORID:1;"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google --></CENTER></P>
+
+</BODY>
+</HTML>

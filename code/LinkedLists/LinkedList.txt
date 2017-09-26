@@ -1,0 +1,23 @@
+Static Memory Allocation
+    memory allocation is done during compile time
+    it remains fixed
+    lacks flexibility
+    could result in memory wastage
+    hence inefficient
+    
+Dynamic Memory Allocation
+    memory allocation is done during run time
+    on demand - on the fly
+    memory grows and shrink dynamically
+    efficient usage of memory
+    
+    
+    
+    malloc
+    calloc
+    realloc
+    
+    free
+    
+    
+

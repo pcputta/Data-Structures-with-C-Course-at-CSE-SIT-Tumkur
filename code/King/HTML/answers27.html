@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 27)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 27)</B>
+    </FONT>
+
+<P>
+<B>1.</B> Answers will vary, but GCC commonly provides <CODE>int</CODE><I>N</I><CODE>_t</CODE> and
+<CODE>uint</CODE><I>N</I><CODE>_t</CODE> types for <I>N</I> = 8, 16, 32, and 64.
+</P>
+
+<P>
+<B>2.</B>
+</P>
+<PRE>
+#define INT32_C(n) n
+#define UINT32_C(n) n ## U
+#define INT64_C(n) n ## LL
+#define UINT64_C(n) n ## ULL
+</PRE>
+
+<P>
+<B>3.</B>
+</P>
+<P>
+(a) <CODE>printf("%" PRId8, i);</CODE><BR>
+(b) <CODE>printf("%12.4" PRId32, i);</CODE><BR>
+(c) <CODE>printf("%-6" PRIo16, i);</CODE><BR>
+(d) <CODE>printf("%#" PRIx64, i);</CODE>
+</P>
+
+<P>
+<B>4.</B>
+</P>
+<P>
+(a) <CODE>tan(i)</CODE><BR>
+(b) <CODE>fabsf(f)</CODE><BR>
+(c) <CODE>asin(d)</CODE><BR>
+(d) <CODE>expl(ld)</CODE><BR>
+(e) <CODE>clogf(fc)</CODE><BR>
+(f) <CODE>cacosh(dc)</CODE><BR>
+(g) <CODE>nexttoward(d, ld)</CODE><BR>
+(h) <CODE>remainder(f, i)</CODE><BR>
+(i) <CODE>copysignl(d, ld)</CODE><BR>
+(j) <CODE>carg(i)</CODE><BR>
+(k) <CODE>cimagf(f)</CODE><BR>
+(l) <CODE>conjl(ldc)</CODE>
+</P>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

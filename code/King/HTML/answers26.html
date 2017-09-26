@@ -1,0 +1,255 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 26)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 26)</B>
+    </FONT>
+
+<P>
+<B>1.</B>
+</P>
+<PRE>
+int max_int(int n, ...)
+{
+  va_list ap;
+  int current, largest = n;
+
+  va_start(ap, n);
+
+  current = va_arg(ap, int);
+  while (current != 0) {
+    if (current > largest)
+      largest = current;
+    current = va_arg(ap, int);
+  }
+
+  va_end(ap);
+  return largest;
+}
+</PRE>
+
+<P>
+<B>3.</B>
+</P>
+<PRE>
+void intstr_printf(const char *format, ...)
+{
+  va_list ap;
+  const char *p;
+  int digit, i, power, temp;
+  char *s;
+
+  va_start(ap, format);
+
+  for (p = format; *p != '\0'; p++) {
+    if (*p != '%') {
+      putchar(*p);
+      continue;
+    }
+
+    p++;
+    if (*p == 'd') {
+      i = va_arg(ap, int);
+      if (i < 0) {
+        i = -i;
+        putchar('-');
+      }
+
+      temp = i;
+      power = 1;
+      while (temp > 9) {
+        temp /= 10;
+        power *= 10;
+      }
+
+      do {
+        digit = i / power;
+        putchar(digit + '0');
+        i -= digit * power;
+        power /= 10;
+      } while (i > 0);
+    } else if (*p == 's') {
+      s = va_arg(ap, char *);
+      while (*s)
+        putchar(*s++);
+    }
+  }
+
+  va_end(ap);
+}
+</PRE>
+
+<P>
+<B>4.</B>
+</P>
+<PRE>
+void display(int n, ...)
+{
+  va_list ap;
+  int i;
+
+  va_start(ap, n);
+  for (i = 0; i < n; i++) {
+    if (i > 0)
+      putchar(' ');
+    fputs(va_arg(ap, char *), stdout);
+  }
+  va_end(ap);
+  putchar('\n');
+}
+</PRE>
+
+<P>
+<B>5.</B>
+</P>
+<PRE>
+char *vstrcat(const char *first, ...)
+{
+  va_list ap;
+  int len;
+  char *s, *result;
+
+  if (first == NULL)
+    return NULL;
+
+  len = strlen(first);
+  va_start(ap, first);
+  s = va_arg(ap, char *);
+  while (s != NULL) {
+    len += strlen(s);
+    s = va_arg(ap, char *);
+  }
+  va_end(ap);
+
+  result = malloc(len + 1);
+  if (result == NULL)
+    return NULL;
+
+  strcpy(result, first);
+  va_start(ap, first);
+  s = va_arg(ap, char *);
+  while (s != NULL) {
+    strcat(result, s);
+    s = va_arg(ap, char *);
+  }
+  va_end(ap);
+
+  return result;
+}
+</PRE>
+
+<P>
+<B>6.</B>
+</P>
+<PRE>
+char *max_pair(int num_pairs, ...)
+{
+  va_list ap;
+  int i, current, largest;
+  char *s;
+
+  va_start(ap, num_pairs);
+  largest = va_arg(ap, int);
+  s = va_arg(ap, char *);
+
+  for (i = 1; i < num_pairs; i++) {
+    current = va_arg(ap, int);
+    if (current > largest) {
+      largest = current;
+      s = va_arg(ap, char *);
+    } else
+      va_arg(ap, char *);
+  }
+
+  va_end(ap);
+  return s;
+}
+</PRE>
+
+<P>
+<B>8.</B> <CODE>n = 7 + 4 * (rand() % 4);</CODE>
+</P>
+
+<P>
+<B>10.</B>
+</P>
+<P>
+(a) <CODE>(int) strtol(str, NULL, 10)</CODE><BR>
+(b) <CODE>strtol(str, NULL, 10)</CODE><BR>
+(c) <CODE>strtoll(str, NULL, 10)</CODE>
+</P>
+
+<P>
+<B>11.</B> According to the C standard, "The array shall consist of: all the elements
+that compare less than, all the elements that compare equal to, and all the
+elements that compare greater than the key object, in that order."
+</P>
+
+<P>
+<B>12.</B>
+</P>
+<PRE>
+time_t beginning_of_year(int year)
+{
+   struct tm t;
+
+   t.tm_sec = 0;
+   t.tm_min = 0;
+   t.tm_hour = 0;
+
+   t.tm_mday = 1;
+   t.tm_mon = 0;
+   t.tm_year = year - 1900;
+
+   t.tm_isdst = -1;
+
+   return mktime(&t);
+}
+</PRE>
+
+<P>
+<B>13.</B>
+</P>
+<P>
+(a) <CODE>"%Y-%j"</CODE><BR>
+(b) <CODE>"%Y-W%W-%u"</CODE><BR>
+(c) <CODE>"%FT%T"</CODE>
+</P>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

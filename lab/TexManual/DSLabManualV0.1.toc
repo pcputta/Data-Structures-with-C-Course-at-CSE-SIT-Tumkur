@@ -1,0 +1,13 @@
+\contentsline {chapter}{\numberline {1}File Operations}{4}
+\contentsline {chapter}{\numberline {2}Stack Implementation}{12}
+\contentsline {chapter}{\numberline {3}Infix to Postfix Conversion}{17}
+\contentsline {chapter}{\numberline {4}Evaluation of Prefix Expression}{19}
+\contentsline {chapter}{\numberline {5}Linear Queue Operations}{21}
+\contentsline {chapter}{\numberline {6}File Operations}{25}
+\contentsline {chapter}{\numberline {7}File Operations}{26}
+\contentsline {chapter}{\numberline {8}File Operations}{27}
+\contentsline {chapter}{\numberline {9}File Operations}{28}
+\contentsline {chapter}{\numberline {10}File Operations}{29}
+\contentsline {chapter}{\numberline {11}File Operations}{30}
+\contentsline {chapter}{\numberline {12}File Operations}{31}
+\contentsline {chapter}{\numberline {13}File Operations}{32}

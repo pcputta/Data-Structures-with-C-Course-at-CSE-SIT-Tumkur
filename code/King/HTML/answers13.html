@@ -1,0 +1,190 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 13)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 13)</B>
+    </FONT>
+
+<P>
+<B>1.</B>
+</P>
+<P>
+(a) Correct<BR>
+(b) Incorrect; use <CODE>"%c"</CODE> only to write a <CODE>char</CODE> value<BR>
+(c) Incorrect; use <CODE>"%s"</CODE> only to write a string
+(a value of type <CODE>char</CODE> <CODE>*</CODE>)<BR>
+(d) Correct<BR>
+(e) Incorrect; <CODE>printf</CODE> requires a string, not a character<BR>
+(f) Correct<BR>
+(g) Correct<BR>
+(h) Incorrect; <CODE>putchar</CODE> requires a character, not a string<BR>
+(i) Incorrect; <CODE>puts</CODE> requires a string, not a character<BR>
+(j) Incorrect; this writes two new-line characters<BR>
+(k) Correct
+</P>
+
+<P>
+<B>3.</B> <CODE>i</CODE> = 12, <CODE>j</CODE> = 56, <CODE>s</CODE> = <CODE>"abc34"</CODE>
+</P>
+
+<P>
+<B>5.</B>
+</P>
+<P>
+(a)
+</P>
+<PRE>
+void capitalize(char s[])
+{
+  int i;
+
+  for (i = 0; s[i] != '\0'; i++)
+    s[i] = toupper(s[i]);
+}
+</PRE>
+
+<P>
+(b)
+</P>
+<PRE>
+void capitalize(char *s)
+{
+  while (*s != '\0') {
+    *s = toupper(*s);
+    s++;
+  }
+}
+</PRE>
+
+<P>
+<B>7.</B> (d) is not equivalent to the others. (a), (b), and (c) make <CODE>str</CODE> empty; (d)
+concatenates an empty string to the end of <CODE>str</CODE>.
+</P>
+
+<P>
+<B>9.</B> <CODE>"computers"</CODE>
+</P>
+
+<P>
+<B>11.</B>
+</P>
+<PRE>
+int strcmp(char *s, char *t)
+{
+  for (; *s == *t; s++, t++)
+    if (*s == '\0')
+      return 0;
+  return *s - *t;
+}
+</PRE>
+
+<P>
+<B>12.</B>
+</P>
+<PRE>
+void get_extension(const char *file_name, char *extension)
+{
+  char *p = file_name + strlen(file_name);
+
+  while (p-- > file_name)
+    if (*p == '.') {
+      strcpy(extension, p + 1);
+      return;
+    }
+
+  *extension = '\0';
+}
+</PRE>
+
+<P>
+<B>13.</B>
+</P>
+<PRE>
+void build_index_url(const char *domain, char *index_url)
+{
+  strcpy(index_url, "http://www.");
+  strcat(index_url, domain);
+  strcat(index_url, "/index.html");
+}
+</PRE>
+
+<P>
+<B>14.</B> The program prints <CODE>"Grinch"</CODE>, followed by a new-line. The loop replaces each
+character of <CODE>s</CODE> with its alphabetic predecessor.
+</P>
+
+<P>
+<B>17.</B>
+</P>
+<PRE>
+bool test_extension(const char *file_name, const char *extension)
+{
+  char *p;
+  int i = strlen(file_name) - strlen(extension);
+
+  if (i < 1 || file_name[i-1] != '.')
+    return false;
+
+  p = file_name + i;
+  while (*p)
+    if (toupper(*p++) != toupper(*extension++))
+      return false;
+
+  return true;
+}
+</PRE>
+
+<P>
+<B>18.</B>
+</P>
+<PRE>
+void remove_filename(char *url)
+{
+  char *p;
+
+  do {
+    if (*url == '/')
+      p = url;
+  } while (*++url);
+
+  *p = '\0';
+}
+</PRE>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

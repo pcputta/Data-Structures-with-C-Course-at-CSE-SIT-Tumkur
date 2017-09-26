@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 22)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 22)</B>
+    </FONT>
+
+<P>
+<B>1.</B>
+</P>
+<P>
+(a) Binary<BR>
+(b) Text<BR>
+(c) Text<BR>
+(d) Binary
+</P>
+
+<P>
+<B>3.</B> The argument to <CODE>fclose</CODE> must be a file pointer obtained from a call of <CODE>fopen</CODE>.
+The program fragment calls <CODE>fclose</CODE> regardless of whether the call of <CODE>fopen</CODE> succeeded.
+The call of <CODE>fclose</CODE> should be moved inside the <CODE>if</CODE> statement:
+</P>
+<PRE>
+FILE *fp;
+
+if (fp = fopen(filename, "r")) {
+  /* read characters until end-of-file */
+  fclose(fp);
+}
+</PRE>
+
+<P>
+<B>5.</B> The two conversion specifications differ in their display of negative integers.
+<CODE>%.4d</CODE> ensures that at least four digits are displayed; a negative sign is
+prepended to these digits if necessary. &ndash;7, for example, is displayed as
+<CODE>-0007</CODE>. <CODE>%04d</CODE> ensures that at least four characters are displayed,
+including any negative sign, so &ndash;7 is displayed as <CODE>-007</CODE>.
+</P>
+
+<P>
+<B>7.</B>
+</P>
+<P>
+(a) Consumes the entire input (apart from the new-line character) with
+<CODE>n</CODE> = 3, <CODE>i</CODE> = 10, <CODE>x</CODE> = 20.0, and <CODE>j</CODE> = 30.<BR>
+(b) Consumes <CODE>"1.0 2"</CODE> with <CODE>n</CODE> = 3, <CODE>i</CODE> = 1, <CODE>x</CODE> = 0.0, and <CODE>j</CODE> = 2.<BR>
+(c) Consumes <CODE>"0.1 0"</CODE> with <CODE>n</CODE> = 3, <CODE>i</CODE> = 0, <CODE>x</CODE> = 0.1, and <CODE>j</CODE> = 0.<BR>
+(d) Consumes nothing from the input, leaving <CODE>i</CODE>, <CODE>x</CODE>, and <CODE>j</CODE> unchanged and <CODE>n</CODE> = 0.
+</P>
+
+<P>
+<B>9.</B> (a)
+</P>
+
+<P>
+<B>11.</B> The program compiles without error, but no longer runs as expected. The loop
+test is evaluated as <CODE>ch = (getc(source_fp) != EOF)</CODE> and <CODE>ch</CODE> is always assigned
+the value 1&mdash;the SOH control character in ASCII&mdash;until end-of-file is reached.
+</P>
+
+<P>
+<B>12.</B> The function's <CODE>while</CODE> loop calls <CODE>fgetc</CODE> twice, and thus alternates between
+testing whether end-of-file has been reached or a period has been read. A corrected version:
+</P>
+<PRE>
+int count_periods(const char *filename)
+{
+  FILE *fp;
+  int ch, n = 0;
+
+  if ((fp = fopen(filename, "r")) != NULL) {
+    while ((ch = fgetc(fp)) != EOF)
+      if (ch == '.')
+        n++;
+    fclose(fp);
+  }
+
+  return n;
+}
+</PRE>
+
+<P>
+<B>13.</B>
+</P>
+<PRE>
+int line_length(const char *filename, int n)
+{
+  FILE *fp;
+  int ch, line_num = 1, line_len = 0;
+
+  if ((fp = fopen(filename, "r")) != NULL) {
+    while (line_num <= n && (ch = fgetc(fp)) != EOF)
+      if (ch == '\n')
+        line_num++;
+      else if (line_num == n)
+        line_len++;
+    fclose(fp);
+  }
+
+  return line_len;
+}
+</PRE>
+
+<P>
+<B>16.</B> <CODE>sscanf(str, "%*[^#]#%[0123456789,]", sales_rank);</CODE>
+</P>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

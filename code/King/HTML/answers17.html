@@ -1,0 +1,245 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 17)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 17)</B>
+    </FONT>
+
+<P>
+<B>1.</B>
+</P>
+<PRE>
+void *my_malloc(size_t n)
+{
+  void *p;
+
+  p = malloc(n);
+  if (p == NULL) {
+    printf("Memory allocation failed\n");
+    exit(EXIT_FAILURE);
+  }
+  return p;
+}
+</PRE>
+
+<P>
+<B>3.</B>
+</P>
+<PRE>
+int *create_array(int n, int initial_value)
+{
+  int *a, *p;
+
+  a = malloc(n * sizeof(int));
+  if (a != NULL)
+    for (p = a; p < a + n; p++)
+      *p = initial_value;
+  return a;
+}
+</PRE>
+
+<P>
+<B>4.</B>
+</P>
+<PRE>
+p = malloc(sizeof(struct rectangle));
+p->upper_left.x = 10;
+p->upper_left.y = 25;
+p->lower_right.x = 20;
+p->lower_right.y = 15;
+</PRE>
+
+<P>
+<B>6.</B>
+</P>
+<PRE>
+struct node *delete_from_list(struct node *list, int n)
+{
+  struct node *head;
+
+  if (list != NULL) {
+    if (list->value != n)
+      list->next = delete_from_list(list->next, n);
+    else {
+      head = list;
+      list = list->next;
+      free(head);
+    }
+  }
+
+  return list;
+}
+</PRE>
+
+<P>
+<B>9.</B> True. Right arrow selection is a shortcut for indirection followed by
+selection. Thus, <CODE>(&x)->a</CODE> is the same as <CODE>(*(&x)).a</CODE>,
+which is the same as <CODE>x.a</CODE>.
+</P>
+
+<P>
+<B>10.</B>
+</P>
+<PRE>
+void print_part(struct part *p)
+{
+  printf("Part number: %d\n", p->number);
+  printf("Part name: %s\n", p->name);
+  printf("Quantity on hand: %d\n", p->on_hand);
+}
+</PRE>
+
+<P>
+<B>11.</B>
+</P>
+<PRE>
+int count_occurrences(struct node *list, int n)
+{
+  int count = 0;
+
+  for (; list != NULL; list = list->next)
+    if (list->value == n)
+      count++;
+  return count;
+}
+</PRE>
+
+<P>
+<B>12.</B>
+</P>
+<PRE>
+struct node *find_last(struct node *list, int n)
+{
+  struct node *p = NULL;
+
+  for (; list != NULL; list = list->next)
+    if (list->value == n)
+      p = list;
+  return p;
+}
+</PRE>
+
+<P>
+<B>13.</B> The function cannot successfully insert nodes into an empty list or at the
+end of a list (because it does not check if it has reached the end). A correct version:
+</P>
+<PRE>
+struct node *insert_into_ordered_list(struct node *list, struct node *new_node)
+{
+  struct node *cur = list, *prev = NULL;
+
+  while (cur != NULL && cur->value <= new_node->value) {
+    prev = cur;
+    cur = cur->next;
+  }
+  if (prev == NULL) {      /* insert new node at beginning of list */
+    new_node->next = list;
+    return new_node;
+  } else {                 /* insert new node in middle or at end of list */
+    prev->next = new_node;
+    new_node->next = cur;
+    return list;
+  }
+}
+</PRE>
+
+<P>
+<B>14.</B>
+</P>
+<PRE>
+void delete_from_list(struct node **list, int n)
+{
+  struct node *cur, *prev;
+
+  for (cur = *list, prev = NULL;
+       cur != NULL && cur->value != n;
+       prev = cur, cur = cur->next)
+    ;
+
+  if (cur == NULL)
+    return;                   /* n was not found */
+  if (prev == NULL)
+    *list = (*list)->next;    /* n is in the first node */
+  else
+    prev->next = cur->next;   /* n is in some other node */
+  free(cur);
+}
+</PRE>
+
+<P>
+<B>16.</B>
+</P>
+<PRE>
+int sum(int (*f)(int), int start, int end)
+{
+  int i, total = 0;
+
+  for (i = start; i <= end; i++)
+    total += (*f)(i);
+  return total;
+}
+</PRE>
+
+<P>
+<B>18.</B>
+</P>
+<PRE>
+int compare_parts(const void *p, const void *q)
+{
+  return ((struct part *) q)->number - ((struct part *) p)->number;
+}
+</PRE>
+
+<P>
+<B>19.</B>
+</P>
+<PRE>
+void execute_command(const char *cmd)
+{
+  int i;
+
+  for (i = 0; i < (int) (sizeof(file_cmd)/sizeof(file_cmd[0])); i++)
+    if (strcmp(cmd, file_cmd[i].cmd_name) == 0) {
+      (*file_cmd[i].cmd_pointer)();   /* or file_cmd[i].cmd_pointer(); */
+      break;
+    }
+}
+</PRE>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

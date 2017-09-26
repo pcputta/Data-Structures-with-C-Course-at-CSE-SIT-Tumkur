@@ -1,0 +1,260 @@
+<HTML>
+<HEAD>
+  <META NAME="GENERATOR" CONTENT="Adobe PageMill 3.0 Win">
+  <META NAME="Keywords" CONTENT="C Programming: A Modern Approach, second edition, answers, solutions, Chapter 7, C programming, book, textbook, C book, C textbook, contents, table of contents">
+  <META NAME="Description" CONTENT="Answers to selected exercises in Chapter 7 of the book C Programming: A Modern Approach, Second Edition">
+  <TITLE>Answers to Selected Exercises in Chapter 7 of C Programming: A Modern Approach - Second Edition</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD>
+    &nbsp;<IMG SRC="../../../images/knking.GIF" WIDTH="235" HEIGHT="50"
+    ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="knking.com -- Programming Language Books and Training"></TD>
+    <TD>
+    <P ALIGN=RIGHT>&nbsp;<IMG SRC="../../../images/lang.GIF" WIDTH="259"
+    HEIGHT="50" ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="C C++ Java"></TD>
+  </TR>
+</TABLE><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0"
+HEIGHT="25">
+  <TR>
+    <TD BGCOLOR="#ff0000">
+    <P><CENTER><IMG SRC="../../../images/books.GIF" WIDTH="219" HEIGHT="25"
+    ALIGN="BOTTOM" BORDER="0" NATURALSIZEFLAG="3" ALT="Books by K. N. King"></CENTER></TD>
+  </TR>
+</TABLE><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" WIDTH="100%">
+  <TR>
+    <TD BGCOLOR="#ff9999" VALIGN="TOP" WIDTH="150">
+    <P><TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+      <TR>
+        <TD VALIGN="TOP" HEIGHT="75">
+        <script type="text/javascript"><!--
+google_ad_client = "pub-5289712330259941";
+google_ad_width = 120;
+google_ad_height = 60;
+google_ad_format = "120x60_as_rimg";
+google_cpa_choice = "CAAQ2eOZzgEaCD4zuVkdzt_CKI-293M";
+//--></script><script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+</TD>
+      </TR>
+      <TR>
+        <TD VALIGN="TOP">
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../index.html">Home</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../index.html">Books by
+        K. N. King</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../courses/index.html">Short
+        courses</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../recbooks/index.html">Recommended&nbsp;books</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../links/index.html">Recommended
+        links</A></FONT><BR>
+        <FONT SIZE="-1" FACE="Arial"><A HREF="../../../faq.html">FAQ</A></FONT></TD>
+      </TR>
+    </TABLE></P>
+
+    <P><script type="text/javascript"><!--
+google_ad_client = "pub-5289712330259941";
+google_alternate_color = "ff9999";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_ad_type = "text";
+google_ad_channel ="";
+google_color_border = "FF0000";
+google_color_bg = "FF9999";
+google_color_link = "0000FF";
+google_color_url = "000000";
+google_color_text = "000000";
+//--></script><script type="text/javascript"
+   src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script></TD>
+    <TD VALIGN="TOP" WIDTH="100%">
+
+    <P><CENTER><IMG SRC="../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+    ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER></P>
+
+<FONT FACE="Arial">
+<H3>Chapter 7</H3>
+</FONT>
+
+<FONT FACE="Arial">
+<H4>Answers to Selected Exercises</H4>
+</FONT>
+
+<P>
+<B>3.</B> [was #4] (b) is not legal.
+</P>
+
+<P>
+<B>4.</B> [was #6] (d) is illegal, since <CODE>printf</CODE> requires a string, not a character, as its first argument.
+</P>
+
+<P>
+<B>10.</B> [was #14] <CODE>unsigned</CODE> <CODE>int</CODE>, because the <CODE>(int)</CODE>
+cast applies only to <CODE>j</CODE>, not <CODE>j</CODE> <CODE>*</CODE> <CODE>k</CODE>.
+</P>
+
+<P>
+<B>12.</B> [was #16] The value of <CODE>i</CODE> is converted to <CODE>float</CODE> and added to <CODE>f</CODE>, then
+the result is converted to <CODE>double</CODE> and stored in <CODE>d</CODE>.
+</P>
+
+<P>
+<B>14.</B> [was #18] No. Converting <CODE>f</CODE> to <CODE>int</CODE> will fail if the
+value stored in <CODE>f</CODE> exceeds the largest value of type <CODE>int</CODE>.
+</P>
+
+<FONT FACE="Arial">
+<H4>Answers to Selected Programming Projects</H4>
+</FONT>
+
+<P>
+<B>1.</B> [was #2] <CODE>short</CODE> <CODE>int</CODE> values are usually stored in 16 bits, causing failure at 182.
+<CODE>int</CODE> and <CODE>long</CODE> <CODE>int</CODE> values are usually stored in 32 bits, with failure occurring
+at 46341.
+</P>
+
+<P>
+<B>2.</B> [was #8]
+</P>
+<PRE>
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  int i, n;
+  char ch;
+
+  printf(&quot;This program prints a table of squares.\n&quot;);
+  printf(&quot;Enter number of entries in table: &quot;);
+  scanf(&quot;%d&quot;, &amp;n);
+  ch = getchar();
+    /* dispose of new-line character following number of entries */
+    /* could simply be getchar(); */
+
+  for (i = 1; i &lt;= n; i++) {
+    printf(&quot;%10d%10d\n&quot;, i, i * i);
+    if (i % 24 == 0) {
+      printf(&quot;Press Enter to continue...&quot;);
+      ch = getchar();   /* or simply getchar(); */
+    }
+  }
+
+  return 0;
+}
+</PRE>
+
+<P>
+<B>5.</B> [was #10]
+</P>
+<PRE>
+#include &lt;ctype.h&gt;
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  int sum = 0;
+  char ch;
+
+  printf(&quot;Enter a word: &quot;);
+
+  while ((ch = getchar()) != '\n')
+    switch (toupper(ch)) {
+      case 'D': case 'G':
+        sum += 2; break;
+      case 'B': case 'C': case 'M': case 'P':
+        sum += 3; break;
+      case 'F': case 'H': case 'V': case 'W': case 'Y':
+        sum += 4; break;
+      case 'K':
+        sum += 5; break;
+      case 'J': case 'X':
+        sum += 8; break;
+      case 'Q': case 'Z':
+        sum += 10; break;
+      default:
+        sum++; break;
+    }
+
+  printf(&quot;Scrabble value: %d\n&quot;, sum);
+
+  return 0;
+}
+</PRE>
+
+<P>
+<B>6.</B> [was #12]
+</P>
+<PRE>
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  printf(&quot;Size of int: %d\n&quot;, (int) sizeof(int));
+  printf(&quot;Size of short: %d\n&quot;, (int) sizeof(short));
+  printf(&quot;Size of long: %d\n&quot;, (int) sizeof(long));
+  printf(&quot;Size of float: %d\n&quot;, (int) sizeof(float));
+  printf(&quot;Size of double: %d\n&quot;, (int) sizeof(double));
+  printf(&quot;Size of long double: %d\n&quot;, (int) sizeof(long double));
+
+  return 0;
+}
+</PRE>
+
+<P>Since the type of a <CODE>sizeof</CODE> expression may vary from one implementation to another, it's necessary
+in C89 to cast <CODE>sizeof</CODE> expressions to a known type before printing them. The sizes of
+the basic types are small numbers, so it's safe to cast them to <CODE>int</CODE>. (In general, however, it's
+best to cast <CODE>sizeof</CODE> expressions to <CODE>unsigned</CODE>
+<CODE>long</CODE> and print them using <CODE>%lu</CODE>.) In C99, we can avoid the cast
+by using the <CODE>%zu</CODE> conversion specification.</P>
+
+<HR>
+Copyright &#169 2008, 1996 W. W. Norton & Company, Inc. All rights reserved.
+
+</TD>
+  </TR>
+</TABLE></P>
+
+<P><CENTER><!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com/custom" target="_top">
+<table border="0" bgcolor="#ffffff">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0"
+alt="Google" align="middle"></img></a>
+</td>
+<td nowrap="nowrap">
+<input type="hidden" name="domains" value="knking.com"></input>
+<input type="text" name="q" size="31" maxlength="255" value=""></input>
+<input type="submit" name="sa" value="Search"></input>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" checked="checked"></input>
+<font size="-1" color="#000000" face="Arial">Web</font>
+</td>
+<td>
+<input type="radio" name="sitesearch" value="knking.com"></input>
+<font size="-1" color="#000000" face="Arial">knking.com</font>
+</td>
+</tr>
+</table>
+<input type="hidden" name="client" value="pub-5289712330259941"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="flav" value="0000"></input>
+<input type="hidden" name="sig" value="pwiK3cav5N6aTUMg"></input>
+<input type="hidden" name="cof"
+value="GALT:#008000;GL:1;DIV:#000000;VLC:FF0000;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;LH:50;LW:235;L:http://knking.com/images/knking.GIF;S:http://;FORID:1;"></input>
+<input type="hidden" name="hl" value="en"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google --></CENTER></P>
+
+</BODY>
+</HTML>

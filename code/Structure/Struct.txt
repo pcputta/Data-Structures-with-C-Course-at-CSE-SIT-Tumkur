@@ -1,0 +1,57 @@
+#define STRSIZ 10
+
+
+typedef struct {
+	char name[STRSIZ];
+	double diameter_m;	
+	int moons;	
+	double orbit_time_d,rotation_time_h;
+} planet_t;
+
+planet_t earth, jupiter;
+
+
+struct PLANET{
+	char name[STRSIZ];
+	double diameter;	
+	int moons;	
+	double orbit_time,rotation_time;
+};
+
+typedef struct PLANET planet_t;
+
+struct PLANET earth,jupiter;
+
+planet_t earth, jupiter;
+
+
+
+
+
+
+
+
+struct student;
+struct employee;
+struct Complex;
+
+Struct Point;
+Struct Location;
+
+Structure Type Definition
+SYNTAX: 
+typedef struct {
+	type1 id_list1;
+	type2 id_list2;
+	.
+    	.
+   	.
+	typen id_listn;
+ } struct_type;
+
+EXAMPLE: typedef struct { /* complex number structure */
+        double real_pt,
+       imag_pt;
+      } complex_t;
+
+

@@ -1,0 +1,137 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 15)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 15)</B>
+    </FONT>
+
+<P>
+<B>1.</B>
+</P>
+<P>
+(a) Other advantages of dividing a program into multiple source files:
+</P>
+<UL>
+<LI>Work can be divided among multiple programmers,
+with each programmer working independently on one or more files.
+<LI>Individual source files can be reviewed and tested independently
+of the others.
+<LI>Alternate versions of a source file can be created &mdash; to implement
+stubs or experiment with the relative efficiency of different
+algorithms, for example &mdash; and then linked to create alternate
+versions of the executable.
+<LI>Changes to individual files can be tracked at a more granular level,
+especially when used in conjunction with a version control system.
+</UL>
+
+<P>
+(b) Disadvantages of dividing a program into multiple source files:
+</P>
+<UL>
+<LI>The use of multiple source files in a project, especially one that
+involves multiple programmers, requires that design be conducted more
+carefully before starting implementation. Although not a disadvantage
+in and of itself, design changes after implementation has started
+must be communicated and applied consistently across the project.
+<LI>Multiple source files increase the possibility of similar functions
+(especially "helper" functions) being developed and maintained
+independently of one another rather than being reused.
+<LI>An emphasis on reuse, without adequately grouping related functions
+into larger files, can result in a proliferation of source files.
+</UL>
+
+<P>
+<B>3.</B> The use of <CODE>#include</CODE> <CODE>"</CODE><I>file</I><CODE>"</CODE>
+instead of <CODE>#include</CODE> <CODE><</CODE><I>file</I><CODE>></CODE> for a system header
+raises the possibility that the wrong header file could be included if an
+ordinary header file exists in the include path that happens to have the
+same name as a system header file.
+</P>
+
+<P>
+<B>4.</B>
+</P>
+<P>
+(a)
+</P>
+<PRE>
+Output if DEBUG is defined:
+Value of i: 1
+Value of j: 2
+Value of k: 3
+Value of i + j: 3
+Value of 2 * i + j - k: 1
+</PRE>
+<P>
+(b)
+</P>
+<PRE>
+Output if DEBUG is not defined:
+</PRE>
+<P>
+(c) When <CODE>DEBUG</CODE> is defined, <CODE>debug.h</CODE> causes invocations of the
+<CODE>PRINT_DEBUG</CODE> macro to be replaced with calls of <CODE>printf</CODE> containing debugging messages.
+When <CODE>DEBUG</CODE> is <I>not</I> defined, <CODE>debug.h</CODE> causes invocations of the
+<CODE>PRINT_DEBUG</CODE> macro to be replaced with nothing.
+</P>
+<P>
+(d) The <CODE>DEBUG</CODE> macro must be defined before <CODE>debug.h</CODE> is included in order for
+<CODE>PRINT_DEBUG</CODE> to have the desired effect. Since source files are processed
+from top to bottom, order is important. If the <CODE>DEBUG</CODE> macro is undefined
+when <CODE>debug.h</CODE> is processed, <CODE>PRINT_DEBUG</CODE>'s replacement list will be empty.
+</P>
+
+<P>
+<B>5.</B>
+</P>
+<PRE>
+demo: main.o f1.o f2.o
+        gcc -o demo main.o f1.o f2.o
+
+main.o: main.c f1.h
+        gcc -c main.c
+
+f1.o: f1.c f1.h f2.h
+        gcc -c f1.c
+
+f2.o: f2.c f1.h f2.h
+        gcc -c f2.c
+</PRE>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

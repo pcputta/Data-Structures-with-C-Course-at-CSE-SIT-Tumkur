@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 6)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+	ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 6)</B>
+    </FONT>
+
+<P>
+<B>1.</B> <CODE>1 2 4 8 16 32 64 128</CODE>
+</P>
+
+<P>
+<B>2.</B> <CODE>9384 938 93 9</CODE>
+</P>
+
+<P>
+<B>3.</B> <CODE>5 4 3 2</CODE>
+</P>
+
+<P>
+<B>5.</B> (c) is not equivalent to (a) and (b), since the condition is tested at the end of the loop.
+If <CODE>i</CODE> is greater than or equal to 10 when the loop is entered, the body of (c) is executed,
+but the bodies of (a) and (b) are not.
+</P>
+
+<P>
+<B>6.</B>
+</P>
+<PRE>
+for (i = 1; i <= 128; i *= 2)
+  printf("%d ", i);
+</PRE>
+
+<P>
+<B>7.</B>
+</P>
+<PRE>
+for (i = 9384; i > 0; i /= 10)
+  printf("%d ", i);
+</PRE>
+
+<P>
+<B>8.</B> <CODE>10 5 3 2 1 1 1</CODE> ... (the sequence of <CODE>1</CODE>'s repeats forever)
+</P>
+
+<P>
+<B>9.</B>
+</P>
+<PRE>
+i = 10;
+while (i >= 1) {
+  printf("%d ", i++);
+  i /= 2;
+}
+</PRE>
+
+<P>
+<B>11.</B> <CODE>20</CODE>
+</P>
+
+<P>
+<B>13.</B>
+</P>
+<PRE>
+for (n = 0; m > 0; m /= 2, n++)
+  /* empty loop body */ ;
+</PRE>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

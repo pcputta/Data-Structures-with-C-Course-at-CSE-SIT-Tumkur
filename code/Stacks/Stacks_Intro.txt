@@ -1,0 +1,41 @@
+STACK Data Structure
+
+
+Data Structure
+
+Good Algorithm + Good Data Structure = Good Program
+
+Abstract Data Type (ADT)
+
+Criterion
+	Relationship between successive elements
+	Linear DS
+		Array, Stacks, Queues, Linear Lists
+	Non Linear DS
+		Trees, Graphs
+		
+		
+	Primitive vs User Defined
+	
+	Primitive DS
+		int, float....
+		Array, structures......
+	User Defined DS
+		Stack, Queue, Linked Lists Trees Graphs.....
+	
+	Memory Allocation
+	Static DS
+		Array, Stack & Queue representation using Arrays
+	Dynamic DS
+		Linked Lists
+	
+	
+STACK
+	LIFO - Last In First Out
+	
+
+	OPerations on the Stack
+		Push	insert an element
+		Pop		delete an element
+		Display	displays all elements
+		Peek	fetch the top most element in the stack

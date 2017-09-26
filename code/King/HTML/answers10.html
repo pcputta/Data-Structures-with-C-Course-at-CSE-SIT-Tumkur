@@ -1,0 +1,86 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 10)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 10)</B>
+    </FONT>
+
+<P>
+<B>2.</B>
+</P>
+<P>
+(a) <CODE>b</CODE>, <CODE>c</CODE>, and <CODE>d</CODE> are visible.
+Local <CODE>b</CODE> hides external <CODE>b</CODE>.<BR>
+(b) <CODE>a</CODE>, <CODE>b</CODE>, and <CODE>c</CODE> are visible.
+Local <CODE>c</CODE> hides external <CODE>c</CODE>.<BR>
+(c) <CODE>a</CODE>, <CODE>b</CODE>, <CODE>c</CODE>, and <CODE>d</CODE> are visible.
+Block <CODE>a</CODE> hides parameter <CODE>a</CODE>.<BR>
+(d) <CODE>b</CODE>, <CODE>c</CODE>, and <CODE>d</CODE> are visible.
+Local <CODE>c</CODE> hides external <CODE>c</CODE>.
+</P>
+
+<P>
+<B>3.</B> The program could contain an external variable named <CODE>i</CODE>, a local variable or
+parameter named <CODE>i</CODE>, and an unlimited number of blocks containing a declaration of
+<CODE>i</CODE>:
+</P>
+<PRE>
+int i;   /* external variable */
+
+int main(int i1, char* argv[])   /* argc parameter */
+{
+  int i2;    /* local variable (only one of i1 and i2 can be 'i') */
+
+  {
+    int i;   /* first block variable */
+  }
+
+  {
+    int i;   /* second block variable */
+  }
+
+  {
+    int i;   /* and so forth... */
+  }
+
+  return 0;
+}
+</PRE>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

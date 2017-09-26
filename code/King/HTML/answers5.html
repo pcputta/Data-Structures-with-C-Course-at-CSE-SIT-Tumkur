@@ -1,0 +1,108 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 5)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+	ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 5)</B>
+    </FONT>
+
+<P>
+<B>1.</B>
+</P>
+<P>
+(a) <CODE>1</CODE><BR>
+(b) <CODE>1</CODE><BR>
+(c) <CODE>1</CODE><BR>
+(d) <CODE>0</CODE>
+</P>
+
+<P>
+<B>3.</B>
+</P>
+<P>
+(a) <CODE>1 3 4 5</CODE><BR>
+(b) <CODE>0 7 8 9</CODE><BR>
+(c) <CODE>1 8 8 9</CODE><BR>
+(d) <CODE>1 2 1 1</CODE>
+</P>
+
+<P>
+<B>5.</B> Yes, the statement is legal. The condition being tested is equivalent to
+<CODE>(n</CODE> <CODE>>=</CODE> <CODE>1)</CODE> <CODE><=</CODE> <CODE>10</CODE>.
+When the condition is evaluated, the value of <CODE>n</CODE> <CODE>>=</CODE> <CODE>1</CODE> is
+0 or 1. Either value is less than 10, so <CODE>printf</CODE> is called and the message
+<CODE>"n</CODE> <CODE>is</CODE> <CODE>between</CODE> <CODE>1</CODE> <CODE>and</CODE> <CODE>10"</CODE>
+is printed, regardless of the value of <CODE>n</CODE>.
+</P>
+
+<P>
+<B>7.</B> If <CODE>i</CODE> has the value 17, the statement prints <CODE>17</CODE>.
+If <CODE>i</CODE> has the value &ndash;17, the statement prints <CODE>17</CODE>.
+(In general, the statement prints the absolute value of <CODE>i</CODE>.)
+</P>
+
+<P>
+<B>8.</B> <CODE>teenager</CODE> <CODE>=</CODE> <CODE>(age</CODE> <CODE>>=</CODE> <CODE>13)</CODE>
+<CODE>&&</CODE> <CODE>(age</CODE> <CODE><=</CODE> <CODE>19);</CODE>
+</P>
+
+<P>
+<B>9.</B> Yes
+</P>
+
+<P>
+<B>11.</B>
+</P>
+<PRE>
+switch (area_code) {
+  case 229:
+    printf("Albany"); break;
+  case 404: case 470: case 678: case 770:
+    printf("Atlanta"); break;
+  case 478:
+    printf("Macon"); break;
+  case 706: case 762:
+    printf("Columbus"); break;
+  case 912:
+    printf("Savannah"); break;
+  default:
+    printf("Area code not recognized");
+}
+</PRE>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

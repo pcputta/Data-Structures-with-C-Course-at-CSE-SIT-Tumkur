@@ -1,0 +1,519 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 16)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 16)</B>
+    </FONT>
+
+<P>
+<B>1.</B> The declarations are legal on an individual basis and together. The <CODE>x</CODE>
+and <CODE>y</CODE> members of each structure are in a separate name space that does
+not conflict with the <CODE>x</CODE> and <CODE>y</CODE> variables being declared.
+</P>
+
+<P>
+<B>3.</B>
+</P>
+
+<P>
+(a)
+</P>
+<PRE>
+struct complex {
+  double real, imaginary;
+};
+</PRE>
+
+<P>
+(b) <CODE>struct complex c1, c2, c3;</CODE>
+</P>
+
+<P>
+(c)
+</P>
+<PRE>
+struct complex make_complex(double real, double imaginary)
+{
+  struct complex c;
+
+  c.real = real;
+  c.imaginary = imaginary;
+  return c;
+}
+</PRE>
+
+<P>
+(d)
+</P>
+<PRE>
+struct complex add_complex(struct complex c1, struct complex c2)
+{
+  struct complex c3;
+
+  c3.real = c1.real + c2.real;
+  c3.imaginary = c1.imaginary + c2.imaginary;
+  return c3;
+}
+</PRE>
+
+<P>
+<B>5.</B>
+</P>
+<P>
+(a)
+</P>
+<PRE>
+int day_of_year(struct date d)
+{
+  int day, month, days[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+  /* leap year adjustment */
+  if ((d.year % 4 == 0) && (d.year % 100 != 0 || d.year % 400 == 0))
+    days[2]++;
+
+  day = d.day;
+  for (month = 1; month < d.month; month++)
+    day += days[month];
+  return day;
+}
+</PRE>
+
+<P>
+(b)
+</P>
+<PRE>
+int compare_dates(struct date d1, struct date d2)
+{
+  if (d1.year != d2.year)
+    return d1.year < d2.year ? -1 : 1;
+  if (d1.month != d2.month)
+    return d1.month < d2.month ? -1 : 1;
+  if (d1.day != d2.day)
+    return d1.day < d2.day ? -1 : 1;
+
+  return 0;
+}
+</PRE>
+
+<P>
+<B>6.</B>
+</P>
+<PRE>
+struct time split_time(long total_seconds)
+{
+  struct time t;
+
+  t.hours = total_seconds / 3600;
+  total_seconds %= 3600;
+  t.minutes = total_seconds / 60;
+  t.seconds = total_seconds % 60;
+  return t;
+}
+</PRE>
+
+<P>
+<B>7.</B>
+</P>
+
+<P>
+(a)
+</P>
+<PRE>
+struct fraction reduce(struct fraction f)
+{
+  int m, n, remainder;
+  struct fraction r;
+
+  /* Compute GCD */
+  m = f.numerator;
+  n = f.denominator;
+  while (n != 0) {
+    remainder = m % n;
+    m = n;
+    n = remainder;
+  }
+
+  /* Divide both numerator and denominator by GCD */
+  if (m != 0) {
+    r.numerator = f.numerator / m;
+    r.denominator = f.denominator / m;
+  }
+
+  /* Ensure that denominator is positive */
+  if (r.denominator < 0) {
+    r.numerator *= -1;
+    r.denominator *= -1;
+  }
+
+  return r;
+}
+</PRE>
+
+<P>
+(b)
+</P>
+<PRE>
+struct fraction add(struct fraction f1, struct fraction f2)
+{
+  struct fraction f;
+
+  f.numerator = f1.numerator * f2.denominator +
+                f2.numerator * f1.denominator;
+  f.denominator = f1.denominator * f2.denominator;
+  return reduce(f);
+}
+</PRE>
+
+<P>
+(c)
+</P>
+<PRE>
+struct fraction subtract(struct fraction f1, struct fraction f2)
+{
+  struct fraction f;
+
+  f.numerator = f1.numerator * f2.denominator -
+                f2.numerator * f1.denominator;
+  f.denominator = f1.denominator * f2.denominator;
+  return reduce(f);
+}
+</PRE>
+
+<P>
+(d)
+</P>
+<PRE>
+struct fraction multiply(struct fraction f1, struct fraction f2)
+{
+  struct fraction f;
+
+  f.numerator = f1.numerator * f2.numerator;
+  f.denominator = f1.denominator * f2.denominator;
+  return reduce(f);
+}
+</PRE>
+
+<P>
+(e)
+</P>
+<PRE>
+struct fraction divide(struct fraction f1, struct fraction f2)
+{
+  struct fraction f;
+
+  f.numerator = f1.numerator * f2.denominator;
+  f.denominator = f1.denominator * f2.numerator;
+  return reduce(f);
+}
+</PRE>
+
+<P>
+<B>8.</B>
+</P>
+
+<P>
+(a) <CODE>const struct color MAGENTA = {255, 0, 255};</CODE><BR>
+(b) <CODE>const struct color MAGENTA = {.red = 255, .blue = 255};</CODE>
+</P>
+
+<P>
+<B>9.</B>
+</P>
+
+<P>
+(a)
+</P>
+<PRE>
+#define MIN(x,y) ((x) < (y) ? (x) : (y))
+#define MAX(x,y) ((x) > (y) ? (x) : (y))
+#define NORM(x,min,max) MIN(MAX(x, min), max)
+
+struct color make_color(int red, int green, int blue)
+{
+  struct color c;
+
+  c.red = NORM(red, 0, 255);
+  c.green = NORM(green, 0, 255);
+  c.blue = NORM(blue, 0, 255);
+  return c;
+}
+</PRE>
+
+<P>
+(b)
+</P>
+<PRE>
+int getRed(struct color c)
+{
+  return c.red;
+}
+</PRE>
+
+<P>
+(c)
+</P>
+<PRE>
+bool equal_color(struct color color1, struct color color2)
+{
+  return color1.red == color2.red &&
+         color1.green == color2.green &&
+         color1.blue == color2.blue;
+}
+</PRE>
+
+<P>
+(d)
+</P>
+<PRE>
+#define MIN3(x) (0 < (x) && (x) < 3 ? 3 : (x))
+#define BRIGHT(x) (MIN3(x) / 0.7)
+
+struct color brighter(struct color c)
+{
+  if (c.red == 0 && c.green == 0 && c.blue == 0)
+    return make_color(3, 3, 3);
+
+  return make_color(BRIGHT(c.red), BRIGHT(c.green), BRIGHT(c.blue));
+}
+</PRE>
+
+<P>
+(e)
+</P>
+<PRE>
+struct color darker(struct color c)
+{
+  return make_color(c.red * 0.7, c.green * 0.7, c.blue * 0.7);
+}
+</PRE>
+
+<P>
+<B>10.</B>
+</P>
+
+<P>
+(a)
+</P>
+<PRE>
+int area(struct rectangle r)
+{
+  return (r.lower_right.x - r.upper_left.x) *
+         (r.lower_right.y - r.upper_left.y);
+}
+</PRE>
+
+<P>
+(b)
+</P>
+<PRE>
+struct point center(struct rectangle r)
+{
+  struct point c;
+
+  c.x = (r.upper_left.x + r.lower_right.x) / 2;
+  c.y = (r.upper_left.y + r.lower_right.y) / 2;
+  return c;
+}
+</PRE>
+
+<P>
+(c)
+</P>
+<PRE>
+struct rectangle move(struct rectangle r, int x, int y)
+{
+  struct rectangle r1 = r;
+
+  r1.upper_left.x += x;
+  r1.upper_left.y += y;
+  r1.lower_right.x += x;
+  r1.lower_right.y += y;
+  return r1;
+}
+</PRE>
+
+<P>
+(d)
+</P>
+<PRE>
+bool inside(struct rectangle r, struct point p)
+{
+  return r.upper_left.x <= p.x && p.x <= r.lower_right.x &&
+         r.upper_left.y <= p.y && p.y <= r.lower_right.y;
+}
+</PRE>
+
+<P>
+<B>12.</B> 16 bytes
+</P>
+
+<P>
+<B>13.</B>
+</P>
+
+<P>
+(a) Legal<BR>
+(b) Legal<BR>
+(c) Illegal; <CODE>s.u.rectangle.height = 25;</CODE><BR>
+(d) Legal<BR>
+(e) Illegal; <CODE>s.u.circle.radius = 5;</CODE><BR>
+(f) Illegal; <CODE>s.u.circle.radius = 5;</CODE>
+</P>
+
+<P>
+<B>16.</B>
+</P>
+
+<P>
+(a) True<BR>
+(b) False<BR>
+(c) True<BR>
+(d) False<BR>
+(e) True
+</P>
+
+<P>
+<B>18.</B>
+</P>
+
+<P>
+(a)
+</P>
+<PRE>
+typedef enum {EMPTY, PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING} Piece;
+typedef enum {BLACK, WHITE} Color;
+</PRE>
+
+<P>
+(b)
+</P>
+<PRE>
+typedef struct {
+  Piece piece;
+  Color color;
+} Square;
+</PRE>
+
+<P>
+(c) <CODE>Square board[8][8];</CODE>
+</P>
+
+<P>
+(d)
+</P>
+<PRE>
+Square board[8][8] = {
+  {{ROOK,  BLACK}, {KNIGHT, BLACK}, {BISHOP, BLACK}, {QUEEN, BLACK},
+   {KING,  BLACK}, {BISHOP, BLACK}, {KNIGHT, BLACK}, {ROOK,  BLACK}},
+  {{PAWN,  BLACK}, {PAWN,   BLACK}, {PAWN,   BLACK}, {PAWN,  BLACK},
+   {PAWN,  BLACK}, {PAWN,   BLACK}, {PAWN,   BLACK}, {PAWN,  BLACK}},
+  {{EMPTY, BLACK}, {EMPTY,  BLACK}, {EMPTY,  BLACK}, {EMPTY, BLACK},
+   {EMPTY, BLACK}, {EMPTY,  BLACK}, {EMPTY,  BLACK}, {EMPTY, BLACK}},
+  {{EMPTY, BLACK}, {EMPTY,  BLACK}, {EMPTY,  BLACK}, {EMPTY, BLACK},
+   {EMPTY, BLACK}, {EMPTY,  BLACK}, {EMPTY,  BLACK}, {EMPTY, BLACK}},
+  {{EMPTY, BLACK}, {EMPTY,  BLACK}, {EMPTY,  BLACK}, {EMPTY, BLACK},
+   {EMPTY, BLACK}, {EMPTY,  BLACK}, {EMPTY,  BLACK}, {EMPTY, BLACK}},
+  {{EMPTY, BLACK}, {EMPTY,  BLACK}, {EMPTY,  BLACK}, {EMPTY, BLACK},
+   {EMPTY, BLACK}, {EMPTY,  BLACK}, {EMPTY,  BLACK}, {EMPTY, BLACK}},
+  {{PAWN,  WHITE}, {PAWN,   WHITE}, {PAWN,   WHITE}, {PAWN,  WHITE},
+   {PAWN,  WHITE}, {PAWN,   WHITE}, {PAWN,   WHITE}, {PAWN,  WHITE}},
+  {{ROOK,  WHITE}, {KNIGHT, WHITE}, {BISHOP, WHITE}, {QUEEN, WHITE},
+   {KING,  WHITE}, {BISHOP, WHITE}, {KNIGHT, WHITE}, {ROOK,  WHITE}}
+};
+</PRE>
+
+<P>
+<B>19.</B>
+</P>
+<PRE>
+enum machine_type {EM, SS};
+struct pinball_machine {
+  char name[40+1];
+  int year;
+  enum machine_type type;
+  int players;
+};
+</PRE>
+
+<P>
+<B>20.</B>
+</P>
+<PRE>
+switch (direction) {
+  case NORTH: y--; break;
+  case SOUTH: y++; break;
+  case EAST:  x++; break;
+  case WEST:  x--; break;
+}
+</PRE>
+
+<P>
+<B>21.</B>
+</P>
+
+<P>
+(a) <CODE>NUL</CODE> = 0, <CODE>SOH</CODE> = 1, <CODE>STX</CODE> = 2, <CODE>ETX</CODE> = 3<BR>
+(b) <CODE>VT</CODE> = 11, <CODE>FF</CODE> = 12, <CODE>CR</CODE> = 13<BR>
+(c) <CODE>SO</CODE> = 14, <CODE>SI</CODE> = 15, <CODE>DLE</CODE> = 16, <CODE>CAN</CODE> = 24, <CODE>EM</CODE> = 25<BR>
+(d) <CODE>ENQ</CODE> = 45, <CODE>ACK</CODE> = 46, <CODE>BEL</CODE> = 47, <CODE>LF</CODE> = 37, <CODE>ETB</CODE> = 38, <CODE>ESC</CODE> = 39
+</P>
+
+<P>
+<B>22.</B>
+</P>
+
+<P>
+(a) <CODE>const int piece_value[] = {200, 9, 5, 3, 3, 1};</CODE>
+</P>
+
+<P>
+(b)
+</P>
+<PRE>
+const int piece_value[] = {
+  [KING] = 200,
+  [QUEEN] = 9,
+  [ROOK] = 5,
+  [BISHOP] = 3,
+  [KNIGHT] = 3,
+  [PAWN] = 1
+};
+</PRE>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

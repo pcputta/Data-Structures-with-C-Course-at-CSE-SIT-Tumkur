@@ -1,0 +1,233 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 20)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 20)</B>
+    </FONT>
+
+<P>
+<B>1.</B>
+</P>
+<P>
+(a) 0<BR>
+(b) 0<BR>
+(c) 1<BR>
+(d) 15
+</P>
+
+<P>
+<B>3.</B> The macro uses the exclusive-<I>or</I> operator to swap the values of its two arguments, taking advantage of the
+fact that (<CODE>a</CODE> XOR <CODE>b</CODE>) XOR <CODE>b</CODE> is equal to <CODE>a</CODE>. Here's how the process works:
+</P>
+<P>
+<CODE>x</CODE> is assigned <CODE>x</CODE> XOR <CODE>y</CODE><BR>
+<CODE>y</CODE> is assigned <CODE>y</CODE> XOR (<CODE>x</CODE> XOR <CODE>y</CODE>), which is <CODE>x</CODE><BR>
+<CODE>x</CODE> is assigned (<CODE>x</CODE> XOR <CODE>y</CODE>) XOR <CODE>x</CODE>, which is <CODE>y</CODE>
+</P>
+
+<P>
+<B>5.</B>
+</P>
+<PRE>
+#define GET_RED(c)   ((unsigned char) ((c) & 0xff))
+#define GET_GREEN(c) ((unsigned char) (((c) >> 8) & 0xff))
+#define GET_BLUE(c)  ((unsigned char) (((c) >> 16) & 0xff))
+</PRE>
+
+<P>
+<B>7.</B>
+</P>
+<PRE>
+#define HIGH_BIT (~(~0U >> 1))
+#define LOW_BIT  1
+
+unsigned int rotate_left(unsigned int i, int n)
+{
+  while (n-- > 0)
+    i = (i << 1) | (i & HIGH_BIT ? LOW_BIT : 0);
+  return i;
+}
+
+unsigned int rotate_right(unsigned int i, int n)
+{
+  while (n-- > 0)
+    i = (i >> 1) | (i & LOW_BIT ? HIGH_BIT : 0);
+  return i;
+}
+</PRE>
+
+<P>
+<B>9.</B>
+</P>
+
+<P>
+(a)
+</P>
+<PRE>
+int count_ones(unsigned char ch)
+{
+  int ones = 0;
+  while (ch != 0) {
+    if (ch & 1)
+      ones++;
+    ch >>= 1;
+  }
+  return ones;
+}
+</PRE>
+
+<P>
+(b)
+</P>
+<PRE>
+int count_ones(unsigned char ch)
+{
+  ch = (ch & 0x55) + ((ch >> 1) & 0x55);
+  ch = (ch & 0x33) + ((ch >> 2) & 0x33);
+  ch = (ch & 0x0F) + ((ch >> 4) & 0x0F);
+  return ch;
+}
+</PRE>
+
+<P>
+<B>10.</B>
+</P>
+<PRE>
+unsigned int reverse_bits(unsigned int n)
+{
+  unsigned int i, r = 0;
+
+  for (i = 1; i > 0; i <<= 1, n >>= 1)
+    r = (r << 1) | (n & 1);
+  return r;
+}
+</PRE>
+
+<P>
+<B>11.</B> Since the equality operator has higher precedence
+than bitwise <I>and</I>, the statement behaves as though it had been written as follows:
+</P>
+<PRE>
+if (key_code & ((SHIFT_BIT | CTRL_BIT | ALT_BIT) == 0))
+  printf("No modifier keys pressed\n");
+</PRE>
+<P>
+The expression to the right of the ampersand is always zero, causing the
+test to fail. The solution is to ensure that the bitwise <I>and</I> is performed first:
+</P>
+<PRE>
+if ((key_code & (SHIFT_BIT | CTRL_BIT | ALT_BIT)) == 0)
+  printf("No modifier keys pressed\n");
+</PRE>
+
+<P>
+<B>12.</B> The addition operator has higher precedence than the
+bitwise shift operators, causing the function to behave as though it had been written as follows:
+</P>
+<PRE>
+unsigned short create_short(unsigned char high_byte,
+                            unsigned char low_byte)
+{
+  return high_byte << (8 + low_byte);
+}
+</PRE>
+<P>
+The solution is to ensure that the bitwise shift is performed first:
+</P>
+<PRE>
+unsigned short create_short(unsigned char high_byte,
+                            unsigned char low_byte)
+{
+  return (high_byte << 8) + low_byte;
+}
+</PRE>
+
+<P>
+<B>13.</B> The statement clears the rightmost 1 bit in the binary representation of <CODE>n</CODE>.
+Because of borrowing, subtracting 1 from <CODE>n</CODE> "flips" its rightmost 1 bit to a zero, and all 0 bits
+to its right to 1 bits. The net effect of then <I>and</I>-ing <CODE>n</CODE> with <CODE>n</CODE> &ndash; 1 is to clear
+<CODE>n</CODE>'s rightmost 1 bit. Here's an example:
+</P>
+<PRE>
+n          : 1111111100010000 (0xFF10)
+    (n - 1): 1111111100001111 (0xFF0F)
+n & (n - 1): 1111111100000000 (0xFF00)
+</PRE>
+
+<P>
+<B>15.</B>
+</P>
+<P>
+(a) The behavior is unpredictable because an <CODE>int</CODE> bit-field may be treated as signed or unsigned.
+If it is unsigned, the possible values for <CODE>s.flag</CODE> are 0 and 1. If it is signed, the
+high-order bit is treated as a sign bit and the possible values of <CODE>s.flag</CODE> are 0
+and &ndash;1 (assuming a two's-complement representation of negative numbers). Assigning 1 to <CODE>s.flag</CODE> causes an overflow, giving <CODE>s.flag</CODE>
+the value &ndash;1.
+</P>
+
+<P>
+(b) To avoid the problem, the <CODE>flag</CODE> bit-field should be declared to have type <CODE>unsigned</CODE> <CODE>int</CODE>.
+</P>
+
+<P>
+<B>16.</B>
+</P>
+<PRE>
+typedef unsigned char BYTE;
+typedef unsigned short WORD;
+typedef unsigned long DWORD;
+
+union {
+  struct {
+    DWORD eax, ebx, ecx, edx;
+  } dword;
+  struct {
+    WORD ax, eax_slack, bx, ebx_slack,
+         cx, ecx_slack, dx, edx_slack;
+  } word;
+  struct {
+    BYTE al, ah; WORD eax_slack;
+    BYTE bl, bh; WORD ebx_slack;
+    BYTE cl, ch; WORD ecx_slack;
+    BYTE dl, dh; WORD edx_slack;
+  } byte;
+} regs;
+</PRE>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

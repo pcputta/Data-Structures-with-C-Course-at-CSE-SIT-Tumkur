@@ -1,0 +1,12 @@
+typedef struct 
+{
+    short level ;
+    short token ;
+    short bsize ;
+    char fd ;
+    unsigned flags ;
+    unsigned char hold ;
+    unsigned char *buffer ;
+    unsigned char * curp ;
+    unsigned istemp; 
+}FILE ;

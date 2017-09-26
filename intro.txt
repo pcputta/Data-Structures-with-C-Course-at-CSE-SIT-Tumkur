@@ -1,0 +1,27 @@
+What is Data
+    Collection of facts
+    
+What is Information
+    Processed Data
+    
+What is Programming
+    sequence of instructions
+    
+Structured Approach
+    Top - Down Design
+    
+    
+Good DS + Good Algo = Good Programs
+
+
+Data Structures
+    Data structures is the study of how data can be organized, retrieved and modified effectively.
+It provides us with reusable constructs (building blocks) to model data.
+
+Data Structures
+    primitive vs non  primitive (basic, derived and user defined)
+    Linear vs Non linear
+    Static vs Dynamic
+    
+Abstract Data Type
+    Data Collection with operations defined on it

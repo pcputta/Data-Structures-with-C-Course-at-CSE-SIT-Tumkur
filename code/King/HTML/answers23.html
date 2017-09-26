@@ -1,0 +1,217 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 23)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 23)</B>
+    </FONT>
+
+<P>
+<B>2.</B>
+</P>
+<PRE>
+double evaluate_polynomial(double a[], int n, double x)
+{
+  double value = a[n];
+
+  while (n > 0)
+    value = fma(value, x, a[--n]);
+  return value;
+}
+</PRE>
+
+<P>
+<B>3.</B> The answer depends on the compiler. In GCC 4, the use of fused multiply-add instructions is
+enabled via the <CODE>-mfused-madd</CODE> compiler option and disabled via the
+<CODE>-mno-fused-madd</CODE> option. By default, the <CODE>-mfused-madd</CODE> option is in effect, so
+fused multiply-add instructions will be used if supported by the hardware.
+</P>
+
+<P>
+<B>4.</B>
+</P>
+<PRE>
+bool valid_identifier(const char* s)
+{
+  if (!isalpha(*s) && *s != '_')
+    return false;
+  while (*++s)
+    if (!isalnum(*s) && *s != '_')
+      return false;
+  return true;
+}
+</PRE>
+
+<P>
+<B>5.</B>
+</P>
+<PRE>
+long hex_value(const char* s)
+{
+  static const char digits[] = "0123456789abcdef";
+  int value = 0;
+  const char *p;
+
+  for (; *s != '\0'; s++) {
+    if (!isxdigit(*s))
+      return -1;
+    p = strchr(digits, tolower(*s));
+    value = value * 16 + (p - digits);
+  }
+  return value;
+}
+</PRE>
+
+<P>
+<B>7.</B> All occurrences of a character within a string can be located in reverse
+order if we are allowed to modify the string after each call to <CODE>strrchr</CODE>:
+</P>
+<PRE>
+char *p, str[] = "Form follows function.";
+
+p = strrchr(str, 'f');   /* finds 'f' in "function" */
+*p = '\0';
+p = strrchr(str, 'f');   /* finds 'f' in "follows" */
+</PRE>
+
+<P>
+<B>9.</B> <CODE>if (strchr("abc", ch))</CODE> ...
+</P>
+
+<P>
+<B>12.</B>
+</P>
+
+<P>
+(a)
+</P>
+<PRE>
+char *strdup(const char *s)
+{
+  char *p = malloc(strlen(s) + 1);
+
+  if (p != NULL)
+    strcpy(p, s);
+  return p;
+}
+</PRE>
+
+<P>
+(b)
+</P>
+<PRE>
+int stricmp(const char *s1, const char *s2)
+{
+  int ch1, ch2;
+
+  for (;;) {
+    ch1 = tolower(*s1);
+    ch2 = tolower(*s2);
+    if (ch1 != ch2)
+      return ch1 - ch2;
+    if (ch1 == '\0')
+      return 0;
+    s1++;
+    s2++;
+  }
+}
+</PRE>
+
+<P>
+(c)
+</P>
+<PRE>
+char *strlwr(char *s)
+{
+  char *p;
+
+  for (p = s; *p; p++)
+    *p = tolower(*p);
+  return s;
+}
+</PRE>
+
+<P>
+(d)
+</P>
+<PRE>
+char *strrev(char *s)
+{
+  char ch, *left = s, *right = s + strlen(s) - 1;
+
+  for (; left < right; left++, right--) {
+    ch = *left;
+    *left = *right;
+    *right = ch;
+  }
+  return s;
+}
+</PRE>
+
+<P>
+(e)
+</P>
+<PRE>
+char *strset(char *s, char ch)
+{
+  char *p = s;
+
+  while (*p)
+    *p++ = ch;
+  return s;
+}
+</PRE>
+
+<P>
+<B>13.</B>
+</P>
+<PRE>
+int count_words(char *sentence)
+{
+  if (strtok(sentence, " \t\n")) {
+    int count = 1;
+    while (strtok(NULL, " \t\n"))
+      count++;
+    return count;
+  }
+
+  return 0;
+}
+</PRE>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

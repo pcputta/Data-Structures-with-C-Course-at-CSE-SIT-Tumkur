@@ -1,0 +1,24 @@
+structure
+    user defined datatype
+    heterogeneous data collection
+    
+    
+Syntax
+
+    struct tagname                          typedef struct
+    {                                       {
+        datatype member1;                       datatype member1;
+        datatype member2;                       datatype member2;
+        ........                                ....
+    };                                      }TAG_NAME;
+    
+    struct PointType                        typedef struct
+    {                                       {
+        int xCor;                               int xCor;
+        int yCor;                               int yCor;
+    };                                      }POINT_TYPE;
+    
+    struct PointType p1;                    POINT_TYPE p1;
+    
+    p1.xCor = 3;
+    p1.yCor++;

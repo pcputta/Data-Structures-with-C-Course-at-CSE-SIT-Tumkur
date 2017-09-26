@@ -1,0 +1,487 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.6.29)  3 SEP 2017 00:04
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**Chapter1.tex
+(./Chapter1.tex
+LaTeX2e <2011/06/27>
+Babel <3.9h> and hyphenation patterns for 2 languages loaded.
+! Undefined control sequence.
+l.1 \chapter
+            {File Operations}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \chapter{F
+              ile Operations}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no F in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no s in font nullfont!
+! Undefined control sequence.
+l.2 \section
+            *{Question}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no * in font nullfont!
+Missing character: There is no Q in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 3.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
+File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
+)
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 20.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 20.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 20.
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--20
+[]
+ []
+
+
+Overfull \hbox (24.8098pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 Write
+ []
+
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 a
+ []
+
+
+Overfull \hbox (7.21997pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 C
+ []
+
+
+Overfull \hbox (18.88977pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 pro-
+ []
+
+
+Overfull \hbox (23.33972pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 gram
+ []
+
+
+Overfull \hbox (8.8899pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 to
+ []
+
+
+Overfull \hbox (16.65979pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 cre-
+ []
+
+
+Overfull \hbox (13.32996pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 ate
+ []
+
+
+Overfull \hbox (5.0pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 a
+ []
+
+
+Overfull \hbox (12.7699pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 se-
+ []
+
+
+Overfull \hbox (26.65991pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 quen-
+ []
+
+
+Overfull \hbox (14.98987pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 tial
+ []
+
+
+Overfull \hbox (14.43994pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 file
+ []
+
+
+Overfull \hbox (21.09985pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 with
+ []
+
+
+Overfull \hbox (8.32996pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 at
+ []
+
+
+Overfull \hbox (21.09985pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 least
+ []
+
+
+Overfull \hbox (16.66992pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 five
+ []
+
+
+Overfull \hbox (35.82959pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 records,
+ []
+
+
+Overfull \hbox (20.54993pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 each
+ []
+
+
+Overfull \hbox (28.88965pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 record
+ []
+
+
+Overfull \hbox (19.99988pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 hav-
+ []
+
+
+Overfull \hbox (14.99988pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 ing
+ []
+
+
+Overfull \hbox (14.43994pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 the
+ []
+
+
+Overfull \hbox (25.53967pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 struc-
+ []
+
+
+Overfull \hbox (18.32983pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 ture
+ []
+
+
+Overfull \hbox (30.5498pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 shown
+ []
+
+
+Overfull \hbox (14.43994pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 be-
+ []
+
+
+Overfull \hbox (19.71985pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 low: 
+ []
+
+
+Overfull \hbox (335.50742pt too wide) in paragraph at lines 1--20
+[] 
+ []
+
+
+Overfull \hbox (24.8098pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 Write
+ []
+
+
+Overfull \hbox (18.87988pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 nec-
+ []
+
+
+Overfull \hbox (12.7699pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 es-
+ []
+
+
+Overfull \hbox (18.88977pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 sary
+ []
+
+
+Overfull \hbox (23.87976pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 func-
+ []
+
+
+Overfull \hbox (22.76978pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 tions
+ []
+
+
+Overfull \hbox (8.8899pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 to
+ []
+
+
+Overfull \hbox (18.1499pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 per-
+ []
+
+
+Overfull \hbox (22.22961pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 form
+ []
+
+
+Overfull \hbox (14.43994pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 the
+ []
+
+
+Overfull \hbox (16.10974pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 fol-
+ []
+
+
+Overfull \hbox (20.5498pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 low-
+ []
+
+
+Overfull \hbox (14.99988pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 ing
+ []
+
+
+Overfull \hbox (14.99988pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 op-
+ []
+
+
+Overfull \hbox (12.03992pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 er-
+ []
+
+
+Overfull \hbox (8.32996pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 a-
+ []
+
+
+Overfull \hbox (25.26978pt too wide) in paragraph at lines 1--20
+\OT1/ppl/b/n/10 tions: 
+ []
+
+
+Overfull \hbox (8.8899pt too wide) in paragraph at lines 20--20
+\OT1/ppl/b/n/10 to
+ []
+
+
+Overfull \hbox (17.20984pt too wide) in paragraph at lines 20--20
+\OT1/ppl/b/n/10 dis-
+ []
+
+
+Overfull \hbox (19.99988pt too wide) in paragraph at lines 20--20
+\OT1/ppl/b/n/10 play
+ []
+
+
+Overfull \hbox (11.65991pt too wide) in paragraph at lines 20--20
+\OT1/ppl/b/n/10 all
+ []
+
+
+Overfull \hbox (14.43994pt too wide) in paragraph at lines 20--20
+\OT1/ppl/b/n/10 the
+ []
+
+
+Overfull \hbox (33.32959pt too wide) in paragraph at lines 20--20
+\OT1/ppl/b/n/10 records
+ []
+
+
+Overfull \hbox (9.43994pt too wide) in paragraph at lines 20--20
+\OT1/ppl/b/n/10 in
+ []
+
+
+Overfull \hbox (14.43994pt too wide) in paragraph at lines 20--20
+\OT1/ppl/b/n/10 the
+ []
+
+
+Overfull \hbox (16.93994pt too wide) in paragraph at lines 20--20
+\OT1/ppl/b/n/10 file. 
+ []
+
+! Undefined control sequence.
+l.22 \section
+             *{Java Code}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.22 \section*
+              {Java Code}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no * in font nullfont!
+Missing character: There is no J in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no v in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no C in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 22--23
+[]
+ []
+
+
+! LaTeX Error: Environment Verbatim undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 \begin{Verbatim}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{document} ended by \end{Verbatim}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 \end{Verbatim}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.28 \section
+             *{Output}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 \section*
+              {Output}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no * in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+
+! LaTeX Error: Environment Verbatim undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.29 \begin{Verbatim}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 28--30
+[]
+ []
+
+
+! LaTeX Error: \begin{document} ended by \end{Verbatim}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 \end{Verbatim}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+)
+! Emergency stop.
+<*> Chapter1.tex
+                
+*** (job aborted, no legal \end found)
+
+ 
+Here is how much of TeX's memory you used:
+ 52 strings out of 495028
+ 801 string characters out of 6181497
+ 48053 words of memory out of 5000000
+ 3356 multiletter control sequences out of 15000+600000
+ 4447 words of font info for 16 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 21i,7n,13p,223b,158s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!

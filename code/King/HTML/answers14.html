@@ -1,0 +1,179 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 14)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 14)</B>
+    </FONT>
+
+<P>
+<B>1.</B>
+</P>
+<P>
+(a) <CODE>#define CUBE(x) ((x) * (x) * (x))</CODE><BR>
+This macro may not work correctly if <CODE>x</CODE> has a side effect.
+</P>
+
+<P>
+(b) <CODE>#define MOD4(n) ((n) % 4)</CODE>
+</P>
+
+<P>
+(c) <CODE>#define LT100(x, y) ((x) * (y) < 100)</CODE><BR>
+This macro may not work correctly if <CODE>x</CODE> has a side effect that affects <CODE>y</CODE>, or vice-versa.
+</P>
+
+<P>
+<B>3.</B>
+</P>
+<P>
+(a) The value is 2 * 1 + 2, which is 4.<BR>
+(b) The value is 4 / 2 * 2, which is 4.<BR>
+(c) <CODE>#define DOUBLE(x) (2 * (x))</CODE>
+</P>
+
+<P>
+<B>6.</B>
+</P>
+<P>
+(a) <CODE>#define DISP(f, x) printf(#f "(%g) = %g\n", x, f(x))</CODE><BR>
+(b) <CODE>#define DISP2(f, x, y) printf(#f "(%g, %g) = %g\n", x, y, f(x, y))</CODE>
+</P>
+
+<P>
+<B>8.</B>
+</P>
+<PRE>
+#define STR(x) #x
+#define STR_MACRO(x) STR(x)
+#define LINE_FILE "Line " STR_MACRO(__LINE__) " of file " __FILE__
+</PRE>
+
+<P>
+<B>9.</B>
+</P>
+
+<P>
+(a) <CODE>#define CHECK(x, y, n) (0 <= (x) && (x) <= (n) - 1 && 0 <= (y) && (y) <= (n) - 1)</CODE>
+</P>
+
+<P>
+(b)
+</P>
+<PRE>
+#define MAX(x, y) ((x) > (y) ? (x) : (y))
+#define MIN(x, y) ((x) < (y) ? (x) : (y))
+#define MEDIAN(x, y, z) ((x) > (y) ? ((x) > (z) ? MAX(y, z) : (x)) : ((x) > (z) ? (x) : MIN(y, z)))
+</PRE>
+
+<P>
+(c) <CODE>#define POLYNOMIAL(x) (((((3.0 * (x) + 2.0) * (x) - 5.0) * (x) - 1.0) * (x) + 7.0) * (x) - 6.0)</CODE>
+</P>
+
+<P>
+<B>10.</B> Functions that cause their arguments to be evaluated more than once may not
+be good candidates for macros, especially if those evaluations have side
+effects. Functions that modify arguments passed by value, call themselves
+recursively, have multiple <CODE>return</CODE> statements, or that return from inside
+of a loop are also poor candidates that would require rewriting. Functions
+with lengthy definitions, especially if called many times, might also be
+unsuitable because of their potential to increase the size of the final
+executable file.
+</P>
+
+<P>
+<B>11.</B> <CODE>#define ERROR(format, ...) fprintf(stderr, format, __VA_ARGS__)</CODE>
+</P>
+
+<P>
+<B>13.</B>
+</P>
+
+<P>
+(a)
+</P>
+<PRE>
+<I>Lines brought in from stdio.h</I>
+<I>Blank line</I>
+<I>Blank line</I>
+<I>Blank line</I>
+void f(void);
+
+int main(void)
+{
+  f();
+<I>Blank line</I>
+<I>Blank line</I>
+<I>Blank line</I>
+  return 0;
+}
+
+void f(void)
+{
+<I>Blank line</I>
+<I>Blank line</I>
+<I>Blank line</I>
+  printf("N is undefined\n");
+<I>Blank line</I>
+}
+</PRE>
+
+<P>
+(b) <CODE>N is undefined</CODE>
+</P>
+
+<P>
+<B>15.</B>
+</P>
+<PRE>
+#if defined(ENGLISH)
+  printf("Insert Disk 1\n");
+#elif defined(FRENCH)
+  printf("Inserez Le Disque 1\n");
+#elif defined(SPANISH)
+  printf("Inserte El Disco 1\n");
+#else
+#error No language defined
+#endif
+</PRE>
+
+<P>
+<B>16.</B> <CODE>#pragma ident "foo"</CODE>
+</P>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

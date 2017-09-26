@@ -1,0 +1,152 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 21)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 21)</B>
+    </FONT>
+
+<P>
+<B>1.</B> Both standard and nonstandard header files can generally be found in the
+<CODE>/usr/include</CODE> directory of a UNIX system, with more header files located
+in <CODE>/usr/local/include</CODE>. (For OS X, header files are installed as part of
+Apple's Xcode development environment in <CODE>/Developer/SDKs/MacOSX10.5.sdk/usr/include</CODE>.)
+</P>
+
+<P>
+Examples of nonstandard headers:
+</P>
+<UL>
+<LI><CODE>curses.h</CODE>: Provides functions for creating text-based user interfaces.
+<LI><CODE>dirent.h</CODE>: Defines a structure for directory entries and provides
+functions for navigating directories.
+<LI><CODE>pthread.h</CODE>: Provides functions for creating multiples flows of control
+(threads) in a single process.
+<LI><CODE>termios.h</CODE>: Provides functions for terminal input/output, including the
+ability to read single characters from the keyboard without waiting
+for the user to press the return key and suppressing the display of
+characters entered at the keyboard on the screen.
+<LI><CODE>unistd.h</CODE>: Provides miscellaneous symbolic constants, types and functions
+for such things as linking and unlinking files, setting and checking
+file permissions and ownership, and creating new processes.
+<LI><CODE>utmp.h</CODE>: Declares structures used to record information about users who
+are currently logged into the system.
+</UL>
+
+<P>
+<B>2.</B> Here's one example. The <CODE>ctype.h</CODE> header file provided by <CODE>gcc</CODE>
+contains the following declaration of the <CODE>isalpha</CODE> function:
+</P>
+<PRE>
+int isalpha(int);
+</PRE>
+
+<P>
+This is followed several lines later by the following macro definition:
+</P>
+<PRE>
+#define isalpha(c) __istype((c), _CTYPE_A)
+</PRE>
+
+<P>
+<B>3.</B> The function prototype must come first. If the
+macro is defined first, it interferes with the declaration of the function by
+performing its replacement on the prototype.
+</P>
+
+<P>
+<B>4.</B> Reserved identifiers are listed below, grouped by header. All function names are
+reserved for use as external names. Each macro or <CODE>typedef</CODE> name is reserved only when
+the header in which it is defined is included.
+</P>
+<UL>
+<LI><CODE>&lt;complex.h&gt;</CODE>: Function names <CODE>cerf</CODE>, <CODE>cerfc</CODE>,
+<CODE>cexp2</CODE>, <CODE>cexpm1</CODE>, <CODE>clog10</CODE>, <CODE>clog1p</CODE>,
+<CODE>clog2</CODE>, <CODE>clgamma</CODE>, <CODE>ctgamma</CODE> (and these names
+suffixed with <CODE>f</CODE> or <CODE>l</CODE>)
+<LI><CODE>&lt;ctype.h&gt;</CODE> and <CODE>&lt;wctype.h&gt;</CODE>: Function names beginning with
+<CODE>is</CODE> or <CODE>to</CODE>, followed by a lower-case letter
+<LI><CODE>&lt;errno.h&gt;</CODE>: Macro names beginning with <CODE>E</CODE>, followed by a
+digit or upper-case letter
+<LI><CODE>&lt;inttypes.h&gt;</CODE>: Macro names beginning with <CODE>PRI</CODE> or <CODE>SCN</CODE>,
+followed by a lower-case letter or <CODE>X</CODE>
+<LI><CODE>&lt;locale.h&gt;</CODE>: Macro names beginning with <CODE>LC_</CODE>, followed by an
+upper-case letter
+<LI><CODE>&lt;signal.h&gt;</CODE>: Macro names beginning with <CODE>SIG</CODE> or <CODE>SIG_</CODE>,
+followed by an upper-case letter
+<LI><CODE>&lt;stdint.h&gt;</CODE>: <CODE>typedef</CODE> names beginning with <CODE>int</CODE> or <CODE>uint</CODE>
+and ending with <CODE>_t</CODE>; macro names beginning with <CODE>INT</CODE> or <CODE>UINT</CODE>
+and ending with <CODE>_MAX</CODE>, <CODE>_MIN</CODE> or <CODE>_C</CODE>
+<LI><CODE>&lt;stdlib.h&gt;</CODE>: Function names beginning with <CODE>str</CODE>, followed by
+a lower-case letter
+<LI><CODE>&lt;string.h&gt;</CODE>: Function names beginning with <CODE>str</CODE>, <CODE>mem</CODE> or
+<CODE>wcs</CODE>, followed by a lower-case letter
+<LI><CODE>&lt;wchar.h&gt;</CODE>: Function names beginning with <CODE>wcs</CODE>, followed by a
+lower-case letter
+</UL>
+
+<P>
+<B>5.</B> It may evaluate its argument more than once (see the Q&A).
+</P>
+
+<P>
+<B>6.</B>
+</P>
+
+<P>
+(a) The names of the "bit" macros and the <CODE>_ctype</CODE> array begin with an underscore
+to avoid conflict with other names in a program (see Section 21.1).
+</P>
+
+<P>
+(b) Each entry in the <CODE>_ctype</CODE> array is a collection of bits indicating
+the characteristics of the corresponding character:
+</P>
+<P>
+<CODE>_ctype[9]&nbsp;</CODE> = 0xA8 (binary 10101000), representing _BLANK | _SPACE | _CONTROL<BR>
+<CODE>_ctype[32]</CODE> = 0xA0 (binary 10100000), representing _BLANK | _SPACE<BR>
+<CODE>_ctype[65]</CODE> = 0x41 (binary 01000001), representing _HEX | _UPPER<BR>
+<CODE>_ctype[94]</CODE> = 0x10 (binary 00010000), representing _PUNCT
+</P>
+
+<P>
+(c) Speed. A character can be tested for a particular property by performing a single bitwise
+<EM>and</EM> operation between an element of <CODE>_ctype</CODE> and an appropriate mask.
+</P>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>

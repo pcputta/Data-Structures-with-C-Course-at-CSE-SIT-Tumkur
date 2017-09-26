@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+  <TITLE>Answers to Exercises (Chapter 25)</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffffff" HEIGHT="114" VALIGN="TOP">
+    <CENTER><IMG SRC="../../images/cprog2_spine.gif" WIDTH="560" HEIGHT="104"
+  ALIGN="BOTTOM" BORDER="0" ALT="C Programming: A Modern Approach (Second Edition)"></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#B82F25">
+    <CENTER><FONT FACE="Arial" FONT SIZE="+2" COLOR="#ffffff"><B>Instructor Resources</B></FONT></CENTER>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="10">
+  <TR>
+    <TD WIDTH="100%" BGCOLOR="#ffcccc">
+
+    <FONT FACE="Arial" FONT SIZE="+1">
+    <B>Answers to Exercises (Chapter 25)</B>
+    </FONT>
+
+<P>
+<B>1.</B> Use the <CODE>locale</CODE> <CODE>-a</CODE> command to display a list of locales supported by GCC.
+FreeBSD 6.2 supports 156 different locales, for example, while Mac OS X 10.5 supports 203.
+</P>
+
+<P>
+<B>2.</B>
+</P>
+<P>
+(a) 0<BR>
+(b) &ndash;1. <CODE>\x88</CODE> cannot be followed by <CODE>\x3f</CODE>.<BR>
+(c) &ndash;1. A second byte is required after <CODE>\xef</CODE>.<BR>
+(d) 0
+</P>
+
+<P>
+<B>3.</B> No, because the second byte in a Shift-JIS encoded character can be the same as a
+valid one-byte character. For example, <CODE>0x40</CODE> is a valid one-byte character
+but can also appear as the second byte in a two-byte character.
+</P>
+
+<P>
+<B>4.</B>
+</P>
+<P>
+(a) <CODE>"C\xf4te d'Azur"</CODE><BR>
+(b) <CODE>"cr\xe8me br\xfbl\xe9" "e"</CODE><BR>
+(c) <CODE>"cr\xe8me fra\xee" "che"</CODE><BR>
+(d) <CODE>"Fahrvergn\xfcgen"</CODE><BR>
+(e) <CODE>"t\xeate-\xe0-t\xeate"</CODE>
+</P>
+<P>
+Note that adjacent string literals are needed in (b) and (c). See page 305 for details.
+</P>
+
+<P>
+<B>5.</B>
+</P>
+<P>
+(a) <CODE>"C\xc3\xb4te d'Azur"</CODE><BR>
+(b) <CODE>"cr\xc3\xa8me br\xc3\xbbl\xc3\xa9" "e"</CODE><BR>
+(c) <CODE>"cr\xc3\xa8me fra\xc3\xae" "che"</CODE><BR>
+(d) <CODE>"Fahrvergn\xc3\xbcgen"</CODE><BR>
+(e) <CODE>"t\xc3\xaate-\xc3\xa0-t\xc3\xaate"</CODE>
+</P>
+<P>
+Note that adjacent string literals are needed in (b) and (c). See page 305 for details.
+</P>
+
+<P>
+<B>7.</B>
+</P>
+<PRE>
+while ((orig_char = getchar()) not_eq EOF) <%
+  new_char = orig_char xor KEY;
+  if (isprint(orig_char) and isprint(new_char))
+    putchar(new_char);
+  else
+    putchar(orig_char);
+%>
+</PRE>
+
+    <P>&nbsp;</P>
+
+    Send comments to <A HREF="mailto:cbook@knking.com">cbook@knking.com</A>.
+
+    </TD>
+  </TR>
+</TABLE>
+
+<P><CENTER><I><FONT SIZE="-1" FACE="Arial">Copyright &COPY; 2008 W. W. Norton &amp; Company.
+All rights reserved.</FONT></I></CENTER></P>
+
+</BODY>
+</HTML>
