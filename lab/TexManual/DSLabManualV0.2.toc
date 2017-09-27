@@ -1,0 +1,13 @@
+\contentsline {chapter}{\numberline {1}File Management}{5}{chapter.0.1}
+\contentsline {chapter}{\numberline {2}Stack Implementation}{14}{chapter.0.2}
+\contentsline {chapter}{\numberline {3}Infix to Postfix Conversion}{19}{chapter.0.3}
+\contentsline {chapter}{\numberline {4}Evaluation of Prefix Expression}{21}{chapter.0.4}
+\contentsline {chapter}{\numberline {5}Linear Queue}{23}{chapter.0.5}
+\contentsline {chapter}{\numberline {6}Circular Queue}{28}{chapter.0.6}
+\contentsline {chapter}{\numberline {7}Circular Queue}{34}{chapter.0.7}
+\contentsline {chapter}{\numberline {8}Circular Queue}{40}{chapter.0.8}
+\contentsline {chapter}{\numberline {9}Circular Queue}{46}{chapter.0.9}
+\contentsline {chapter}{\numberline {10}Circular Queue}{52}{chapter.0.10}
+\contentsline {chapter}{\numberline {11}Circular Queue}{58}{chapter.0.11}
+\contentsline {chapter}{\numberline {12}Circular Queue}{64}{chapter.0.12}
+\contentsline {chapter}{\numberline {13}Circular Queue}{70}{chapter.0.13}

@@ -1,0 +1,157 @@
+\documentclass[a4paper]{report}
+\usepackage{fancyvrb,graphicx,color,fancyhdr,enumerate,url}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage[svgnames]{xcolor} % Required to specify font color
+\pagestyle{fancy}
+\fancyfoot{}
+\definecolor{light-gray}{gray}{0.95}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{lipsum}
+\usepackage{courier}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+
+\definecolor{codeblue}{rgb}{0,0.0,1.0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{1.0,0,0.77}
+\definecolor{backcolour}{rgb}{1.0,1.0,1.0}
+\definecolor{codebrown}{rgb}{0.64,0.0,0.0}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{blue},
+    keywordstyle=\color{codebrown},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\normalsize\ttfamily\bfseries,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+ 
+\lstset{style=mystyle}
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\thispagestyle{empty}
+\newcommand*{\rotrt}[1]{\rotatebox{90}{#1}} % Command to rotate right 90 degrees
+\newcommand*{\rotlft}[1]{\rotatebox{-90}{#1}} % Command to rotate left 90 degrees
+
+\newcommand*{\titleBC}{\begingroup % Create the command for including the title page in the document
+\centering % Center all text
+
+\includegraphics[scale=.8]{Figures/sitlogo.png}
+
+\Large {SIDDAGANGA INSTITUTE OF TECHNOLOGY \\ www.sit.ac.in} % Year published
+
+
+\def\CP{\textit{\LARGE Data Structures Laboratory}} % Title
+
+\settowidth{\unitlength}{\CP} % Set the width of the curly brackets to the width of the title
+{\color{Orange}\resizebox*{\unitlength}{\baselineskip}{\rotrt{$\}$}}} \\[\baselineskip] % Print top curly bracket
+\textcolor{Sienna}{\CP} \\[\baselineskip] % Print title
+{\color{RosyBrown}\Large LAB MANUAL} \\ % Tagline or further description
+{\color{Orange}\resizebox*{\unitlength}{\baselineskip}{\rotlft{$\}$}}} % Print bottom curly bracket
+
+\vfill % Whitespace between the title and the author name
+
+{\large \textbf{Prabodh C P}\\Asst Professor \\ Dept of CSE, SIT }\\ % Author name
+
+\vfill % Whitespace between the author name and the publisher logo
+
+\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt} % Thin horizontal line
+\rule{\textwidth}{1.6pt}\\[\baselineskip] % Thick horizontal line
+
+\includegraphics[scale=0.25]{Figures/gnu-gcc-cb.png} \\
+
+\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} % Thick horizontal line
+\rule{\textwidth}{0.4pt}\\[\baselineskip] % Thin horizontal line
+\includegraphics[scale=1]{Figures/cc-by-sa.png} \\
+ \begin{center}
+\small{This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.}
+\end{center}
+\endgroup}
+
+%----------------------------------------------------------------------------------------
+%	BLANK DOCUMENT
+%----------------------------------------------------------------------------------------
+
+
+%\usepackage{pslatex,palatino,avant,graphicx,color}
+
+%to restart chapter numbering after Part
+    \makeatletter
+    \@addtoreset{chapter}{part}
+    \makeatother
+
+\pagestyle{fancy}
+\fancyfoot[L]{Dept of CSE, SIT}
+\fancyfoot[R]{\thepage}
+%\lfoot[]{Dept of CSE, SIT}
+%\rfoot{\thepage}
+\begin{document}
+%\pagestyle{empty} % Removes page numbers
+
+\newpage
+\pagecolor{Goldenrod!50}
+\titleBC % This command includes the title page
+
+\newpage
+\pagecolor{white}
+\tableofcontents
+\newpage
+\lstlistoflistings
+\chapter*{•}
+\section*{\begin{center}
+Data Structures Laboratory
+\end{center}}
+\section*{Instructions}
+\begin{itemize}
+\item All the C programs need to be executed using GCC Compiler.
+\item Algorithms and Flowcharts are compulsory for all the programs.
+%\item Demo experiments are only for assignment purpose, not to be included in examinations.
+\item All experiments must be included in practical examinations.
+%\item Students are allowed to pick one experiment each from Part A and Part B from the lots.
+\end{itemize}
+
+
+\section*{References}
+\textbf{Part A}: Behrouz A. Forouzan , Richard F. Gilberg , Computer Science: \textbf{A Structured programming Approach Using C} - Cengage Learning; 3rd edition \\
+For writing flowcharts refer to \textbf{Appendix C} of the above book.
+
+%\part{PART A}
+
+\include{Chapter1/Chapter1}
+\include{Chapter2/Chapter2}
+\include{Chapter3/Chapter3}
+\include{Chapter4/Chapter4}
+\include{Chapter5/Chapter5}
+\include{Chapter6/Chapter6}
+\include{Chapter7/Chapter7}
+\include{Chapter8/Chapter8}
+\include{Chapter9/Chapter9}
+\include{Chapter10/Chapter10}
+\include{Chapter11/Chapter11}
+\include{Chapter12/Chapter12}
+\include{Chapter13/Chapter13}
+
+%\part{PART B}
+%
+%\include{ChapterB4/ChapterB4}
+%\include{ChapterB5/ChapterB5}
+%\include{ChapterB6/ChapterB6}
+%\include{ChapterB7/ChapterB7}
+
+
+\end{document}

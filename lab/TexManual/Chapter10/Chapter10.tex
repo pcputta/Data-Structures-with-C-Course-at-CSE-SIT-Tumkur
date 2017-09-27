@@ -1,29 +1,21 @@
-\chapter{File Operations}
+\chapter{Doubly Linked Lists with Header Node}
 \section*{Question}
-{\fontfamily{ppl}\selectfont \textbf{Write a C program to create a sequential file with at least five records, each record having the
-structure shown below: \\
-\begin{tabular}{|c|c|c|c|c|}
-\hline 
-EMPLOYEE\_ID & NAME & DEPARTMENT & SALARY & AGE \\ 
-\hline 
-Non-Zero +ve Integer & 25 Characters & 25 Characters & +ve Integer & +ve Integer \\ 
-\hline 
-\end{tabular} 
- \\
- \\
-Write necessary functions to perform the following operations:
-\begin{enumerate}
-\item to display all the records in the file.
-\item to search for a specific record based on EMPLOYEE\_ID\/SALARY\/DEPARTMENT\/AGE. In case if the required record is not found, suitable message should be displayed.
-%
+
+{\fontfamily{qbk}\selectfont { \textit{\textbf{Write a C program to perform the following operations using doubly linked list with header node. Header node should maintain the count of number of nodes in the list after each operation:
+\begin{enumerate}[label=\alph*]
+\item to insert a node next to a node whose information field specified.
+\item to delete first node if pointer to the last node is given.
+\item to delete a node at the specified position in the list.
+\item to display the contents of the list.
+%\item to swap n^{th} and m^{th} nodes in the list.
 \end{enumerate}
-}}
+}}} 
+}
 
-\section*{C Code}
+\section*{C Code - Array Representation}
 
-\begin{Verbatim}
+\lstinputlisting[language={[ANSI]C}, caption=10DoublyLinkedList.c]{Programs/10DoublyLinkedList.c}
 
-\end{Verbatim}
 
 \section*{Output}
 \begin{Verbatim}

@@ -1,29 +1,12 @@
-\chapter{File Operations}
-\section*{Question}
-{\fontfamily{ppl}\selectfont \textbf{Write a C program to create a sequential file with at least five records, each record having the
-structure shown below: \\
-\begin{tabular}{|c|c|c|c|c|}
-\hline 
-EMPLOYEE\_ID & NAME & DEPARTMENT & SALARY & AGE \\ 
-\hline 
-Non-Zero +ve Integer & 25 Characters & 25 Characters & +ve Integer & +ve Integer \\ 
-\hline 
-\end{tabular} 
- \\
- \\
-Write necessary functions to perform the following operations:
-\begin{enumerate}
-\item to display all the records in the file.
-\item to search for a specific record based on EMPLOYEE\_ID\/SALARY\/DEPARTMENT\/AGE. In case if the required record is not found, suitable message should be displayed.
-%
-\end{enumerate}
-}}
+\chapter{Singly Linked List Applications}
+\section{Stack using SLL}
+
+{\fontfamily{qbk}\selectfont { \textit{\textbf{Write a C program to implement a STACK using singly linked list.}}} \\
+}
 
 \section*{C Code}
 
-\begin{Verbatim}
-
-\end{Verbatim}
+\lstinputlisting[language={[ANSI]C}, caption=09aStackLL.c]{Programs/09aStackLL.c}
 
 \section*{Output}
 \begin{Verbatim}
@@ -31,4 +14,55 @@ Write necessary functions to perform the following operations:
 
 
 \end{Verbatim}
+\pagebreak
+\section{Queue using SLL}
 
+{\fontfamily{qbk}\selectfont { \textit{\textbf{Write a C program to implement a QUEUE using singly linked list.}}} \\
+}
+
+\section*{C Code}
+
+\lstinputlisting[language={[ANSI]C}, caption=09bQueueLL.c]{Programs/09bQueueLL.c}
+
+\section*{Output}
+\begin{Verbatim}
+
+
+
+\end{Verbatim}
+\pagebreak
+\section{Polynomial Addition}
+
+{\fontfamily{qbk}\selectfont {\textit{\textbf{Write a C program to implement addition of two polynomials using singly linked list..}}} \\
+}
+
+\section*{C Code}
+
+\lstinputlisting[language={[ANSI]C}, caption=09cPolynomial.c]{Programs/09cPolynomial.c}
+
+\section*{Output}
+\begin{Verbatim}
+putta:lab$ gcc 09_c_Polynomial.c -lm
+putta:lab$ ./a.out 
+
+Enter the degree of polynomial 1
+4
+
+Enter the coefficients
+3 4 5 6 7
+
+Enter the degree of polynomial 2
+3
+
+Enter the coefficients
+2 3 4 5
+Polynomial 1   :	 (3)x^4 + (4)x^3 + (5)x^2 + (6)x^1 + 7
+Polynomial 2   :	 (2)x^3 + (3)x^2 + (4)x^1 + 5
+Polynomial Sum :	 (3)x^4 + (6)x^3 + (8)x^2 + (10)x^1 + 12
+
+Enter the value of x
+2
+
+Value of the polynomial sum for x = 2 is 160
+
+\end{Verbatim}

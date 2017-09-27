@@ -16,7 +16,8 @@ NODEPTR fnInsertNode(int, NODEPTR);
 void fnInOrder(NODEPTR);
 void fnPreOrder(NODEPTR);
 void fnPostOrder(NODEPTR);
-NODEPTR fnDeleteNode(int, NODEPTR);
+NODEPTR fnDeleteNode(NODEPTR, int);
+NODEPTR fnMinValueNode(NODEPTR);
 
 int main()
 {
@@ -31,7 +32,7 @@ int main()
 
 		switch(iChoice)
 		{
-			case 1: printf("Enter the iItem to be inserted \n");
+			case 1: printf("Enter the item to be inserted \n");
 					scanf("%d",&iItem);
 					root = fnInsertNode(iItem,root);
 					break;
@@ -74,7 +75,7 @@ int main()
 
 			case 5: printf("\nEnter node to be deleted : ");
 				    scanf("%d", &iItem);
-				    root = fnDeleteNode(iItem, root);
+				    root = fnDeleteNode(root, iItem);
 				    break;
 
 			case 6: exit(0);
@@ -85,7 +86,6 @@ int main()
 		}
 
 	}
-
 	return 0;
 }
 
@@ -110,8 +110,8 @@ NODEPTR fnInsertNode(int iItem,NODEPTR root)
 {
 	NODEPTR temp,prev,cur;
 
-	temp = getnode();
-	temp->Info = iItem;
+	temp = fnGetNode();
+	temp->info = iItem;
 	temp->lchild = NULL;
 	temp->rchild = NULL;
 
@@ -125,20 +125,20 @@ NODEPTR fnInsertNode(int iItem,NODEPTR root)
 	{
 		prev = cur;
 
-		if(iItem == cur->Info)
+		if(iItem == cur->info)
 		{
 			printf("\nDuplicate items not allowed\n");
-			freenode(temp);
+			fnFreeNode(temp);
 			return root;
 		}
 
-		cur = (iItem < cur->Info)? cur->lchild: cur->rchild;
+		cur = (iItem < cur->info)? cur->lchild: cur->rchild;
 	}
 
-	if(iItem < prev->Info)
-	prev->lchild = temp;
+	if(iItem < prev->info)
+		prev->lchild = temp;
 	else
-	prev->rchild = temp;
+		prev->rchild = temp;
 
 	return root;
 
@@ -148,7 +148,7 @@ void fnPreOrder(NODEPTR root)
 {
 	if(root != NULL)
 	{
-		printf("%d\t",root->Info);
+		printf("%d\t",root->info);
 		fnPreOrder(root->lchild);
 		fnPreOrder(root->rchild);
 	}
@@ -159,7 +159,7 @@ void fnInOrder(NODEPTR root)
 	if(root != NULL)
 	{
 		fnInOrder(root->lchild);
-		printf("%d\t",root->Info);
+		printf("%d\t",root->info);
 		fnInOrder(root->rchild);
 	}
 }
@@ -170,11 +170,11 @@ void fnPostOrder(NODEPTR root)
 	{
 		fnPostOrder(root->lchild);
 		fnPostOrder(root->rchild);
-		printf("%d\t",root->Info);
+		printf("%d\t",root->info);
 	}
 }
 
-NODEPTR fnDeleteNode(int iItem, NODEPTR root)
+NODEPTR fnDeleteNode(NODEPTR root, int iItem)
 {
 	NODEPTR prev, cur, leftChild, newParent;
 	
@@ -183,6 +183,54 @@ NODEPTR fnDeleteNode(int iItem, NODEPTR root)
 	    printf("\nBST is empty, cannot delete");
 	    return root;
 	}
-	prev = NULL;
-	cur = root;
+    // If the item to be deleted is smaller than the root's item,
+    // then it lies in left subtree
+    if (iItem < root->info)
+        root->lchild = fnDeleteNode(root->lchild, iItem);
+ 
+    // If the item to be deleted is greater than the root's item,
+    // then it lies in right subtree
+    else if (iItem > root->info)
+        root->rchild = fnDeleteNode(root->rchild, iItem);
+ 
+    // if item is same as root's item, then This is the node
+    // to be deleted
+    else
+    {
+        // node with only one child or no child
+        if (root->lchild == NULL)
+        {
+            struct node *temp = root->rchild;
+            free(root);
+            return temp;
+        }
+        else if (root->rchild == NULL)
+        {
+            struct node *temp = root->lchild;
+            free(root);
+            return temp;
+        }
+ 
+        // node with two children: Get the inorder successor (smallest
+        // in the right subtree)
+        NODEPTR temp = fnMinValueNode(root->rchild);
+ 
+        // Copy the inorder successor's content to this node
+        root->info = temp->info;
+ 
+        // Delete the inorder successor
+        root->rchild = fnDeleteNode(root->rchild, temp->info);
+    }
+    return root;
+}
+
+NODEPTR fnMinValueNode(NODEPTR node)
+{
+    NODEPTR current = node;
+ 
+    /* loop down to find the leftmost leaf */
+    while (current->lchild != NULL)
+        current = current->lchild;
+ 
+    return current;
 }
