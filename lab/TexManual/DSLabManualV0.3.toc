@@ -1,9 +1,17 @@
 \contentsline {chapter}{\numberline {1}File Management}{5}{chapter.0.1}
+\contentsline {section}{\numberline {1.1}C Code - Text I/O}{5}{section.0.1.1}
+\contentsline {section}{\numberline {1.2}C Code - Binary I/O}{9}{section.0.1.2}
 \contentsline {chapter}{\numberline {2}Stack Implementation}{14}{chapter.0.2}
+\contentsline {section}{\numberline {2.1}C Code - Array Representation}{14}{section.0.2.1}
+\contentsline {section}{\numberline {2.2}C Code - Structure Representation}{16}{section.0.2.2}
 \contentsline {chapter}{\numberline {3}Infix to Postfix Conversion}{19}{chapter.0.3}
 \contentsline {chapter}{\numberline {4}Evaluation of Prefix Expression}{21}{chapter.0.4}
 \contentsline {chapter}{\numberline {5}Linear Queue}{23}{chapter.0.5}
+\contentsline {section}{\numberline {5.1}C Code - Array Representation}{23}{section.0.5.1}
+\contentsline {section}{\numberline {5.2}C Code - Structure Representation}{25}{section.0.5.2}
 \contentsline {chapter}{\numberline {6}Circular Queue}{28}{chapter.0.6}
+\contentsline {section}{\numberline {6.1}C Code - Array Representation}{28}{section.0.6.1}
+\contentsline {section}{\numberline {6.2}C Code - Structure Representation}{30}{section.0.6.2}
 \contentsline {chapter}{\numberline {7}Singly Linked List}{34}{chapter.0.7}
 \contentsline {chapter}{\numberline {8}Ordered Linked List}{38}{chapter.0.8}
 \contentsline {chapter}{\numberline {9}Singly Linked List Applications}{42}{chapter.0.9}
@@ -13,4 +21,4 @@
 \contentsline {chapter}{\numberline {10}Doubly Linked Lists with Header Node}{51}{chapter.0.10}
 \contentsline {chapter}{\numberline {11}Double Ended Queue using Doubly Linked List}{57}{chapter.0.11}
 \contentsline {chapter}{\numberline {12}Binary Search Tree}{61}{chapter.0.12}
-\contentsline {chapter}{\numberline {13}Circular Queue}{66}{chapter.0.13}
+\contentsline {chapter}{\numberline {13}Expression Tree}{66}{chapter.0.13}

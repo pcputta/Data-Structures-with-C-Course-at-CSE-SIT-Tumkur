@@ -31,38 +31,33 @@ int main()
 
 		switch(iChoice)
 		{
-	        case 1:
-	                fnAddRecord();
+	        case 1: fnAddRecord();
 	                break;
 
-	        case 2:
-	                printf("\n Employee Details \n");
+	        case 2: printf("\n Employee Details \n");
 	                fnDisplayAllRecords();
 	                break;
 
-	        case 3:
-	                printf("\nEnter the emp_id that you want to search\n");
+	        case 3: printf("\nEnter the emp_id that you want to search\n");
 	                scanf("%d",&id);
 	                fnSearchEmpID(id);
 	                break;
 
-	        case 4:
-	                printf("\nEnter the dept that you want to search\n");
+	        case 4: printf("\nEnter the dept that you want to search\n");
 	                scanf("%s",dept);
 	                fnSearchEmpDept(dept);
 	                break;
 
-	        case 5:
-	                printf("\nEnter the salary that you want to search\n");
+	        case 5: printf("\nEnter the salary that you want to search\n");
 	                scanf("%d",&sal);
 	                fnSearchEmpSal(sal);
 	                break;
 
-	        case 6:
-	                printf("\nEnter the age that you want to search\n");
+	        case 6: printf("\nEnter the age that you want to search\n");
 	                scanf("%d",&age);
 	                fnSearchEmpAge(age);
 	                break;
+	                
 	        case 7: exit(0);
 		}
 	}
@@ -81,6 +76,7 @@ void fnDisplayAllRecords()
 		printf("\nFile does not exist\n");
 		return;
 	}
+	printf("\nID\tName\tDept\tSalary\tAge\n");
 	while(fscanf(fp,"%d%s%s%d%d",&ep.emp_id, ep.emp_name, ep.emp_dept, &ep.emp_salary, &ep.emp_age)!=EOF)
 	{
 		printf("%d\t%s\t%s\t%d\t%d\n",ep.emp_id, ep.emp_name, ep.emp_dept, ep.emp_salary, ep.emp_age);
@@ -98,15 +94,15 @@ void fnAddRecord()
 
 	printf("\nEnter Employee details\n");
 	printf("\nID : ");
-	scanf("%d",&emp.emp_id);     getchar();
+	scanf("%d", &emp.emp_id);     getchar();
 	printf("\nName : ");
-	fgets(emp.emp_name,25,stdin);
+	scanf("%s", emp.emp_name);
 	printf("\nDept : ");
-	fgets(emp.emp_dept,25,stdin);
+	scanf("%s", emp.emp_dept);
 	printf("\nSalary : ");
-	scanf("%d",&emp.emp_salary);
+	scanf("%d", &emp.emp_salary);
 	printf("\nAge : ");
-	scanf("%d",&emp.emp_age);
+	scanf("%d", &emp.emp_age);
 
 	fp = fopen("emp.dat", "a");
 	fprintf(fp,"%d\t%s\t%s\t%d\t%d\n",emp.emp_id, emp.emp_name, emp.emp_dept, emp.emp_salary, emp.emp_age);
@@ -125,6 +121,7 @@ void fnSearchEmpID(int id)
 		printf("\nFile does not exist\n");
 		return;
 	}
+	printf("\nID\tName\tDept\tSalary\tAge\n");
 	while(fscanf(fp,"%d%s%s%d%d",&ep.emp_id, ep.emp_name, ep.emp_dept, &ep.emp_salary, &ep.emp_age)!=EOF)
 	{
 		if(ep.emp_id == id)
@@ -150,6 +147,7 @@ void fnSearchEmpSal(int sal)
 		printf("\nFile does not exist\n");
 		return;
 	}
+	printf("\nID\tName\tDept\tSalary\tAge\n");
 	while(fscanf(fp,"%d%s%s%d%d",&ep.emp_id, ep.emp_name, ep.emp_dept, &ep.emp_salary, &ep.emp_age)!=EOF)
 	{
 		if(ep.emp_salary == sal)
@@ -176,6 +174,7 @@ void fnSearchEmpDept(char dept[])
 		printf("\nFile does not exist\n");
 		return;
 	}
+	printf("\nID\tName\tDept\tSalary\tAge\n");
 	while(fscanf(fp,"%d%s%s%d%d",&ep.emp_id, ep.emp_name, ep.emp_dept, &ep.emp_salary, &ep.emp_age)!=EOF)
 	{
 		if(!strcmp(ep.emp_dept, dept))
@@ -200,6 +199,7 @@ void fnSearchEmpAge(int age)
 		printf("\nFile does not exist\n");
 		return;
 	}
+	printf("\nID\tName\tDept\tSalary\tAge\n");
 	while(fscanf(fp,"%d%s%s%d%d",&ep.emp_id, ep.emp_name, ep.emp_dept, &ep.emp_salary, &ep.emp_age)!=EOF)
 	{
 		if(ep.emp_age == age)

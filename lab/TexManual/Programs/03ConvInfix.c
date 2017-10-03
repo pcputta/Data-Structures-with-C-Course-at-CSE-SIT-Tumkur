@@ -41,6 +41,8 @@ int main()
 		{
 			while(fnPrecd(acStack[top]) >= fnPrecd(cSymb))
 			{
+			    if(cSymb == '^' && acStack[top] == '^')
+			        break;
 				acPost[j++] = fnPop(acStack, &top);
 			}
 			fnPush(acStack, &top, cSymb);
@@ -83,5 +85,6 @@ int fnPrecd(char ch)
 		case '-' : 	return 1;
 		case '*' : 	
 		case '/' : 	return 2;
+		case '^' :  return 3;
 	}
 }

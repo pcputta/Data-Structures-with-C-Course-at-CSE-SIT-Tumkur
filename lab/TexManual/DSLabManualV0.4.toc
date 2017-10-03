@@ -1,0 +1,24 @@
+\contentsline {chapter}{\numberline {1}File Management}{5}{chapter.0.1}
+\contentsline {section}{\numberline {1.1}C Code - Text I/O}{5}{section.0.1.1}
+\contentsline {section}{\numberline {1.2}C Code - Binary I/O}{9}{section.0.1.2}
+\contentsline {chapter}{\numberline {2}Stack Implementation}{16}{chapter.0.2}
+\contentsline {section}{\numberline {2.1}C Code - Array Representation}{16}{section.0.2.1}
+\contentsline {section}{\numberline {2.2}C Code - Structure Representation}{18}{section.0.2.2}
+\contentsline {chapter}{\numberline {3}Infix to Postfix Conversion}{24}{chapter.0.3}
+\contentsline {chapter}{\numberline {4}Evaluation of Prefix Expression}{27}{chapter.0.4}
+\contentsline {chapter}{\numberline {5}Linear Queue}{29}{chapter.0.5}
+\contentsline {section}{\numberline {5.1}C Code - Array Representation}{29}{section.0.5.1}
+\contentsline {section}{\numberline {5.2}C Code - Structure Representation}{31}{section.0.5.2}
+\contentsline {chapter}{\numberline {6}Circular Queue}{34}{chapter.0.6}
+\contentsline {section}{\numberline {6.1}C Code - Array Representation}{34}{section.0.6.1}
+\contentsline {section}{\numberline {6.2}C Code - Structure Representation}{36}{section.0.6.2}
+\contentsline {chapter}{\numberline {7}Singly Linked List}{40}{chapter.0.7}
+\contentsline {chapter}{\numberline {8}Ordered Linked List}{44}{chapter.0.8}
+\contentsline {chapter}{\numberline {9}Singly Linked List Applications}{48}{chapter.0.9}
+\contentsline {section}{\numberline {9.1}Stack using SLL}{48}{section.0.9.1}
+\contentsline {section}{\numberline {9.2}Queue using SLL}{51}{section.0.9.2}
+\contentsline {section}{\numberline {9.3}Polynomial Addition}{54}{section.0.9.3}
+\contentsline {chapter}{\numberline {10}Doubly Linked Lists with Header Node}{57}{chapter.0.10}
+\contentsline {chapter}{\numberline {11}Double Ended Queue using Doubly Linked List}{63}{chapter.0.11}
+\contentsline {chapter}{\numberline {12}Binary Search Tree}{67}{chapter.0.12}
+\contentsline {chapter}{\numberline {13}Expression Tree}{72}{chapter.0.13}

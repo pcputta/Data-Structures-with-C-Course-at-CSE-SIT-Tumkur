@@ -12,9 +12,9 @@ NODEPTR fnGetNode(void);
 void fnFreeNode(NODEPTR x);
 NODEPTR fnInsertFront(int ,NODEPTR);
 NODEPTR fnDeleteFront(NODEPTR);
-//NODEPTR fnInsertPosition(int ,int ,NODEPTR);
+NODEPTR fnInsertPosition(int ,int ,NODEPTR);
 void fnDisplay(NODEPTR first);
-//NODEPTR fnReverse(NODEPTR);
+NODEPTR fnReverse(NODEPTR);
 NODEPTR fnInsertRear(int ,NODEPTR);
 NODEPTR fnDeleteRear(NODEPTR);
 
@@ -232,6 +232,90 @@ NODEPTR fnDeleteRear(NODEPTR first)
 
 	prev->link = NULL;
     fnFreeNode(cur);
+	return first;
+}
+
+NODEPTR fnDeletePosition(int pos,NODEPTR first)
+{
+	NODEPTR temp,prev,cur;
+	int count;
+
+	if(first == NULL)
+	{
+		printf("\nEmpty List cannot delete\n");
+		return first;
+	}
+
+	if(pos == 1)
+	{
+	    temp = first;
+		first = first->link;
+		printf("\nElement deleted is %d\n", temp->info);
+		fnFreeNode(temp);
+		return first;
+	}
+
+	count = 1;
+	prev = NULL;
+	cur = first;
+
+	while(cur != NULL && count != pos)
+	{
+		prev = cur;
+		cur = cur->link;
+		count++;
+	}
+
+	if(count == pos)
+	{
+		prev->link = cur->link;
+		printf("\nElement deleted is %d\n", cur->info);
+		fnFreeNode(cur);
+		return first;
+	}
+
+	printf("\nInvalid Position");
+	return first;
+}
+
+NODEPTR fnDeleteKey(int key,NODEPTR first)
+{
+	NODEPTR temp,prev,cur;
+
+	if(first == NULL)
+	{
+		printf("\nEmpty List cannot delete\n");
+		return first;
+	}
+
+	if(first->info == key)
+	{
+	    temp = first;
+		first = first->link;
+		printf("\nElement deleted is %d\n", temp->info);
+		fnFreeNode(temp);
+		return first;
+	}
+
+	prev = NULL;
+	cur = first;
+
+	while(cur != NULL && cur->info != key)
+	{
+		prev = cur;
+		cur = cur->link;
+
+	}
+
+	if(cur->info == key)
+	{
+		prev->link = cur->link;
+		printf("\nElement deleted is %d\n", cur->info);
+		fnFreeNode(cur);
+		return first;
+	}
+
+	printf("\nKey element not found in the list\n");
 	return first;
 }
 

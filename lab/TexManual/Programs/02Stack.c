@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define MAX 5
+#define MAX 4
 
 bool fnStkFull(int);
 bool fnStkEmpty(int);

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.9.8)  27 SEP 2017 15:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.9.8)  28 SEP 2017 07:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -392,7 +392,7 @@ LaTeX Info: Redefining \nameref on input line 103.
 
 \GPT@outputbox=\box32
 
-<Figures/sitlogo.png, id=68, 89.6148pt x 89.133pt>
+<Figures/sitlogo.png, id=100, 89.6148pt x 89.133pt>
 File: Figures/sitlogo.png Graphic file (type png)
  <use Figures/sitlogo.png>
 Package pdftex.def Info: Figures/sitlogo.png used on input line 108.
@@ -402,14 +402,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 108.
 
-<Figures/gnu-gcc-cb.png, id=70, 755.9442pt x 247.1634pt>
+<Figures/gnu-gcc-cb.png, id=102, 755.9442pt x 247.1634pt>
 File: Figures/gnu-gcc-cb.png Graphic file (type png)
 
 <use Figures/gnu-gcc-cb.png>
 Package pdftex.def Info: Figures/gnu-gcc-cb.png used on input line 108.
 (pdftex.def)             Requested size: 188.98558pt x 61.7907pt.
 
-<Figures/cc-by-sa.png, id=71, 97.0827pt x 33.9669pt>
+<Figures/cc-by-sa.png, id=103, 97.0827pt x 33.9669pt>
 File: Figures/cc-by-sa.png Graphic file (type png)
 
 <use Figures/cc-by-sa.png>
@@ -421,7 +421,7 @@ Package pdftex.def Info: Figures/cc-by-sa.png used on input line 108.
 Figures/gnu-gcc-cb.png> <./Figures/cc-by-sa.png>]
 (./DSLabManualV0.3.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 10.
+(Font)              <5> on input line 2.
 )
 \tf@toc=\write5
 \openout5 = `DSLabManualV0.3.toc'.
@@ -498,7 +498,7 @@ LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10> not available
 
  (./Chapter2/Chapter2.tex
 Chapter 2.
-LaTeX Font Info:    Font shape `OT1/qbk/bx/it' in size <12> not available
+LaTeX Font Info:    Font shape `OT1/qbk/bx/it' in size <10> not available
 (Font)              Font shape `OT1/qbk/b/it' tried instead on input line 3.
 
 Underfull \hbox (badness 10000) in paragraph at lines 3--5
@@ -558,8 +558,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
  (./Chapter6/Chapter6.tex
 Chapter 6.
-LaTeX Font Info:    Font shape `OT1/qbk/bx/it' in size <10> not available
-(Font)              Font shape `OT1/qbk/b/it' tried instead on input line 4.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
@@ -595,7 +593,7 @@ Chapter 8.
 (./Chapter9/Chapter9.tex
 Chapter 9.
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--6
+Underfull \hbox (badness 10000) in paragraph at lines 5--7
 
  []
 
@@ -604,12 +602,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
 
 ] [43]) [44]
-Underfull \hbox (badness 10000) in paragraph at lines 20--22
+Underfull \hbox (badness 10000) in paragraph at lines 22--24
 
  []
 
 (./Programs/09bQueueLL.c [45] [46]) [47]
-Underfull \hbox (badness 10000) in paragraph at lines 36--38
+Underfull \hbox (badness 10000) in paragraph at lines 39--41
 
  []
 
@@ -661,60 +659,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
 
 
-] [67]) (./Programs/06StructCircularQueue.c
-[68] [69] [70])) [71]
+] [67])) [68]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 157.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 157.
- (./DSLabManualV0.3.aux (./Chapter1/Chapter1.aux)
-(./Chapter2/Chapter2.aux) (./Chapter3/Chapter3.aux) (./Chapter4/Chapter4.aux)
-(./Chapter5/Chapter5.aux) (./Chapter6/Chapter6.aux) (./Chapter7/Chapter7.aux)
-(./Chapter8/Chapter8.aux) (./Chapter9/Chapter9.aux) (./Chapter10/Chapter10.aux)
-(./Chapter11/Chapter11.aux) (./Chapter12/Chapter12.aux)
-(./Chapter13/Chapter13.aux))
+ (./DSLabManualV0.3.aux
+(./Chapter1/Chapter1.aux) (./Chapter2/Chapter2.aux) (./Chapter3/Chapter3.aux)
+(./Chapter4/Chapter4.aux) (./Chapter5/Chapter5.aux) (./Chapter6/Chapter6.aux)
+(./Chapter7/Chapter7.aux) (./Chapter8/Chapter8.aux) (./Chapter9/Chapter9.aux)
+(./Chapter10/Chapter10.aux) (./Chapter11/Chapter11.aux)
+(./Chapter12/Chapter12.aux) (./Chapter13/Chapter13.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 157.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 157.
-
-
-Package rerunfilecheck Warning: File `DSLabManualV0.3.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `DSLabManualV0.3.out':
-(rerunfilecheck)             Before: 62B2564413C30370F16736AD2987949A;956
-(rerunfilecheck)             After:  A6D4CD2074C2E721AE04189229AB7219;989.
+Package rerunfilecheck Info: File `DSLabManualV0.3.out' has not changed.
+(rerunfilecheck)             Checksum: 24F5CA2A58A333C838AAE142660FBDCA;1620.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 157.
  ) 
 Here is how much of TeX's memory you used:
- 12386 strings out of 495028
- 187039 string characters out of 6181498
- 562340 words of memory out of 5000000
- 12035 multiletter control sequences out of 15000+600000
- 31380 words of font info for 40 fonts, out of 8000000 for 9000
+ 12227 strings out of 495028
+ 184302 string characters out of 6181498
+ 562687 words of memory out of 5000000
+ 12039 multiletter control sequences out of 15000+600000
+ 21886 words of font info for 37 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 42i,12n,54p,309b,1807s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{lstlisting.0.12.2} has been referenced but does n
-ot exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{lstlisting.0.11.2} has been referenced but does not
- exist, replaced by a fixed one
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fo
-nts/enc/dvips/tex-gyre/q-rm.enc}</usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf/fonts/type
-1/public/tex-gyre/qbkb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qbkbi.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on DSLabManualV0.3.pdf (71 pages, 614341 bytes).
+ 42i,12n,54p,309b,1805s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/
+fonts/enc/dvips/tex-gyre/q-rm.enc}</usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf/fonts/ty
+pe1/public/tex-gyre/qbkb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qbkb
+i.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on DSLabManualV0.3.pdf (68 pages, 607520 bytes).
 PDF statistics:
- 4377 PDF objects out of 5155 (max. 8388607)
- 4243 compressed objects within 43 object streams
- 3293 named destinations out of 3580 (max. 500000)
- 144 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4201 PDF objects out of 4296 (max. 8388607)
+ 4072 compressed objects within 41 object streams
+ 3132 named destinations out of 3580 (max. 500000)
+ 208 words of extra memory for PDF output out of 10000 (max. 10000000)
 

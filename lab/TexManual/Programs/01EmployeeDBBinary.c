@@ -30,38 +30,33 @@ int main()
 
 	    switch(iChoice)
 	    {
-            case 1:
-                    fnAddRecord();
+            case 1: fnAddRecord();
                     break;
 
-            case 2:
-                    printf("\n Employee Details \n");
+            case 2: printf("\n Employee Details \n");
                     fnDisplayAllRecords();
                     break;
 
-            case 3:
-                    printf("\nEnter the emp_id that you want to search\n");
+            case 3: printf("\nEnter the emp_id that you want to search\n");
                     scanf("%d",&id);
                     fnSearchEmpID(id);
                     break;
 
-            case 4:
-                    printf("\nEnter the dept that you want to search\n");
+            case 4: printf("\nEnter the dept that you want to search\n");
                     scanf("%s",dept);
                     fnSearchEmpDept(dept);
                     break;
 
-            case 5:
-                    printf("\nEnter the salary that you want to search\n");
+            case 5: printf("\nEnter the salary that you want to search\n");
                     scanf("%d",&sal);
                     fnSearchEmpSal(sal);
                     break;
 
-            case 6:
-                    printf("\nEnter the age that you want to search\n");
+            case 6: printf("\nEnter the age that you want to search\n");
                     scanf("%d",&age);
                     fnSearchEmpAge(age);
                     break;
+
             case 7: exit(0);
 	    }
 	}

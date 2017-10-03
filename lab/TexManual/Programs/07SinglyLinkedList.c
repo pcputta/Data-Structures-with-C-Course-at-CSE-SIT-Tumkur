@@ -12,6 +12,7 @@ NODEPTR fnGetNode(void);
 void fnFreeNode(NODEPTR x);
 NODEPTR fnInsertFront(int ,NODEPTR);
 NODEPTR fnDeleteFront(NODEPTR);
+NODEPTR fnDeletePosition(int, NODEPTR);
 NODEPTR fnInsertPosition(int ,int ,NODEPTR);
 void fnDisplay(NODEPTR first);
 NODEPTR fnReverse(NODEPTR);
@@ -122,7 +123,6 @@ NODEPTR fnInsertPosition(int elem,int pos,NODEPTR first)
 		return temp;
 	}
 
-
 	count = 1;
 	prev = NULL;
 	cur = first;
@@ -144,6 +144,7 @@ NODEPTR fnInsertPosition(int elem,int pos,NODEPTR first)
 	printf("\nInvalid Position");
 	return first;
 }
+
 
 void fnDisplay(NODEPTR first)
 {
