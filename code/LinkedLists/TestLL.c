@@ -17,6 +17,8 @@ void fnDisplay(NODEPTR first);
 NODEPTR fnReverse(NODEPTR);
 NODEPTR fnInsertRear(int ,NODEPTR);
 NODEPTR fnDeleteRear(NODEPTR);
+NODEPTR fnDeletePosition(int ,NODEPTR);
+NODEPTR fnDeleteKey(int ,NODEPTR);
 
 int main()
 {

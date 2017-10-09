@@ -18,5 +18,8 @@
 \contentsline {lstlisting}{\numberline {9.3}09cPolynomial.c}{54}{lstlisting.0.9.3}
 \contentsline {lstlisting}{\numberline {10.1}10DoublyLinkedList.c}{57}{lstlisting.0.10.1}
 \contentsline {lstlisting}{\numberline {11.1}11DequeueDLL.c}{63}{lstlisting.0.11.1}
-\contentsline {lstlisting}{\numberline {12.1}12BinarySearchTree.c}{67}{lstlisting.0.12.1}
-\contentsline {lstlisting}{\numberline {13.1}13ExpressionTree.c}{72}{lstlisting.0.13.1}
+\contentsline {lstlisting}{\numberline {11.2}out11.c}{66}{lstlisting.0.11.2}
+\contentsline {lstlisting}{\numberline {12.1}12BinarySearchTree.c}{69}{lstlisting.0.12.1}
+\contentsline {lstlisting}{\numberline {12.2}out12.c}{73}{lstlisting.0.12.2}
+\contentsline {lstlisting}{\numberline {13.1}13ExpressionTree.c}{76}{lstlisting.0.13.1}
+\contentsline {lstlisting}{\numberline {13.2}out13.c}{78}{lstlisting.0.13.2}

@@ -4,8 +4,8 @@
 struct node
 {
 	int info;
-	struct node *lchild;
-	struct node *rchild;
+	struct node *lbranch;
+	struct node *rbranch;
 };
 typedef struct node* NODEPTR;
 
@@ -112,8 +112,8 @@ NODEPTR fnInsertNode(int iItem,NODEPTR root)
 
 	temp = fnGetNode();
 	temp->info = iItem;
-	temp->lchild = NULL;
-	temp->rchild = NULL;
+	temp->lbranch = NULL;
+	temp->rbranch = NULL;
 
 	if(root == NULL)
 	return temp;
@@ -132,13 +132,13 @@ NODEPTR fnInsertNode(int iItem,NODEPTR root)
 			return root;
 		}
 
-		cur = (iItem < cur->info)? cur->lchild: cur->rchild;
+		cur = (iItem < cur->info)? cur->lbranch: cur->rbranch;
 	}
 
 	if(iItem < prev->info)
-		prev->lchild = temp;
+		prev->lbranch = temp;
 	else
-		prev->rchild = temp;
+		prev->rbranch = temp;
 
 	return root;
 
@@ -149,8 +149,8 @@ void fnPreOrder(NODEPTR root)
 	if(root != NULL)
 	{
 		printf("%d\t",root->info);
-		fnPreOrder(root->lchild);
-		fnPreOrder(root->rchild);
+		fnPreOrder(root->lbranch);
+		fnPreOrder(root->rbranch);
 	}
 }
 
@@ -158,9 +158,9 @@ void fnInOrder(NODEPTR root)
 {
 	if(root != NULL)
 	{
-		fnInOrder(root->lchild);
+		fnInOrder(root->lbranch);
 		printf("%d\t",root->info);
-		fnInOrder(root->rchild);
+		fnInOrder(root->rbranch);
 	}
 }
 
@@ -168,16 +168,14 @@ void fnPostOrder(NODEPTR root)
 {
 	if(root != NULL)
 	{
-		fnPostOrder(root->lchild);
-		fnPostOrder(root->rchild);
+		fnPostOrder(root->lbranch);
+		fnPostOrder(root->rbranch);
 		printf("%d\t",root->info);
 	}
 }
 
 NODEPTR fnDeleteNode(NODEPTR root, int iItem)
 {
-	NODEPTR prev, cur, leftChild, newParent;
-	
 	if(root == NULL)
 	{
 	    printf("\nBST is empty, cannot delete");
@@ -186,40 +184,40 @@ NODEPTR fnDeleteNode(NODEPTR root, int iItem)
     // If the item to be deleted is smaller than the root's item,
     // then it lies in left subtree
     if (iItem < root->info)
-        root->lchild = fnDeleteNode(root->lchild, iItem);
+        root->lbranch = fnDeleteNode(root->lbranch, iItem);
  
     // If the item to be deleted is greater than the root's item,
     // then it lies in right subtree
     else if (iItem > root->info)
-        root->rchild = fnDeleteNode(root->rchild, iItem);
+        root->rbranch = fnDeleteNode(root->rbranch, iItem);
  
     // if item is same as root's item, then This is the node
     // to be deleted
     else
     {
         // node with only one child or no child
-        if (root->lchild == NULL)
+        if (root->lbranch == NULL)
         {
-            struct node *temp = root->rchild;
+            struct node *temp = root->rbranch;
             free(root);
             return temp;
         }
-        else if (root->rchild == NULL)
+        else if (root->rbranch == NULL)
         {
-            struct node *temp = root->lchild;
+            struct node *temp = root->lbranch;
             free(root);
             return temp;
         }
  
         // node with two children: Get the inorder successor (smallest
         // in the right subtree)
-        NODEPTR temp = fnMinValueNode(root->rchild);
+        NODEPTR temp = fnMinValueNode(root->rbranch);
  
         // Copy the inorder successor's content to this node
         root->info = temp->info;
  
         // Delete the inorder successor
-        root->rchild = fnDeleteNode(root->rchild, temp->info);
+        root->rbranch = fnDeleteNode(root->rbranch, temp->info);
     }
     return root;
 }
@@ -229,8 +227,8 @@ NODEPTR fnMinValueNode(NODEPTR node)
     NODEPTR current = node;
  
     /* loop down to find the leftmost leaf */
-    while (current->lchild != NULL)
-        current = current->lchild;
+    while (current->lbranch != NULL)
+        current = current->lbranch;
  
     return current;
 }

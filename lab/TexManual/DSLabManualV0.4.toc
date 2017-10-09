@@ -20,5 +20,5 @@
 \contentsline {section}{\numberline {9.3}Polynomial Addition}{54}{section.0.9.3}
 \contentsline {chapter}{\numberline {10}Doubly Linked Lists with Header Node}{57}{chapter.0.10}
 \contentsline {chapter}{\numberline {11}Double Ended Queue using Doubly Linked List}{63}{chapter.0.11}
-\contentsline {chapter}{\numberline {12}Binary Search Tree}{67}{chapter.0.12}
-\contentsline {chapter}{\numberline {13}Expression Tree}{72}{chapter.0.13}
+\contentsline {chapter}{\numberline {12}Binary Search Tree}{69}{chapter.0.12}
+\contentsline {chapter}{\numberline {13}Expression Tree}{76}{chapter.0.13}

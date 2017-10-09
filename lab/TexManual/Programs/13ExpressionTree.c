@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 #include <string.h>
+#include <ctype.h>
+
 // An expression tree node
 struct ExpTree
 {
     char value;
-    struct ExpTree *left, *right;
+    struct ExpTree *lbranch, *rbranch;
 };
 typedef struct ExpTree* NODEPTR;
 
@@ -16,19 +19,23 @@ NODEPTR newNode(int v);
 NODEPTR constructTree(char postfix[]);
 void push(NODEPTR[], NODEPTR, int*);
 NODEPTR pop(NODEPTR[], int*);
-NODEPTR peep(NODEPTR[], int*);
+float evalPost(NODEPTR);
 
 int main()
 {
     char postfix[30];
+    float fResult;
     printf("\nEnter a postfix expression\n");
     scanf("%s", postfix);
     NODEPTR et = constructTree(postfix);
     printf("infix expression is \n");
     inorder(et);
     printf("\n");
+    fResult = evalPost(et);
+    printf("\nValue of Postfix Expression is : %g\n\n", fResult);
     return 0;
 }
+
 // A utility function to check if 'c' is an operator
 bool isOperator(char c)
 {
@@ -42,16 +49,16 @@ void inorder(NODEPTR t)
 {
     if(t)
     {
-        inorder(t->left);
+        inorder(t-> lbranch);
         printf("%c ", t->value);
-        inorder(t->right);
+        inorder(t->rbranch);
     }
 }
 
 NODEPTR newNode(int v)
 {
     NODEPTR temp =(NODEPTR) malloc(sizeof(struct ExpTree));
-    temp->left = temp->right = NULL;
+    temp-> lbranch = temp->rbranch = NULL;
     temp->value = v;
     return temp;
 }
@@ -75,20 +82,17 @@ NODEPTR constructTree(char postfix[])
         {
             t = newNode(postfix[i]);
             // Pop two top nodes
-            t1 = peep(stack, &top); // Store top
-            pop(stack, &top);      // Remove top
-            t2 = peep(stack, &top);
-            pop(stack, &top);
+            t1 = pop(stack, &top);      // Remove top
+            t2 = pop(stack, &top);
             //  make them children
-            t->right = t1;
-            t->left = t2; 
+            t->rbranch = t1;
+            t-> lbranch = t2; 
             // Add this subexpression to stack
             push(stack, t, &top);
         }
     } 
     //  only element will be root of expression tree
-    t = peep(stack, &top);
-    pop(stack, &top); 
+    t = pop(stack, &top); 
     return t;
 }
 
@@ -106,7 +110,23 @@ NODEPTR pop(NODEPTR st[], int *t)
 	return temp;
 }
 
-NODEPTR peep(NODEPTR st[], int *t)
+float evalPost(NODEPTR root)
 {
-	return st[*t];
+    float fNum;
+    switch(root->value)
+	{
+        case  '+' : return (evalPost(root->lbranch) + evalPost(root->rbranch));
+        case  '-' : return (evalPost(root->lbranch) - evalPost(root->rbranch));
+        case  '*' : return (evalPost(root->lbranch) * evalPost(root->rbranch));
+        case  '/' : return (evalPost(root->lbranch) / evalPost(root->rbranch));
+        case  '^' : return (pow(evalPost(root->lbranch), evalPost(root->rbranch)));
+        default:    if(isalpha(root->value))
+                    {
+                        printf("\n%c = ",root->value);
+                        scanf("%f",&fNum);
+                        return(fNum);
+                    }
+                    else
+                        return(root->value - '0');
+    }
 }

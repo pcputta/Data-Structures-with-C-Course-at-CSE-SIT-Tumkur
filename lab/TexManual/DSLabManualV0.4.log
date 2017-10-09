@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.9.8)  2 OCT 2017 22:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.9.8)  8 OCT 2017 23:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -641,38 +641,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
 
 
-] [64]) [65]) [66]
+] [64]) [65] (./Programs/out11.c [66] [67]))
+[68]
 \openout2 = `Chapter12/Chapter12.aux'.
 
  (./Chapter12/Chapter12.tex
 Chapter 12.
-(./Programs/12BinarySearchTree.c [67
+(./Programs/12BinarySearchTree.c [69
 
 
 
-] [68] [69] [70])) [71]
+] [70] [71] [72]) (./Programs/out12.c
+[73] [74])) [75]
 \openout2 = `Chapter13/Chapter13.aux'.
 
-
-(./Chapter13/Chapter13.tex
+ (./Chapter13/Chapter13.tex
 Chapter 13.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
  []
 
-(./Programs/13ExpressionTree.c [72
+(./Programs/13ExpressionTree.c [76
 
 
 
-] [73])) [74]
+] [77]) (./Programs/out13.c)) [78]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 140.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 140.
- (./DSLabManualV0.4.aux
-(./Header/Header.aux) (./Chapter1/Chapter1.aux) (./Chapter2/Chapter2.aux)
-(./Chapter3/Chapter3.aux) (./Chapter4/Chapter4.aux) (./Chapter5/Chapter5.aux)
-(./Chapter6/Chapter6.aux) (./Chapter7/Chapter7.aux) (./Chapter8/Chapter8.aux)
-(./Chapter9/Chapter9.aux) (./Chapter10/Chapter10.aux)
+
+(./DSLabManualV0.4.aux (./Header/Header.aux) (./Chapter1/Chapter1.aux)
+(./Chapter2/Chapter2.aux) (./Chapter3/Chapter3.aux) (./Chapter4/Chapter4.aux)
+(./Chapter5/Chapter5.aux) (./Chapter6/Chapter6.aux) (./Chapter7/Chapter7.aux)
+(./Chapter8/Chapter8.aux) (./Chapter9/Chapter9.aux) (./Chapter10/Chapter10.aux)
 (./Chapter11/Chapter11.aux) (./Chapter12/Chapter12.aux)
 (./Chapter13/Chapter13.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 140.
@@ -682,10 +683,10 @@ Package rerunfilecheck Info: File `DSLabManualV0.4.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 140.
  ) 
 Here is how much of TeX's memory you used:
- 12626 strings out of 495028
- 190476 string characters out of 6181498
- 551092 words of memory out of 5000000
- 12070 multiletter control sequences out of 15000+600000
+ 13015 strings out of 495028
+ 197134 string characters out of 6181498
+ 551091 words of memory out of 5000000
+ 12075 multiletter control sequences out of 15000+600000
  21886 words of font info for 37 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  43i,12n,54p,309b,1805s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -702,10 +703,10 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf/fonts/ty
 pe1/public/tex-gyre/qbkb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qbkb
 i.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on DSLabManualV0.4.pdf (74 pages, 628735 bytes).
+Output written on DSLabManualV0.4.pdf (78 pages, 647425 bytes).
 PDF statistics:
- 4650 PDF objects out of 5155 (max. 8388607)
- 4510 compressed objects within 46 object streams
- 3482 named destinations out of 3580 (max. 500000)
+ 5117 PDF objects out of 5155 (max. 8388607)
+ 4969 compressed objects within 50 object streams
+ 3857 named destinations out of 4296 (max. 500000)
  208 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -41,7 +41,7 @@ int main(void)
 			case 3: fnDisplay(first);
 				break;
 
-			case 4: return;
+			case 4: exit(0);
 		}
 	}
     return 0;

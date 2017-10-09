@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-
 #define STK_SIZE 5
 
 typedef struct{
@@ -98,7 +97,6 @@ bool fnStkEmpty(STACK_TYPE stk)
 		return false;
 }
 
-
 //fnPush(myStack, &top, iElem);
 void fnPush(STACK_TYPE *stk, int elem)
 {
@@ -109,15 +107,13 @@ void fnPush(STACK_TYPE *stk, int elem)
 	
 }
 
-
 int fnPop(STACK_TYPE *stk)
 {
 	int elem;
-	elem = stk->stkArray[stk->top]
+	elem = stk->stkArray[stk->top];
 	stk->top = stk->top - 1;
 	return elem;
 }
-
 
 void fnDisplay(STACK_TYPE stk)
 {
@@ -134,6 +130,4 @@ int fnPeek(STACK_TYPE stk)
 {
 	return stk.stkArray[stk.top];
 }
-
-
 

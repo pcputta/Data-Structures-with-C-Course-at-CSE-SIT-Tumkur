@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #define STK_SIZE 10
 
@@ -75,16 +76,18 @@ char fnPop(char Stack[], int *t)
 	return elem;
 }
 
-int fnPrecd(char ch)
+int fnPrecd(char cSymb)
 {
-	switch(ch)
+    int iPrecd;
+	switch(cSymb)
 	{
-		case '#' : 	return -1;	
-		case '(' : 	return 0;
+		case '#' : 	iPrecd =  -1;	
+		case '(' : 	iPrecd =  0;
 		case '+' : 	
-		case '-' : 	return 1;
+		case '-' : 	iPrecd =  1;
 		case '*' : 	
-		case '/' : 	return 2;
-		case '^' :  return 3;
+		case '/' : 	iPrecd =  2;
+		case '^' :  iPrecd =  3;
 	}
+	return iPrecd;
 }
