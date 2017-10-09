@@ -112,9 +112,10 @@ void fnDisplay(NODEPTR first)
 
 	printf("\nThe contents of Queue are :\n");
 	curr = first;
+	printf("\n");
 	while(curr != NULL)
 	{
-		printf("\n%d",curr->Info);
+		printf("%d\t",curr->Info);
 		curr = curr->link;
 	}
 	printf("\n");
