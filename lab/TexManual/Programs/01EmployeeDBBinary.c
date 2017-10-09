@@ -98,10 +98,10 @@ void fnAddRecord()
     printf("\nID : ");
     scanf("%d",&wEmp.emp_id);		getchar();
     printf("\nName : ");
-    gets(wEmp.emp_name);			
+    scanf("%s", wEmp.emp_name);			
     //fgets(wEmp.emp_name, 25, stdin);
     printf("\nDept : ");
-    gets(wEmp.emp_dept);
+    scanf("%s", wEmp.emp_dept);
     //fgets(wEmp.emp_dept, 25, stdin);
     printf("\nSalary : ");
     scanf("%d",&wEmp.emp_salary);
