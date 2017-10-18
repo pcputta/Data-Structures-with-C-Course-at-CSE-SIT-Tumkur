@@ -168,6 +168,17 @@ void fnDisplay(NODEPTR first)
 NODEPTR fnReverse(NODEPTR first)
 {
     NODEPTR cur, prev, next;
+    if(first == NULL)
+    {
+        printf("\nList is Empty\n");
+        return first;
+    }
+
+    if(first->link == NULL)
+    {
+        return first;
+    }
+
     prev = first;
     cur = first->link;
     next = cur->link;
@@ -182,3 +193,4 @@ NODEPTR fnReverse(NODEPTR first)
     cur->link = prev;
     return cur;
 }
+

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.9.8)  9 OCT 2017 14:04
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.9.8)  18 OCT 2017 12:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -484,13 +484,13 @@ File: lstlang1.sty 2013/08/26 1.5b listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
 )
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 22.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 23.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 22.
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 23.
 
 (./Programs/01EmployeeDB.c [5
 
@@ -586,17 +586,17 @@ Chapter 7.
 
 
 ] [48] [49]) (./Programs/out7.c [50]
-[51])) [52]
+[51] [52])) [53]
 \openout2 = `Chapter8/Chapter8.aux'.
 
  (./Chapter8/Chapter8.tex
 Chapter 8.
-(./Programs/08OrderedSinglyLinkedList.c [53
+(./Programs/08OrderedSinglyLinkedList.c [54
 
 
 
-] [54] [55]) (./Programs/out8.c
-[56] [57] [58] [59])) [60]
+] [55] [56]) (./Programs/out8.c
+[57] [58] [59] [60])) [61]
 \openout2 = `Chapter9/Chapter9.aux'.
 
  (./Chapter9/Chapter9.tex
@@ -606,32 +606,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--7
 
  []
 
-(./Programs/09aStackLL.c [61
+(./Programs/09aStackLL.c [62
 
 
 
-] [62]) (./Programs/out9a.c [63] [64]) [65]
+] [63]) (./Programs/out9a.c [64] [65]) [66]
 Underfull \hbox (badness 10000) in paragraph at lines 19--21
 
  []
 
-(./Programs/09bQueueLL.c [66] [67]) (./Programs/out9b.c [68] [69]) [70]
+(./Programs/09bQueueLL.c [67] [68]) (./Programs/out9b.c [69] [70]) [71]
 Underfull \hbox (badness 10000) in paragraph at lines 34--36
 
  []
 
-(./Programs/09cPolynomial.c [71] [72]) (./Programs/out9c.c)) [73]
+(./Programs/09cPolynomial.c [72] [73]) (./Programs/out9c.c)) [74]
 \openout2 = `Chapter10/Chapter10.aux'.
 
 
 (./Chapter10/Chapter10.tex
 Chapter 10.
-(./Programs/10DoublyLinkedList.c [74
+(./Programs/10DoublyLinkedList.c [75
 
 
 
-] [75] [76] [77] [78]) (./Programs/out10.c
-[79] [80] [81] [82])) [83]
+] [76] [77] [78] [79]) (./Programs/out10.c
+[80] [81] [82] [83])) [84]
 \openout2 = `Chapter11/Chapter11.aux'.
 
  (./Chapter11/Chapter11.tex
@@ -641,22 +641,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
  []
 
-(./Programs/11DequeueDLL.c [84
+(./Programs/11DequeueDLL.c [85
 
 
 
-] [85]) [86] (./Programs/out11.c [87] [88]))
-[89]
+] [86]) [87] (./Programs/out11.c [88] [89]))
+[90]
 \openout2 = `Chapter12/Chapter12.aux'.
 
  (./Chapter12/Chapter12.tex
 Chapter 12.
-(./Programs/12BinarySearchTree.c [90
+(./Programs/12BinarySearchTree.c [91
 
 
 
-] [91] [92] [93]) (./Programs/out12.c
-[94] [95])) [96]
+] [92] [93] [94]) (./Programs/out12.c
+[95] [96])) [97]
 \openout2 = `Chapter13/Chapter13.aux'.
 
  (./Chapter13/Chapter13.tex
@@ -666,11 +666,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--6
 
  []
 
-(./Programs/13ExpressionTree.c [97
+(./Programs/13ExpressionTree.c [98
 
 
 
-] [98]) (./Programs/out13.c)) [99]
+] [99]) (./Programs/out13.c)) [100]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 141.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 141.
 
@@ -687,8 +687,8 @@ Package rerunfilecheck Info: File `DSLabManualV1.0.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 141.
  ) 
 Here is how much of TeX's memory you used:
- 14406 strings out of 495028
- 219900 string characters out of 6181498
+ 14418 strings out of 495028
+ 220095 string characters out of 6181498
  551133 words of memory out of 5000000
  12071 multiletter control sequences out of 15000+600000
  21587 words of font info for 36 fonts, out of 8000000 for 9000
@@ -706,10 +706,10 @@ xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf/fonts/ty
 pe1/public/tex-gyre/qbkb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qbkb
 i.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb>
-Output written on DSLabManualV1.0.pdf (99 pages, 704257 bytes).
+Output written on DSLabManualV1.0.pdf (100 pages, 705220 bytes).
 PDF statistics:
- 6851 PDF objects out of 7423 (max. 8388607)
- 6666 compressed objects within 67 object streams
- 5226 named destinations out of 6186 (max. 500000)
+ 6868 PDF objects out of 7423 (max. 8388607)
+ 6682 compressed objects within 67 object streams
+ 5238 named destinations out of 6186 (max. 500000)
  208 words of extra memory for PDF output out of 10000 (max. 10000000)
 

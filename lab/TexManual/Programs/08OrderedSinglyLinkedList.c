@@ -100,7 +100,7 @@ NODEPTR fnIntersection(NODEPTR l1,NODEPTR l2)
 
 NODEPTR fnUnion(NODEPTR l1,NODEPTR l2)
 {
-	NODEPTR t1, t2, t3;
+	NODEPTR t1, t2, t3=NULL;
 	t1 = l1;
 	t2 = l2;
 	while(t1 != NULL && t2 != NULL)

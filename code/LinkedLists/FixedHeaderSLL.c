@@ -312,6 +312,11 @@ NODEPTR fnDeletePosition(int pos,NODEPTR head)
 		cur = cur->link;
 		count++;
 	}
+    if(cur == NULL)
+    {
+    	printf("\nInvalid Position");
+    	return head;
+    }
 
 	if(count == pos)
 	{
@@ -321,9 +326,6 @@ NODEPTR fnDeletePosition(int pos,NODEPTR head)
 		(head->info)--;
 		return head;
 	}
-
-	printf("\nInvalid Position");
-	return head;
 }
 
 NODEPTR fnDeleteKey(int key,NODEPTR head)

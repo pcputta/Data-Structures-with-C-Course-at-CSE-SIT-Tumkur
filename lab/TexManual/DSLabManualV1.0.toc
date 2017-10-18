@@ -13,12 +13,12 @@
 \contentsline {section}{\numberline {6.1}C Code - Array Representation}{37}{section.0.6.1}
 \contentsline {section}{\numberline {6.2}C Code - Structure Representation}{39}{section.0.6.2}
 \contentsline {chapter}{\numberline {7}Singly Linked List}{47}{chapter.0.7}
-\contentsline {chapter}{\numberline {8}Ordered Linked List}{53}{chapter.0.8}
-\contentsline {chapter}{\numberline {9}Singly Linked List Applications}{61}{chapter.0.9}
-\contentsline {section}{\numberline {9.1}Stack using SLL}{61}{section.0.9.1}
-\contentsline {section}{\numberline {9.2}Queue using SLL}{66}{section.0.9.2}
-\contentsline {section}{\numberline {9.3}Polynomial Addition}{71}{section.0.9.3}
-\contentsline {chapter}{\numberline {10}Doubly Linked Lists with Header Node}{74}{chapter.0.10}
-\contentsline {chapter}{\numberline {11}Double Ended Queue using Doubly Linked List}{84}{chapter.0.11}
-\contentsline {chapter}{\numberline {12}Binary Search Tree}{90}{chapter.0.12}
-\contentsline {chapter}{\numberline {13}Expression Tree}{97}{chapter.0.13}
+\contentsline {chapter}{\numberline {8}Ordered Linked List}{54}{chapter.0.8}
+\contentsline {chapter}{\numberline {9}Singly Linked List Applications}{62}{chapter.0.9}
+\contentsline {section}{\numberline {9.1}Stack using SLL}{62}{section.0.9.1}
+\contentsline {section}{\numberline {9.2}Queue using SLL}{67}{section.0.9.2}
+\contentsline {section}{\numberline {9.3}Polynomial Addition}{72}{section.0.9.3}
+\contentsline {chapter}{\numberline {10}Doubly Linked Lists with Header Node}{75}{chapter.0.10}
+\contentsline {chapter}{\numberline {11}Double Ended Queue using Doubly Linked List}{85}{chapter.0.11}
+\contentsline {chapter}{\numberline {12}Binary Search Tree}{91}{chapter.0.12}
+\contentsline {chapter}{\numberline {13}Expression Tree}{98}{chapter.0.13}
