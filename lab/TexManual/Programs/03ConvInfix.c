@@ -84,6 +84,7 @@ int fnPrecd(char ch)
 		case '(' : 	return 0;
 		case '+' :
 		case '-' : 	return 1;
+		case '%' :
 		case '*' :
 		case '/' : 	return 2;
 		case '^' :	return 3;
